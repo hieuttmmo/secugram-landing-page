@@ -105,23 +105,286 @@ const IntegrationBadge = ({ txt, col, bg, wide }) => (
   </div>
 );
 
-const IntegrationsStrip = () => (
-  <div style={{
-    margin: '0',
-    background: '#ffffff',
-    padding: '74px 0 70px',
-    overflow: 'hidden',
-  }}>
-    <img
-      src="integration.png"
-      alt="Over 300 built-in integrations"
-      style={{
-        display: 'block',
-        width: '100%',
-        height: 'auto',
-      }}
-    />
+// Local SVG logo wall. A few security vendors that do not have clean open
+// source SVG coverage yet are represented as text badges for now.
+const INTEGRATIONS = [
+  { name: 'AWS', icon: 'aws.svg', group: 'Cloud' },
+  { name: 'Azure', icon: 'azure.svg', group: 'Cloud' },
+  { name: 'Google Cloud', icon: 'google-cloud.svg', group: 'Cloud' },
+  { name: 'Cloudflare', icon: 'cloudflare.svg', group: 'Cloud' },
+  { name: 'Kubernetes', icon: 'kubernetes.svg', group: 'Infrastructure' },
+  { name: 'Docker', icon: 'docker.svg', group: 'Infrastructure' },
+  { name: 'Terraform', icon: 'terraform.svg', group: 'Infrastructure' },
+  { name: 'Linux', icon: 'linux.svg', group: 'Infrastructure' },
+  { name: 'HashiCorp', icon: 'hashicorp.svg', group: 'Infrastructure' },
+  { name: 'Ansible', icon: 'ansible.svg', group: 'Infrastructure' },
+  { name: 'AWS Lambda', icon: 'aws-lambda.svg', group: 'Cloud' },
+  { name: 'CloudWatch', icon: 'amazon-cloudwatch.svg', group: 'Monitoring' },
+  { name: 'Microsoft', icon: 'microsoft.svg', group: 'SaaS' },
+  { name: 'Google', icon: 'google.svg', group: 'SaaS' },
+  { name: 'Okta', icon: 'okta.svg', group: 'Identity' },
+  { name: 'Auth0', icon: 'auth0.svg', group: 'Identity' },
+  { name: '1Password', icon: 'onepassword.svg', group: 'Identity' },
+  { name: 'GitHub', icon: 'github.svg', group: 'DevOps' },
+  { name: 'GitLab', icon: 'gitlab.svg', group: 'DevOps' },
+  { name: 'Bitbucket', icon: 'bitbucket.svg', group: 'DevOps' },
+  { name: 'Jira', icon: 'jira.svg', group: 'ITSM' },
+  { name: 'Confluence', icon: 'confluence.svg', group: 'ITSM' },
+  { name: 'Slack', icon: 'slack.svg', group: 'Collaboration' },
+  { name: 'Teams', icon: 'teams.svg', group: 'Collaboration' },
+  { name: 'Zoom', icon: 'zoom.svg', group: 'Collaboration' },
+  { name: 'Splunk', icon: 'splunk.svg', group: 'SIEM' },
+  { name: 'Elastic', icon: 'elastic.svg', group: 'SIEM' },
+  { name: 'Datadog', icon: 'datadog.svg', group: 'Monitoring' },
+  { name: 'New Relic', icon: 'newrelic.svg', group: 'Monitoring' },
+  { name: 'Grafana', icon: 'grafana.svg', group: 'Monitoring' },
+  { name: 'Prometheus', icon: 'prometheus.svg', group: 'Monitoring' },
+  { name: 'Palo Alto', icon: 'paloalto.svg', group: 'Security' },
+  { name: 'Fortinet', icon: 'fortinet.svg', group: 'Security' },
+  { name: 'Snyk', icon: 'snyk.svg', group: 'AppSec' },
+  { name: 'SonarQube', icon: 'sonarqube.svg', group: 'AppSec' },
+  { name: 'Cisco', icon: 'cisco.svg', group: 'Network' },
+  { name: 'Jenkins', icon: 'jenkins.svg', group: 'DevOps' },
+  { name: 'Azure DevOps', icon: 'azure-devops.svg', group: 'DevOps' },
+  { name: 'Cloudsmith', icon: 'cloudsmith.svg', group: 'DevOps' },
+  { name: 'NGINX', icon: 'nginx.svg', group: 'Infrastructure' },
+  { name: 'Apache', icon: 'apache.svg', group: 'Infrastructure' },
+  { name: 'PostgreSQL', icon: 'postgresql.svg', group: 'Data' },
+  { name: 'MySQL', icon: 'mysql.svg', group: 'Data' },
+  { name: 'MongoDB', icon: 'mongodb.svg', group: 'Data' },
+  { name: 'Redis', icon: 'redis.svg', group: 'Data' },
+  { name: 'Salesforce', icon: 'salesforce.svg', group: 'SaaS' },
+  { name: 'Zendesk', icon: 'zendesk.svg', group: 'ITSM' },
+  { name: 'Stripe', icon: 'stripe.svg', group: 'Payments' },
+  { name: 'CrowdStrike', initials: 'CS', group: 'EDR' },
+  { name: 'SentinelOne', initials: 'S1', group: 'EDR' },
+  { name: 'Wazuh', initials: 'WZ', group: 'SIEM' },
+  { name: 'Zscaler', initials: 'ZS', group: 'Security' },
+];
+
+const INTEGRATION_GROUPS = ['Cloud', 'Identity', 'SIEM', 'EDR', 'Monitoring', 'DevOps', 'AppSec', 'ITSM', 'Data'];
+
+const IntegrationTileV2 = ({ item, index }) => (
+  <div className="sg-integration-tile" style={{ '--tile-delay': `${index * 18}ms` }}>
+    <div className="sg-integration-logo">
+      {item.icon ? (
+        <img src={`assets/integrations/${item.icon}`} alt={`${item.name} logo`} loading="lazy" />
+      ) : (
+        <span>{item.initials}</span>
+      )}
+    </div>
+    <div className="sg-integration-name">{item.name}</div>
+    <div className="sg-integration-group">{item.group}</div>
   </div>
+);
+
+const IntegrationsStripV2 = () => (
+  <section id="integrations" data-tw-section-alt className="sg-integrations">
+    <style>{`
+      .sg-integrations {
+        background:
+          radial-gradient(circle at 18% 12%, rgba(13,148,136,0.10), transparent 28%),
+          radial-gradient(circle at 82% 20%, rgba(30,58,95,0.08), transparent 24%),
+          #f9fafb;
+        padding: 92px 80px 96px;
+        overflow: hidden;
+      }
+      .sg-integrations-shell {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(260px, 0.74fr) minmax(0, 1.26fr);
+        gap: 54px;
+        align-items: center;
+      }
+      .sg-integrations-kicker {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 800;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #0d9488;
+        margin-bottom: 15px;
+      }
+      .sg-integrations h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 800;
+        font-size: 42px;
+        line-height: 1.12;
+        letter-spacing: -0.035em;
+        color: #1e3a5f;
+        margin: 0 0 18px;
+      }
+      .sg-integrations-copy {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16.5px;
+        line-height: 1.75;
+        color: #5f6f86;
+        margin: 0 0 26px;
+      }
+      .sg-integrations-count {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 10px;
+        padding: 17px 21px;
+        border-radius: 18px;
+        background: #ffffff;
+        box-shadow: 0 18px 45px rgba(30,58,95,0.10);
+      }
+      .sg-integrations-count strong {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: 38px;
+        color: #0d9488;
+        letter-spacing: -0.04em;
+      }
+      .sg-integrations-count span {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 800;
+        font-size: 13px;
+        color: #1e3a5f;
+      }
+      .sg-integration-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-top: 26px;
+      }
+      .sg-integration-tags span {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 11px;
+        color: #0d9488;
+        background: rgba(13,148,136,0.08);
+        border: 1px solid rgba(13,148,136,0.14);
+        border-radius: 999px;
+        padding: 8px 11px;
+      }
+      .sg-integrations-board {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 12px;
+        padding: 18px;
+        border-radius: 28px;
+        background: rgba(255,255,255,0.72);
+        border: 1px solid rgba(197,216,224,0.70);
+        box-shadow: 0 28px 70px rgba(30,58,95,0.12);
+        backdrop-filter: blur(8px);
+      }
+      .sg-integrations-board::before {
+        content: '';
+        position: absolute;
+        inset: 24px;
+        border-radius: 24px;
+        border: 1px dashed rgba(13,148,136,0.18);
+        pointer-events: none;
+      }
+      .sg-integration-tile {
+        position: relative;
+        min-height: 108px;
+        border-radius: 18px;
+        background: #ffffff;
+        border: 1px solid rgba(226,232,240,0.95);
+        box-shadow: 0 8px 26px rgba(30,58,95,0.07);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+        animation: sgIntegrationIn 520ms ease both;
+        animation-delay: var(--tile-delay);
+      }
+      .sg-integration-tile:hover {
+        transform: translateY(-5px);
+        border-color: rgba(13,148,136,0.34);
+        box-shadow: 0 16px 34px rgba(30,58,95,0.13);
+      }
+      .sg-integration-logo {
+        width: 35px;
+        height: 35px;
+        display: grid;
+        place-items: center;
+      }
+      .sg-integration-logo img {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+        display: block;
+      }
+      .sg-integration-logo span {
+        width: 34px;
+        height: 34px;
+        border-radius: 11px;
+        background: linear-gradient(135deg, #0d9488, #1e3a5f);
+        color: #ffffff;
+        display: grid;
+        place-items: center;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: 12px;
+      }
+      .sg-integration-name {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 800;
+        font-size: 11.5px;
+        line-height: 1.15;
+        color: #1e3a5f;
+        text-align: center;
+        max-width: 92px;
+      }
+      .sg-integration-group {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+        font-size: 9.5px;
+        color: #8a98aa;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      @keyframes sgIntegrationIn {
+        from { opacity: 0; transform: translateY(10px) scale(0.96); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      @media (max-width: 1100px) {
+        .sg-integrations-shell { grid-template-columns: 1fr; gap: 36px; }
+        .sg-integrations-board { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+      }
+      @media (max-width: 760px) {
+        .sg-integrations { padding: 72px 22px; }
+        .sg-integrations h2 { font-size: 34px; }
+        .sg-integrations-board {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 10px;
+          padding: 12px;
+          border-radius: 22px;
+        }
+        .sg-integration-tile { min-height: 96px; border-radius: 15px; }
+        .sg-integration-name { font-size: 10.5px; }
+        .sg-integration-group { display: none; }
+      }
+    `}</style>
+    <div className="sg-integrations-shell">
+      <div>
+        <div className="sg-integrations-kicker">Ecosystem Coverage</div>
+        <h2>Over 300+ built-in integrations</h2>
+        <p className="sg-integrations-copy">
+          Connect cloud platforms, identity providers, collaboration tools, SIEM, EDR, monitoring,
+          DevOps, and business systems into one practical security operations workflow.
+        </p>
+        <div className="sg-integrations-count">
+          <strong>300+</strong>
+          <span>ready connectors<br />across the tools SMEs already use</span>
+        </div>
+        <div className="sg-integration-tags">
+          {INTEGRATION_GROUPS.map(group => <span key={group}>{group}</span>)}
+        </div>
+      </div>
+      <div className="sg-integrations-board" aria-label="Supported integrations">
+        {INTEGRATIONS.map((item, index) => <IntegrationTileV2 key={item.name} item={item} index={index} />)}
+      </div>
+    </div>
+  </section>
 );
 
 const IconMap = ({ name, color = '#0d9488', size = 24 }) => {
@@ -318,4 +581,4 @@ const FeaturesSection = () => (
   </div>
 );
 
-Object.assign(window, { FeaturesSection, IntegrationsStrip });
+Object.assign(window, { FeaturesSection, IntegrationsStrip: IntegrationsStripV2 });
