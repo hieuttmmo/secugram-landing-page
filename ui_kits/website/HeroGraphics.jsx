@@ -35,6 +35,10 @@ const FlowDiagramGraphic = () => (
     <img
       src="flow.png"
       alt="Secugram security operations flow diagram"
+      width="1672"
+      height="941"
+      loading="eager"
+      decoding="async"
       style={{
         display: 'block',
         width: '100%',
@@ -47,7 +51,7 @@ const FlowDiagramGraphic = () => (
 
 const DataFlowGraphic = () => {
   const teal = '#14b8a6', tealDim = 'rgba(20,184,166,0.55)', glow = 'rgba(20,184,166,0.2)';
-  const node = { fill: '#0d9488' };
+  const node = { fill: '#0b6f66' };
   const txt = { fill: '#cbd5e1', fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 8, letterSpacing: '0.08em' };
   const lbl = { fill: '#94a3b8', fontFamily: "'Open Sans',sans-serif", fontWeight: 600, fontSize: 9 };
   return (
@@ -96,7 +100,7 @@ const DataFlowGraphic = () => {
       <circle cx="310" cy="140" r="58" fill="url(#hexGlow)"/>
       <circle cx="310" cy="140" r="48" fill="none" stroke={tealDim} strokeWidth="1" strokeDasharray="2 3"/>
       <polygon points="310,100 345,118 345,162 310,180 275,162 275,118" fill="rgba(13,27,46,0.6)" stroke={teal} strokeWidth="1.8"/>
-      <polygon points="310,112 335,124 335,156 310,168 285,156 285,124" fill="none" stroke="#0d9488" strokeWidth="1.2" opacity="0.7"/>
+      <polygon points="310,112 335,124 335,156 310,168 285,156 285,124" fill="none" stroke="#0b6f66" strokeWidth="1.2" opacity="0.7"/>
       <circle cx="310" cy="135" r="6" fill="none" stroke={teal} strokeWidth="1.6"/>
       <path d="M306 140 L306 150 L314 150 L314 140 Z" fill={teal}/>
       <text x="310" y="210" textAnchor="middle" fill="#cbd5e1" fontFamily="'Montserrat',sans-serif" fontWeight="700" fontSize="9" letterSpacing="0.06em">SIEM • AI/ML</text>
@@ -161,7 +165,7 @@ const AIBrainGraphic = () => {
       {/* Center glow + hexagon */}
       <circle cx={cx} cy={cy} r="72" fill="url(#brainGlow)"/>
       <polygon points={`${cx},${cy-50} ${cx+43},${cy-25} ${cx+43},${cy+25} ${cx},${cy+50} ${cx-43},${cy+25} ${cx-43},${cy-25}`} fill="rgba(13,27,46,0.6)" stroke={teal} strokeWidth="2"/>
-      <polygon points={`${cx},${cy-36} ${cx+31},${cy-18} ${cx+31},${cy+18} ${cx},${cy+36} ${cx-31},${cy+18} ${cx-31},${cy-18}`} fill="none" stroke="#0d9488" strokeWidth="1.3" opacity="0.7"/>
+      <polygon points={`${cx},${cy-36} ${cx+31},${cy-18} ${cx+31},${cy+18} ${cx},${cy+36} ${cx-31},${cy+18} ${cx-31},${cy-18}`} fill="none" stroke="#0b6f66" strokeWidth="1.3" opacity="0.7"/>
       <circle cx={cx} cy={cy-5} r="7" fill="none" stroke={teal} strokeWidth="1.8"/>
       <path d={`M${cx-5} ${cy} L${cx-5} ${cy+12} L${cx+5} ${cy+12} L${cx+5} ${cy} Z`} fill={teal}/>
 
@@ -287,15 +291,15 @@ const ClassicHexGraphic = () => (
     <circle cx="160" cy="150" r="130" fill="rgba(13,148,136,0.06)"/>
     <polygon points="160,20 275,82.5 275,207.5 160,270 45,207.5 45,82.5" fill="none" stroke="rgba(20,184,166,0.25)" strokeWidth="1.5"/>
     <polygon points="160,42 255,96 255,204 160,258 65,204 65,96" fill="none" stroke="rgba(20,184,166,0.35)" strokeWidth="1.5"/>
-    <polygon points="160,65 235,108.5 235,196.5 160,240 85,196.5 85,108.5" fill="none" stroke="#0d9488" strokeWidth="2" opacity="0.5"/>
+    <polygon points="160,65 235,108.5 235,196.5 160,240 85,196.5 85,108.5" fill="none" stroke="#0b6f66" strokeWidth="2" opacity="0.5"/>
     {[[160,20],[275,82.5],[275,207.5],[160,270],[45,207.5],[45,82.5]].map(([cx,cy],i)=>(
       <circle key={i} cx={cx} cy={cy} r="3.5" fill="#14b8a6" opacity="0.7"/>
     ))}
     <path d="M120 230 L160 100 L200 140" stroke="#14b8a6" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
     <path d="M188 110 L205 138 L220 118" stroke="#14b8a6" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-    <circle cx="220" cy="115" r="5" fill="#0d9488"/>
-    <circle cx="160" cy="138" r="18" stroke="#0d9488" strokeWidth="3" fill="rgba(13,148,136,0.1)"/>
-    <path d="M150 150 L150 165 L170 165 L170 150 Z" stroke="#0d9488" strokeWidth="2.5" fill="rgba(13,148,136,0.2)" strokeLinejoin="round"/>
+    <circle cx="220" cy="115" r="5" fill="#0b6f66"/>
+    <circle cx="160" cy="138" r="18" stroke="#0b6f66" strokeWidth="3" fill="rgba(13,148,136,0.1)"/>
+    <path d="M150 150 L150 165 L170 165 L170 150 Z" stroke="#0b6f66" strokeWidth="2.5" fill="rgba(13,148,136,0.2)" strokeLinejoin="round"/>
   </svg>
 );
 

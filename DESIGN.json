@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-01T00:00:00.000+02:00",
+  "title": "Design System: Secugram Landing Page",
+  "extensions": {
+    "colorMeta": {
+      "brand-navy": {
+        "role": "primary",
+        "displayName": "Command Navy",
+        "canonical": "#1e3a5f",
+        "tonalRamp": ["#07101c", "#0d1b2e", "#142940", "#1e3a5f", "#2c5686", "#557ba3", "#94a3b8", "#d8e1ea"]
+      },
+      "deep-command": {
+        "role": "primary",
+        "displayName": "Deep Command",
+        "canonical": "#0d1b2e",
+        "tonalRamp": ["#03070c", "#06111d", "#0d1b2e", "#162840", "#24405f", "#4b6685", "#8ea2b8", "#d3dde8"]
+      },
+      "security-teal": {
+        "role": "primary",
+        "displayName": "Security Teal",
+        "canonical": "#0b6f66",
+        "tonalRamp": ["#04201e", "#063c38", "#095e57", "#0b6f66", "#14b8a6", "#5ee0d2", "#a7f3d0", "#f0fdf9"]
+      },
+      "signal-teal": {
+        "role": "secondary",
+        "displayName": "Signal Teal",
+        "canonical": "#14b8a6",
+        "tonalRamp": ["#04201e", "#06423d", "#0d766d", "#14b8a6", "#2dd4bf", "#7de8dd", "#ccfbf1", "#f0fdfa"]
+      },
+      "page-white": {
+        "role": "neutral",
+        "displayName": "Page White",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#111827", "#374151", "#6b7280", "#94a3b8", "#e5e7eb", "#f8fafc", "#f9fafb", "#ffffff"]
+      },
+      "section-mist": {
+        "role": "neutral",
+        "displayName": "Section Mist",
+        "canonical": "#f9fafb",
+        "tonalRamp": ["#111827", "#374151", "#6b7280", "#94a3b8", "#e5e7eb", "#f3f4f6", "#f9fafb", "#ffffff"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headlines and strongest claims."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles and major conversion blocks."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card and feature titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Explanatory copy and form text."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Eyebrows, badges, nav labels, and small system markers."
+      }
+    },
+    "shadows": [
+      {
+        "name": "nav-scroll",
+        "value": "0 2px 12px rgba(30,58,95,0.08)",
+        "purpose": "Sticky navigation after scrolling."
+      },
+      {
+        "name": "card-rest",
+        "value": "0 2px 10px rgba(30,58,95,0.06)",
+        "purpose": "Default card lift."
+      },
+      {
+        "name": "card-hover",
+        "value": "0 12px 40px rgba(30,58,95,0.13)",
+        "purpose": "Interactive feature card lift."
+      },
+      {
+        "name": "primary-cta",
+        "value": "0 6px 24px rgba(11,111,102,0.35)",
+        "purpose": "Hero and conversion buttons."
+      },
+      {
+        "name": "diagram-lift",
+        "value": "0 34px 90px rgba(0,0,0,0.38), 0 0 44px rgba(20,184,166,0.24)",
+        "purpose": "White diagrams floating inside dark command panels."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-fast",
+        "value": "150ms ease",
+        "purpose": "Small transforms such as CTA hover lift."
+      },
+      {
+        "name": "state-standard",
+        "value": "200ms ease",
+        "purpose": "Color, border, and background state transitions."
+      },
+      {
+        "name": "card-lift",
+        "value": "260ms ease",
+        "purpose": "Feature card hover transition."
+      },
+      {
+        "name": "toast",
+        "value": "350ms cubic-bezier(0.34,1.56,0.64,1)",
+        "purpose": "Prototype toast entrance."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "integration-md",
+        "value": "1100px"
+      },
+      {
+        "name": "integration-sm",
+        "value": "760px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main conversion CTA for assessment, contact, and strategy actions.",
+      "html": "<button class=\"ds-btn-primary\">Request Security Assessment</button>",
+      "css": ".ds-btn-primary { font-family: Montserrat, Arial, sans-serif; font-weight: 700; font-size: 16px; background: #0b6f66; color: #ffffff; padding: 14px 36px; border-radius: 9999px; border: 0; box-shadow: 0 6px 24px rgba(11,111,102,0.35); cursor: pointer; transition: background 200ms ease, transform 150ms ease, box-shadow 200ms ease; } .ds-btn-primary:hover { background: #095e57; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(11,111,102,0.30); } .ds-btn-primary:focus-visible { outline: 0; box-shadow: 0 0 0 3px rgba(11,111,102,0.22), 0 6px 24px rgba(11,111,102,0.35); }"
+    },
+    {
+      "name": "Secondary Text Link",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Quiet secondary action used beside primary CTAs.",
+      "html": "<a class=\"ds-link-secondary\">Explore Services -></a>",
+      "css": ".ds-link-secondary { font-family: Montserrat, Arial, sans-serif; font-weight: 600; font-size: 15px; color: #1e3a5f; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border-bottom: 1.5px solid #1e3a5f; padding-bottom: 1px; cursor: pointer; transition: color 200ms ease, border-color 200ms ease; } .ds-link-secondary:hover { color: #0b6f66; border-bottom-color: #0b6f66; } .ds-link-secondary:focus-visible { outline: 2px solid rgba(11,111,102,0.35); outline-offset: 4px; }"
+    },
+    {
+      "name": "Feature Card",
+      "kind": "card",
+      "refersTo": "feature-card",
+      "description": "Service card with tinted header band, icon tile, capability list, and hover fill.",
+      "html": "<article class=\"ds-feature-card\"><div class=\"ds-feature-head\"><div class=\"ds-icon-tile\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/></svg></div><div><div class=\"ds-kicker\">MDR</div><h3>Managed Detection & Response</h3></div></div><p>24/7 proactive monitoring, investigation, and response support.</p><div class=\"ds-card-link\">Learn more -></div></article>",
+      "css": ".ds-feature-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 10px rgba(30,58,95,0.06); color: #1e3a5f; transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease; max-width: 360px; } .ds-feature-card:hover { transform: translateY(-4px); border-color: #0b6f66; box-shadow: 0 12px 40px rgba(30,58,95,0.13); } .ds-feature-head { background: rgba(11,111,102,0.05); padding: 22px 26px 20px; border-bottom: 1px solid rgba(11,111,102,0.13); display: flex; gap: 14px; align-items: center; transition: background 260ms ease; } .ds-feature-card:hover .ds-feature-head { background: #0b6f66; } .ds-feature-card h3 { margin: 0; font-family: Montserrat, Arial, sans-serif; font-weight: 800; font-size: 15px; line-height: 1.2; color: #1e3a5f; } .ds-feature-card:hover h3 { color: #ffffff; } .ds-kicker { font-family: Montserrat, Arial, sans-serif; font-weight: 700; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #0b6f66; margin-bottom: 4px; } .ds-feature-card:hover .ds-kicker { color: rgba(255,255,255,.75); } .ds-icon-tile { width: 50px; height: 50px; border-radius: 12px; background: #ffffff; border: 1.5px solid rgba(11,111,102,.2); display: grid; place-items: center; flex: 0 0 auto; } .ds-icon-tile svg { width: 24px; height: 24px; fill: none; stroke: #0b6f66; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; } .ds-feature-card:hover .ds-icon-tile { background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.35); } .ds-feature-card:hover .ds-icon-tile svg { stroke: #ffffff; } .ds-feature-card p { font-family: Open Sans, Arial, sans-serif; font-size: 13.5px; line-height: 1.65; color: #6b7280; margin: 20px 26px 18px; } .ds-card-link { margin: 18px 26px 22px; display: inline-flex; font-family: Montserrat, Arial, sans-serif; font-weight: 700; font-size: 12px; color: #0b6f66; border-bottom: 1.5px solid rgba(11,111,102,.27); padding-bottom: 1px; }"
+    },
+    {
+      "name": "Input Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Contact form field with teal focus ring.",
+      "html": "<label class=\"ds-field\"><span>Work Email</span><input placeholder=\"jane@company.com\" /></label>",
+      "css": ".ds-field { display: grid; gap: 6px; font-family: Montserrat, Arial, sans-serif; font-weight: 700; font-size: 12px; color: #1e3a5f; } .ds-field input { width: 100%; padding: 11px 14px; border: 1.5px solid #e5e7eb; border-radius: 8px; font-family: Open Sans, Arial, sans-serif; font-size: 14px; color: #1e3a5f; outline: 0; transition: border-color 200ms ease, box-shadow 200ms ease; } .ds-field input:focus { border-color: #0b6f66; box-shadow: 0 0 0 3px rgba(11,111,102,0.12); }"
+    },
+    {
+      "name": "Integration Chip",
+      "kind": "chip",
+      "refersTo": "integration-chip",
+      "description": "Circular logo container used on connector rows.",
+      "html": "<div class=\"ds-integration-chip\"><span>SIEM</span></div>",
+      "css": ".ds-integration-chip { width: 64px; height: 64px; border-radius: 50%; background: #ffffff; border: 1px solid #eef2f6; box-shadow: 0 6px 18px rgba(30,58,95,0.10), 0 0 0 4px #ffffff; display: grid; place-items: center; font-family: Montserrat, Arial, sans-serif; font-weight: 800; font-size: 12px; color: #0b6f66; transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease; } .ds-integration-chip:hover { transform: translateY(-3px); border-color: rgba(11,111,102,0.35); box-shadow: 0 12px 26px rgba(30,58,95,0.14), 0 0 0 4px #ffffff; } .ds-integration-chip:focus-visible { outline: 2px solid rgba(11,111,102,0.45); outline-offset: 5px; }"
+    },
+    {
+      "name": "Command Diagram Panel",
+      "kind": "custom",
+      "refersTo": "command-diagram",
+      "description": "White operational artifact floating on a dark SOC panel.",
+      "html": "<div class=\"ds-command-wrap\"><div class=\"ds-command-panel\"><div class=\"ds-command-strip\"></div><div class=\"ds-command-title\">SOC Operations Flow</div></div></div>",
+      "css": ".ds-command-wrap { background: linear-gradient(140deg, #162840 0%, #0d1b2e 48%, #061726 100%); padding: 48px; display: inline-block; } .ds-command-panel { position: relative; width: 360px; height: 190px; border-radius: 26px; background: linear-gradient(180deg, rgba(255,255,255,0.99) 0%, rgba(248,250,252,0.98) 100%); border: 1px solid rgba(45,212,191,0.46); box-shadow: 0 34px 90px rgba(0,0,0,0.38), 0 0 44px rgba(20,184,166,0.24); display: grid; place-items: center; font-family: Montserrat, Arial, sans-serif; font-weight: 800; color: #1e3a5f; } .ds-command-strip { position: absolute; top: -1px; left: 32px; right: 32px; height: 3px; border-radius: 9999px; background: linear-gradient(90deg, transparent, #14b8a6, transparent); } .ds-command-panel:focus-visible { outline: 2px solid #14b8a6; outline-offset: 6px; }"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": "nav-cta",
+      "description": "Sticky white navigation with active underline and contact CTA.",
+      "html": "<nav class=\"ds-nav\"><strong>SECUGRAM</strong><a class=\"ds-active\">Home</a><a>Services</a><button>Contact us</button></nav>",
+      "css": ".ds-nav { height: 72px; padding: 0 60px; background: #ffffff; border-bottom: 1px solid #e5e7eb; box-shadow: 0 2px 12px rgba(30,58,95,0.08); display: flex; align-items: center; gap: 24px; font-family: Montserrat, Arial, sans-serif; } .ds-nav strong { margin-right: auto; color: #1e3a5f; letter-spacing: .12em; } .ds-nav a { font-weight: 600; font-size: 13px; color: #6b7280; text-decoration: none; border-bottom: 2px solid transparent; padding-bottom: 2px; } .ds-nav a:hover, .ds-nav a.ds-active { color: #1e3a5f; border-bottom-color: #0b6f66; } .ds-nav button { font: inherit; font-weight: 600; font-size: 13px; color: #ffffff; background: #0b6f66; border: 0; border-radius: 9999px; padding: 11px 26px; box-shadow: 0 10px 24px rgba(11,111,102,0.24); transition: background 200ms ease, transform 150ms ease, box-shadow 200ms ease; } .ds-nav button:hover { background: #095e57; transform: translateY(-1px); box-shadow: 0 12px 28px rgba(11,111,102,0.30); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Calm Security Command Center",
+    "overview": "Secugram uses the visual language of a security operations floor, but filters it through a clean B2B marketing frame. The default surface is bright, structured, and reassuring; the dark command panels appear only when the page needs to show detection, monitoring, and technical depth.\n\nThe system is built around a restrained navy and teal palette. Navy carries authority, teal marks action and signal, and white or mist sections keep the page approachable for SME buyers who need security expertise without enterprise friction.",
+    "keyCharacteristics": [
+      "Structured, audit-ready layouts with generous section rhythm.",
+      "Teal used as a signal color for CTAs, active states, status, and security telemetry.",
+      "Dark panels reserved for operations, SOC, diagrams, and trust moments.",
+      "Rounded, elevated cards that feel stable rather than decorative.",
+      "Technical imagery built from hexagons, grids, dotted connectors, and lifecycle diagrams."
+    ],
+    "rules": [
+      {
+        "name": "The Signal Rarity Rule",
+        "body": "Security Teal must mark action, state, or telemetry. Do not flood every heading, icon, and border with teal at once.",
+        "section": "colors"
+      },
+      {
+        "name": "The Command Surface Rule",
+        "body": "Deep Command belongs to operational context: hero graphics, SOC sections, trust bands, and footer. Do not turn the whole marketing page dark unless intentionally using the `dark-command` tweak variant.",
+        "section": "colors"
+      },
+      {
+        "name": "The Executive Scan Rule",
+        "body": "Every section must be readable by scanning the label, headline, and first sentence. Do not bury the value proposition inside dense body copy.",
+        "section": "typography"
+      },
+      {
+        "name": "The Heavy Headline Rule",
+        "body": "Use 800-weight Montserrat for major claims. If a heading drops to 600, the whole section should intentionally become quieter.",
+        "section": "typography"
+      },
+      {
+        "name": "The Lift With Purpose Rule",
+        "body": "Elevation signals interactivity, hierarchy, or a white artifact floating over a command surface. Do not apply large shadows to every neutral card.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep Secugram's default mode bright and reassuring, with dark command surfaces used as contrast.",
+      "Do use Security Teal for primary action, live signal, focus, and important operational markers.",
+      "Do preserve the Montserrat and Open Sans pairing unless the whole brand system is intentionally reworked.",
+      "Do keep section spacing generous: 88px to 96px vertical padding is the normal marketing rhythm.",
+      "Do use hexagons, grids, dotted connectors, and lifecycle diagrams for technical texture.",
+      "Do add missing responsive navigation and form states before treating the prototype as production."
+    ],
+    "donts": [
+      "Don't use generic cybersecurity neon-on-black for the whole page. Dark surfaces must be specific to operations and diagrams.",
+      "Don't replace teal with arbitrary accent colors unless all CTA, focus, link, trust, and diagram states are updated together.",
+      "Don't use side-stripe borders as card accents. Use full borders, header bands, icon tiles, or badges.",
+      "Don't use gradient text. Secugram emphasis comes from weight, color, and structure.",
+      "Don't make every repeated item an identical icon-heading-text grid. The current system alternates cards, lifecycle steps, split panels, trust bands, and connector rows.",
+      "Don't use glassmorphism as the site aesthetic. The tweaks panel may use blur, but the public landing page should stay clean and concrete."
+    ]
+  }
+}

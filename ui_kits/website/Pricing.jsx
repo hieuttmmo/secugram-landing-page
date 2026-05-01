@@ -40,7 +40,7 @@ const INDUSTRIES = [
 
 // Step icons — unique SVG for each lifecycle phase
 const StepIcon = ({ step, active }) => {
-  const col = active ? '#fff' : '#0d9488';
+  const col = active ? '#fff' : '#0b6f66';
   const s = { width: 28, height: 28 };
   const p = { stroke: col, strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round', fill: 'none' };
   const icons = {
@@ -78,7 +78,7 @@ const StepIcon = ({ step, active }) => {
 
 const IIcon = ({ name }) => {
   const s = { width: 20, height: 20 };
-  const p = { stroke: '#0d9488', strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round', fill: 'none' };
+  const p = { stroke: '#0b6f66', strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round', fill: 'none' };
   const icons = {
     'credit-card':  <svg {...s} viewBox="0 0 24 24"><rect {...p} x="1" y="4" width="22" height="16" rx="2"/><line {...p} x1="1" y1="10" x2="23" y2="10"/></svg>,
     shield:         <svg {...s} viewBox="0 0 24 24"><path {...p} d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
@@ -92,7 +92,7 @@ const EngagementModel = ({ onContact }) => (
   <div id="methodology" data-tw-section-alt style={{ background: '#f9fafb', padding: '96px 80px' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: 64 }}>
-        <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>
+        <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>
           Methodology
         </div>
         <h2 data-tw-h2 data-tw-heading style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 40, color: '#1e3a5f', letterSpacing: '-0.02em', margin: '0 0 16px' }}>
@@ -104,12 +104,12 @@ const EngagementModel = ({ onContact }) => (
       </div>
 
       {/* Steps */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, position: 'relative', alignItems: 'stretch' }}>
+      <div className="sg-grid-4 sg-process-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, position: 'relative', alignItems: 'stretch' }}>
         {/* Connector line */}
-        <div style={{ position: 'absolute', top: 36, left: '12.5%', right: '12.5%', height: 2, background: 'linear-gradient(90deg, #0d9488, #1e3a5f)', zIndex: 0, borderRadius: 2 }}></div>
+        <div style={{ position: 'absolute', top: 36, left: '12.5%', right: '12.5%', height: 2, background: 'linear-gradient(90deg, #0b6f66, #1e3a5f)', zIndex: 0, borderRadius: 2 }}></div>
         {STEPS.map((step, i) => {
           const isFilled = i === 0 || i === 3;
-          const bgColor = i === 3 ? '#1e3a5f' : '#0d9488';
+          const bgColor = i === 3 ? '#1e3a5f' : '#0b6f66';
           return (
             <div key={step.num} style={{
               position: 'relative', zIndex: 1,
@@ -208,12 +208,12 @@ const EngagementModel = ({ onContact }) => (
       <div style={{ textAlign: 'center', marginTop: 56 }}>
         <button onClick={onContact} style={{
           fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 16,
-          background: '#0d9488', color: '#fff', padding: '14px 40px',
+          background: '#0b6f66', color: '#fff', padding: '14px 40px',
           borderRadius: 9999, border: 'none', cursor: 'pointer',
           boxShadow: '0 4px 20px rgba(13,148,136,0.30)',
         }}
-          onMouseEnter={e => e.currentTarget.style.background = '#0b7a70'}
-          onMouseLeave={e => e.currentTarget.style.background = '#0d9488'}
+          onMouseEnter={e => e.currentTarget.style.background = '#095e57'}
+          onMouseLeave={e => e.currentTarget.style.background = '#0b6f66'}
         >Discuss Your Security Strategy →</button>
       </div>
     </div>
@@ -223,10 +223,10 @@ const EngagementModel = ({ onContact }) => (
 const IndustriesSection = () => (
   <div id="industries" style={{ background: '#f9fafb', padding: '80px 80px' }} data-tw-section-alt>
     <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
+      <div className="sg-split-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
         {/* Left: heading + metrics */}
         <div>
-          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>
+          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>
             Trusted Partner for Secure Growth
           </div>
           <h2 style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 36, color: '#1e3a5f', letterSpacing: '-0.02em', marginBottom: 20 }}>
@@ -253,7 +253,7 @@ const IndustriesSection = () => (
               boxShadow: '0 2px 8px rgba(30,58,95,0.07)',
               transition: 'border-color 200ms, box-shadow 200ms',
             }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = '#0d9488'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(13,148,136,0.12)'; }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = '#0b6f66'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(13,148,136,0.12)'; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = '#e5e7eb'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(30,58,95,0.07)'; }}
             >
               <div style={{ width: 40, height: 40, borderRadius: 8, background: '#f0fdf9', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>

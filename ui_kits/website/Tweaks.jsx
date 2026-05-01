@@ -2,7 +2,7 @@
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "colorScheme": "navy-teal",
-  "accentColor": "#0d9488",
+  "accentColor": "#0b6f66",
   "heroStyle": "split",
   "typeScale": "bold",
   "navStyle": "white",
@@ -23,8 +23,8 @@ const applyTweaks = (tweaks) => {
   const schemes = {
     'navy-teal': {
       '--tw-brand':        '#1e3a5f',
-      '--tw-accent':       tweaks.accentColor || '#0d9488',
-      '--tw-accent-hover': '#0b7a70',
+      '--tw-accent':       tweaks.accentColor || '#0b6f66',
+      '--tw-accent-hover': '#095e57',
       '--tw-accent-light': '#f0fdf9',
       '--tw-dark':         '#0d1b2e',
       '--tw-page-bg':      '#ffffff',
@@ -39,9 +39,9 @@ const applyTweaks = (tweaks) => {
       '--tw-trust-text':   '#14b8a6',
     },
     'dark-command': {
-      '--tw-brand':        '#0d9488',
+      '--tw-brand':        '#0b6f66',
       '--tw-accent':       tweaks.accentColor || '#14b8a6',
-      '--tw-accent-hover': '#0d9488',
+      '--tw-accent-hover': '#0b6f66',
       '--tw-accent-light': 'rgba(13,148,136,0.15)',
       '--tw-dark':         '#060e18',
       '--tw-page-bg':      '#0d1b2e',
@@ -57,8 +57,8 @@ const applyTweaks = (tweaks) => {
     },
     'clean-minimal': {
       '--tw-brand':        '#1e3a5f',
-      '--tw-accent':       tweaks.accentColor || '#0d9488',
-      '--tw-accent-hover': '#0b7a70',
+      '--tw-accent':       tweaks.accentColor || '#0b6f66',
+      '--tw-accent-hover': '#095e57',
       '--tw-accent-light': '#f0fdf9',
       '--tw-dark':         '#1e3a5f',
       '--tw-page-bg':      '#ffffff',
@@ -70,7 +70,7 @@ const applyTweaks = (tweaks) => {
       '--tw-nav-border':   '#f1f5f9',
       '--tw-nav-text':     '#64748b',
       '--tw-trust-bg':     '#f8fafc',
-      '--tw-trust-text':   '#0d9488',
+      '--tw-trust-text':   '#0b6f66',
     },
     'slate-gold': {
       '--tw-brand':        '#334155',

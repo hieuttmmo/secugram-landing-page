@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Secugram — Secure Today. Scale Tomorrow.</title>
+  <title>Secugram - Secure Today. Scale Tomorrow.</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1b2e'/%3E%3Cpath d='M32 8 50 18v14c0 14-18 24-18 24S14 46 14 32V18L32 8Z' fill='none' stroke='%2314b8a6' stroke-width='4'/%3E%3Ccircle cx='32' cy='29' r='6' fill='none' stroke='%23ffffff' stroke-width='4'/%3E%3Cpath d='M28 35h8v9h-8z' fill='%23ffffff'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
   <meta name="ext-resource-dependency" content="secugram-logo.png" data-resource-id="logoImg" />
   <template id="__bundler_thumbnail" data-bg-color="#ffffff">
@@ -17,22 +18,22 @@
       <rect x="0" y="69" width="1200" height="1" fill="#e5e7eb"/>
       <!-- Logo mark simplified -->
       <polygon points="60,18 90,34 90,56 60,72 30,56 30,34" fill="none" stroke="#1e3a5f" stroke-width="4"/>
-      <circle cx="60" cy="42" r="7" fill="none" stroke="#0d9488" stroke-width="3"/>
+      <circle cx="60" cy="42" r="7" fill="none" stroke="#0b6f66" stroke-width="3"/>
       <!-- Wordmark -->
       <rect x="100" y="28" width="120" height="14" rx="3" fill="#1e3a5f" opacity="0.8"/>
       <!-- Nav links -->
       <rect x="820" y="28" width="50" height="12" rx="3" fill="#e5e7eb"/>
       <rect x="890" y="28" width="50" height="12" rx="3" fill="#e5e7eb"/>
       <rect x="960" y="28" width="50" height="12" rx="3" fill="#e5e7eb"/>
-      <rect x="1030" y="22" width="110" height="26" rx="13" fill="#0d9488"/>
+      <rect x="1030" y="22" width="110" height="26" rx="13" fill="#0b6f66"/>
       <!-- Hero left -->
       <rect x="0" y="70" width="600" height="430" fill="#ffffff"/>
-      <rect x="60" y="140" width="200" height="12" rx="3" fill="#0d9488" opacity="0.6"/>
+      <rect x="60" y="140" width="200" height="12" rx="3" fill="#0b6f66" opacity="0.6"/>
       <rect x="60" y="168" width="440" height="44" rx="5" fill="#1e3a5f" opacity="0.85"/>
       <rect x="60" y="220" width="380" height="44" rx="5" fill="#1e3a5f" opacity="0.85"/>
       <rect x="60" y="286" width="300" height="20" rx="3" fill="#4b5563" opacity="0.5"/>
       <rect x="60" y="318" width="260" height="20" rx="3" fill="#4b5563" opacity="0.5"/>
-      <rect x="60" y="370" width="160" height="44" rx="22" fill="#0d9488"/>
+      <rect x="60" y="370" width="160" height="44" rx="22" fill="#0b6f66"/>
       <!-- Stats -->
       <rect x="60" y="450" width="60" height="18" rx="3" fill="#1e3a5f" opacity="0.7"/>
       <rect x="160" y="450" width="60" height="18" rx="3" fill="#1e3a5f" opacity="0.7"/>
@@ -41,8 +42,8 @@
       <polygon points="600,70 1200,70 1200,500 600,500 636,70" fill="#0d1b2e"/>
       <!-- Hex graphic -->
       <polygon points="900,170 980,215 980,305 900,350 820,305 820,215" fill="none" stroke="#14b8a6" stroke-width="2" opacity="0.5"/>
-      <polygon points="900,195 958,228 958,294 900,327 842,294 842,228" fill="none" stroke="#0d9488" stroke-width="2" opacity="0.7"/>
-      <circle cx="900" cy="248" r="22" fill="none" stroke="#0d9488" stroke-width="3"/>
+      <polygon points="900,195 958,228 958,294 900,327 842,294 842,228" fill="none" stroke="#0b6f66" stroke-width="2" opacity="0.7"/>
+      <circle cx="900" cy="248" r="22" fill="none" stroke="#0b6f66" stroke-width="3"/>
       <path d="M860,330 L900,220 L940,260" stroke="#14b8a6" stroke-width="3" fill="none" stroke-linecap="round"/>
       <!-- Trust bar -->
       <rect x="0" y="500" width="1200" height="60" fill="#1e3a5f"/>
@@ -68,8 +69,8 @@
     /* ── Design tokens (overridden by Tweaks) ─────────── */
     :root {
       --tw-brand:          #1e3a5f;
-      --tw-accent:         #0d9488;
-      --tw-accent-hover:   #0b7a70;
+      --tw-accent:         #0b6f66;
+      --tw-accent-hover:   #095e57;
       --tw-accent-light:   #f0fdf9;
       --tw-dark:           #0d1b2e;
       --tw-page-bg:        #ffffff;
@@ -102,8 +103,26 @@
       --tw-body-lh:        1.6;
       --tw-outcome-bg:     #f0fdf9;
       --tw-outcome-border: #a7f3d0;
-      --tw-outcome-title:  #0d9488;
-      --tw-step-dot:       #0d9488;
+      --tw-outcome-title:  #0b6f66;
+      --tw-step-dot:       #0b6f66;
+    }
+    button, a, input, textarea { -webkit-tap-highlight-color: rgba(13,148,136,0.16); }
+    button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 3px solid rgba(20,184,166,0.42);
+      outline-offset: 4px;
+    }
+    button {
+      font: inherit;
+      min-width: 44px;
+      min-height: 44px;
+    }
+    input, textarea { min-height: 44px; }
+    .sg-menu-toggle { display: none; }
+    .sg-nav-link, .sg-secondary-link {
+      min-height: 44px;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center;
     }
     /* Hero layout variants */
     [data-hero-style='centered'] [data-tw-hero-grid] { grid-template-columns: 1fr !important; }
@@ -122,6 +141,93 @@
     [data-type-scale='refined'] [data-tw-h1] { font-size: 44px !important; font-weight: 600 !important; letter-spacing: 0.01em !important; }
     [data-type-scale='refined'] [data-tw-h2] { font-size: 32px !important; font-weight: 600 !important; letter-spacing: 0.01em !important; }
     [data-type-scale='refined'] [data-tw-body] { font-size: 17px !important; line-height: 1.8 !important; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+    @media (max-width: 1100px) {
+      [data-tw-nav] { padding: 0 32px !important; }
+      .sg-nav-links { gap: 16px !important; }
+      [data-tw-hero-left] { padding: 72px 40px !important; }
+      [data-tw-h1] { font-size: clamp(38px, 5vw, 48px) !important; }
+      [data-tw-h2] { font-size: clamp(30px, 4vw, 40px) !important; }
+      [data-tw-section-bg], [data-tw-section-alt], #contact, footer, .sg-integrations { padding-left: 48px !important; padding-right: 48px !important; }
+      .sg-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+      .sg-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+      .sg-footer-grid { grid-template-columns: 1.5fr 1fr 1fr !important; }
+    }
+    @media (max-width: 860px) {
+      #page-scroll { overflow-x: hidden; }
+      [data-tw-nav] { padding: 0 20px !important; }
+      .sg-logo-button img { width: 156px !important; }
+      .sg-menu-toggle {
+        display: inline-flex;
+        width: 44px;
+        height: 44px;
+        border: 1px solid #e5e7eb;
+        border-radius: 9999px;
+        background: #ffffff;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+      }
+      .sg-menu-toggle span { width: 18px; height: 2px; background: #1e3a5f; border-radius: 2px; }
+      .sg-nav-links {
+        position: absolute;
+        top: 72px;
+        left: 16px;
+        right: 16px;
+        display: none !important;
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 6px !important;
+        padding: 14px;
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        background: #ffffff;
+        box-shadow: 0 18px 48px rgba(30,58,95,0.16);
+      }
+      .sg-nav-links[data-open='true'] { display: flex !important; }
+      .sg-nav-link {
+        min-height: 44px;
+        width: 100%;
+        text-align: left;
+        padding: 11px 14px !important;
+        border-bottom: none !important;
+        border-radius: 10px !important;
+      }
+      .sg-nav-cta { text-align: center; }
+      [data-tw-hero-grid] { grid-template-columns: 1fr !important; min-height: 0 !important; }
+      [data-tw-hero-right] { display: none !important; }
+      [data-tw-hero-left] { padding: 64px 24px !important; }
+      [data-tw-hero-ctas] { flex-direction: column; align-items: stretch !important; }
+      [data-tw-hero-ctas] button { min-height: 48px; justify-content: center; }
+      [data-tw-h1] { font-size: clamp(34px, 10vw, 46px) !important; }
+      [data-tw-h2] { font-size: clamp(27px, 8vw, 36px) !important; }
+      [data-tw-section-bg], [data-tw-section-alt], #contact, footer, .sg-integrations { padding: 64px 24px !important; }
+      .sg-grid-3, .sg-grid-4, .sg-split-grid, .sg-footer-grid { grid-template-columns: 1fr !important; }
+      .sg-process-grid > div:first-child { display: none !important; }
+      .sg-differentiation-grid { border-radius: 14px !important; }
+      .sg-service-trust-actions { width: 100%; justify-content: flex-start !important; flex-wrap: wrap; }
+      .sg-footer-bottom { flex-direction: column; align-items: flex-start !important; gap: 14px; }
+      #contact form > div:first-child { grid-template-columns: 1fr !important; }
+      input, textarea, button { min-height: 44px; }
+      button { min-width: 44px; }
+    }
+    @media (max-width: 480px) {
+      [data-tw-hero-left] { padding: 56px 20px !important; }
+      [data-tw-section-bg], [data-tw-section-alt], #contact, footer, .sg-integrations { padding: 56px 20px !important; }
+      #contact > div { max-width: none !important; }
+      #contact form { gap: 16px !important; }
+      #contact input, #contact textarea { width: 100% !important; }
+      .sg-int-chip { width: 48px !important; height: 48px !important; }
+    }
   </style>
 </head>
 <body>
@@ -153,14 +259,14 @@ const ContactSection = () => {
     <div id="contact" style={{ background: '#f9fafb', padding: '96px 80px' }}>
       <div style={{ maxWidth: 680, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 48 }}>
-          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Contact</div>
+          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Contact</div>
           <h2 style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 36, color: '#1e3a5f', letterSpacing: '-0.02em', marginBottom: 14 }}>Discuss Your Cybersecurity Strategy</h2>
-          <p style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 16, color: '#6b7280', lineHeight: 1.6 }}>Contact us at <span style={{color:'#0d9488',fontWeight:600}}>security@secugram.io</span> or fill in the form — we respond within one business day.</p>
+          <p style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 16, color: '#6b7280', lineHeight: 1.6 }}>Contact us at <span style={{color:'#0b6f66',fontWeight:600}}>security@secugram.io</span> or fill in the form — we respond within one business day.</p>
         </div>
         {sent ? (
           <div style={{ textAlign: 'center', padding: '48px 0' }}>
-            <div style={{ width: 64, height: 64, borderRadius: '50%', background: '#f0fdf9', border: '2px solid #0d9488', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div style={{ width: 64, height: 64, borderRadius: '50%', background: '#f0fdf9', border: '2px solid #0b6f66', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0b6f66" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 22, color: '#1e3a5f', marginBottom: 10 }}>Message Sent!</div>
             <div style={{ fontFamily: "'Open Sans',sans-serif", color: '#6b7280' }}>We'll be in touch within one business day.</div>
@@ -170,40 +276,40 @@ const ContactSection = () => {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
               {[['name','Full Name','Jane Smith'],['email','Work Email','jane@company.com']].map(([key,label,ph])=>(
                 <div key={key}>
-                  <label style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>{label}</label>
-                  <input type={key==='email'?'email':'text'} placeholder={ph} value={form[key]} onChange={e=>setForm({...form,[key]:e.target.value})} required
+                  <label htmlFor={`contact-${key}`} style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>{label}</label>
+                  <input id={`contact-${key}`} name={key} type={key==='email'?'email':'text'} autoComplete={key==='email'?'email':'name'} placeholder={ph} value={form[key]} onChange={e=>setForm({...form,[key]:e.target.value})} required
                     style={{ width: '100%', padding: '11px 14px', border: '1.5px solid #e5e7eb', borderRadius: 8, fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: '#1e3a5f', outline: 'none' }}
-                    onFocus={e=>{e.target.style.borderColor='#0d9488'; e.target.style.boxShadow='0 0 0 3px rgba(13,148,136,0.12)';}}
+                    onFocus={e=>{e.target.style.borderColor='#0b6f66'; e.target.style.boxShadow='0 0 0 3px rgba(13,148,136,0.12)';}}
                     onBlur={e=>{e.target.style.borderColor='#e5e7eb'; e.target.style.boxShadow='none';}}
                   />
                 </div>
               ))}
             </div>
             <div>
-              <label style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>Company</label>
-              <input type="text" placeholder="Acme Inc." value={form.company} onChange={e=>setForm({...form,company:e.target.value})}
+              <label htmlFor="contact-company" style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>Company</label>
+              <input id="contact-company" name="company" type="text" autoComplete="organization" placeholder="Acme Inc." value={form.company} onChange={e=>setForm({...form,company:e.target.value})}
                 style={{ width: '100%', padding: '11px 14px', border: '1.5px solid #e5e7eb', borderRadius: 8, fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: '#1e3a5f', outline: 'none' }}
-                onFocus={e=>{e.target.style.borderColor='#0d9488'; e.target.style.boxShadow='0 0 0 3px rgba(13,148,136,0.12)';}}
+                onFocus={e=>{e.target.style.borderColor='#0b6f66'; e.target.style.boxShadow='0 0 0 3px rgba(13,148,136,0.12)';}}
                 onBlur={e=>{e.target.style.borderColor='#e5e7eb'; e.target.style.boxShadow='none';}}
               />
             </div>
             <div>
-              <label style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>Message</label>
-              <textarea placeholder="Tell us about your security needs..." rows={4} value={form.message} onChange={e=>setForm({...form,message:e.target.value})}
+              <label htmlFor="contact-message" style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>Message</label>
+              <textarea id="contact-message" name="message" placeholder="Tell us about your security needs..." rows={4} value={form.message} onChange={e=>setForm({...form,message:e.target.value})}
                 style={{ width: '100%', padding: '11px 14px', border: '1.5px solid #e5e7eb', borderRadius: 8, fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: '#1e3a5f', outline: 'none', resize: 'vertical' }}
-                onFocus={e=>{e.target.style.borderColor='#0d9488'; e.target.style.boxShadow='0 0 0 3px rgba(13,148,136,0.12)';}}
+                onFocus={e=>{e.target.style.borderColor='#0b6f66'; e.target.style.boxShadow='0 0 0 3px rgba(13,148,136,0.12)';}}
                 onBlur={e=>{e.target.style.borderColor='#e5e7eb'; e.target.style.boxShadow='none';}}
               />
             </div>
             <button type="submit" style={{
               fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 16,
-              background: '#0d9488', color: '#fff', padding: '14px 0',
+              background: '#0b6f66', color: '#fff', padding: '14px 0',
               borderRadius: 9999, border: 'none', cursor: 'pointer',
               boxShadow: '0 4px 20px rgba(13,148,136,0.30)',
               transition: 'background 200ms',
             }}
-              onMouseEnter={e=>e.currentTarget.style.background='#0b7a70'}
-              onMouseLeave={e=>e.currentTarget.style.background='#0d9488'}
+              onMouseEnter={e=>e.currentTarget.style.background='#095e57'}
+              onMouseLeave={e=>e.currentTarget.style.background='#0b6f66'}
             >Send Message</button>
           </form>
         )}
@@ -233,7 +339,7 @@ const TrustBar = () => (
       backgroundSize: '28px 28px',
       pointerEvents: 'none',
     }} />
-    <div style={{ maxWidth: 1200, margin: '0 auto', position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18 }}>
+    <div className="sg-grid-4" style={{ maxWidth: 1200, margin: '0 auto', position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18 }}>
       {METRIC_CARDS.map(metric => (
         <div key={metric.label} data-tw-metric-card style={{
           padding: '4px 18px',

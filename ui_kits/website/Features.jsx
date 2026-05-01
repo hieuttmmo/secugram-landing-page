@@ -14,7 +14,7 @@ const FEATURES = [
       'Patch management & vulnerability remediation',
     ],
     stat: 'Cloud · Hybrid', statLabel: 'On-prem ready',
-    accent: '#0d9488',
+    accent: '#0b6f66',
   },
   {
     icon: 'shield',
@@ -44,7 +44,7 @@ const FEATURES = [
       'Threat hunting & proactive adversary pursuit',
     ],
     stat: '24/7', statLabel: 'SOC Coverage',
-    accent: '#0d9488',
+    accent: '#0b6f66',
   },
 ];
 
@@ -89,7 +89,7 @@ const ROW_2 = [
 
 const IntegrationChip = ({ item }) => (
   <div className="sg-int-chip" title={item.name}>
-    <img src={`assets/integrations/${item.icon}`} alt={`${item.name} logo`} loading="lazy" />
+    <img src={`assets/integrations/${item.icon}`} alt={`${item.name} logo`} width="32" height="32" loading="lazy" decoding="async" />
   </div>
 );
 
@@ -115,7 +115,7 @@ const IntegrationsStripV2 = () => (
         font-size: 12px;
         letter-spacing: 0.14em;
         text-transform: uppercase;
-        color: #0d9488;
+        color: #0b6f66;
         margin-bottom: 14px;
       }
       .sg-int-title {
@@ -127,7 +127,7 @@ const IntegrationsStripV2 = () => (
         color: #1e3a5f;
         margin: 0 0 18px;
       }
-      .sg-int-title .sg-int-hl { color: #0d9488; }
+      .sg-int-title .sg-int-hl { color: #0b6f66; }
       .sg-int-copy {
         font-family: 'Open Sans', sans-serif;
         font-size: 16px;
@@ -190,7 +190,7 @@ const IntegrationsStripV2 = () => (
         font-family: 'Montserrat', sans-serif;
         font-weight: 800;
         font-size: 13px;
-        color: #0d9488;
+        color: #0b6f66;
         letter-spacing: 0.01em;
       }
 
@@ -201,7 +201,7 @@ const IntegrationsStripV2 = () => (
         .sg-int-chip { width: 54px; height: 54px; box-shadow: 0 5px 14px rgba(30,58,95,0.10), 0 0 0 3px #ffffff; }
         .sg-int-chip img { width: 28px; height: 28px; }
       }
-      @media (max-width: 760px) {
+      @media (max-width: 860px) {
         .sg-integrations { padding: 64px 20px 72px; }
         .sg-int-title { font-size: 28px; }
         .sg-int-copy { font-size: 14.5px; }
@@ -232,7 +232,7 @@ const IntegrationsStripV2 = () => (
   </section>
 );
 
-const IconMap = ({ name, color = '#0d9488', size = 24 }) => {
+const IconMap = ({ name, color = '#0b6f66', size = 24 }) => {
   const s = { width: size, height: size };
   const p = { stroke: color, strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round', fill: 'none' };
   const icons = {
@@ -276,7 +276,7 @@ const FeatureCard = ({ icon, tag, title, body, capabilities, stat, statLabel, ac
         display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start',
         minHeight: 110,
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14, minWidth: 0 }}>
           <div style={{
             width: 50, height: 50, borderRadius: 12,
             background: hovered ? 'rgba(255,255,255,0.18)' : '#fff',
@@ -301,16 +301,16 @@ const FeatureCard = ({ icon, tag, title, body, capabilities, stat, statLabel, ac
         </div>
         {/* Stat badge */}
         <div style={{
-          textAlign: 'right', flexShrink: 0, marginLeft: 12,
+          textAlign: 'right', flexShrink: 1, marginLeft: 12, minWidth: 0, maxWidth: 132,
         }}>
           <div style={{
             fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 18,
-            color: hovered ? '#fff' : accent, lineHeight: 1,
+            color: hovered ? '#fff' : accent, lineHeight: 1.05, overflowWrap: 'anywhere',
           }}>{stat}</div>
           <div style={{
             fontFamily: "'Open Sans',sans-serif", fontSize: 10,
             color: hovered ? 'rgba(255,255,255,0.7)' : '#6b7280', marginTop: 3,
-            whiteSpace: 'nowrap',
+            whiteSpace: 'normal',
           }}>{statLabel}</div>
         </div>
       </div>
@@ -368,8 +368,8 @@ const FeaturesSection = () => (
     <div style={{ maxWidth: 1200, margin: '0 auto' }}>
       {/* Header */}
       <div style={{ textAlign: 'center', marginBottom: 60 }}>
-        <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>
-          <span data-tw-accent-text style={{ color: '#0d9488' }}>End-to-End Security Solutions</span>
+        <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>
+          <span data-tw-accent-text style={{ color: '#0b6f66' }}>End-to-End Security Solutions</span>
         </div>
         <h2 data-tw-h2 data-tw-heading style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 40, color: '#1e3a5f', lineHeight: 1.15, letterSpacing: '-0.02em', margin: '0 0 16px' }}>
           Core Services
@@ -380,7 +380,7 @@ const FeaturesSection = () => (
       </div>
 
       {/* Cards grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, alignItems: 'stretch' }}>
+      <div className="sg-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, alignItems: 'stretch' }}>
         {FEATURES.map((f, i) => <FeatureCard key={f.title} {...f} index={i} />)}
       </div>
 
@@ -401,24 +401,24 @@ const FeaturesSection = () => (
             Our team will assess your environment and recommend the right coverage — no obligation.
           </div>
         </div>
-        <div style={{ display: 'flex', gap: 28, alignItems: 'center', flexShrink: 0 }}>
+        <div className="sg-service-trust-actions" style={{ display: 'flex', gap: 28, alignItems: 'center', flexShrink: 0 }}>
           {[['ISO 27001','Aligned'],['PCI-DSS','Ready'],['NIST','Framework']].map(([label, sub]) => (
             <div key={label} style={{ textAlign: 'center' }}>
               <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 13, color: '#1e3a5f' }}>{label}</div>
-              <div style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 11, color: '#0d9488', fontWeight: 600 }}>{sub}</div>
+              <div style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 11, color: '#0b6f66', fontWeight: 600 }}>{sub}</div>
             </div>
           ))}
           <div style={{ width: 1, height: 36, background: '#e5e7eb' }}></div>
           <button
             style={{
               fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 13,
-              background: '#0d9488', color: '#fff', padding: '11px 24px',
+              background: '#0b6f66', color: '#fff', padding: '11px 24px',
               borderRadius: 9999, border: 'none', cursor: 'pointer',
               boxShadow: '0 4px 16px rgba(13,148,136,0.28)',
               whiteSpace: 'nowrap',
             }}
-            onMouseEnter={e => e.currentTarget.style.background = '#0b7a70'}
-            onMouseLeave={e => e.currentTarget.style.background = '#0d9488'}
+            onMouseEnter={e => e.currentTarget.style.background = '#095e57'}
+            onMouseLeave={e => e.currentTarget.style.background = '#0b6f66'}
           >Book a Free Assessment</button>
         </div>
       </div>

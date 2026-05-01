@@ -7,7 +7,7 @@ const WhySecurityFailsSection = () => {
       title: 'No Dedicated Security Team',
       body: 'Most growing businesses cannot afford a full-time security team or 24/7 SOC operation.',
       icon: (
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0b6f66" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="8" r="4"/>
           <path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
         </svg>
@@ -17,7 +17,7 @@ const WhySecurityFailsSection = () => {
       title: 'Enterprise Security Is Too Complex',
       body: 'Traditional security platforms are expensive, difficult to operate, and require specialist expertise.',
       icon: (
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0b6f66" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <rect x="2" y="3" width="20" height="14" rx="2"/>
           <path d="M8 21h8M12 17v4"/>
           <path d="M7 8h.01M11 8h6M7 12h3M14 12h3"/>
@@ -28,7 +28,7 @@ const WhySecurityFailsSection = () => {
       title: 'Limited Visibility Until It Is Too Late',
       body: 'Many SMEs only discover security gaps after an incident, audit finding, or customer requirement.',
       icon: (
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0b6f66" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
           <circle cx="12" cy="12" r="3"/>
           <line x1="3" y1="3" x2="21" y2="21"/>
@@ -41,7 +41,7 @@ const WhySecurityFailsSection = () => {
     <div id="challenges" data-tw-section-alt style={{ background: '#f9fafb', padding: '88px 80px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
-          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>
+          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>
             The Challenge
           </div>
           <h2 data-tw-h2 data-tw-heading style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 40, color: '#1e3a5f', letterSpacing: '-0.02em', margin: '0 0 16px' }}>
@@ -51,7 +51,7 @@ const WhySecurityFailsSection = () => {
             Growing businesses face structural challenges that traditional security approaches are not designed to solve.
           </p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+        <div className="sg-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
           {items.map(it => (
             <div key={it.title} data-tw-card style={{
               background: '#fff', border: '1px solid #e5e7eb', borderRadius: 14,
@@ -101,7 +101,7 @@ const DifferentiationSection = () => {
     <div id="why-secugram" data-tw-section-bg style={{ background: '#fff', padding: '96px 80px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
-          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>
+          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>
             Why Secugram
           </div>
           <h2 data-tw-h2 data-tw-heading style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 40, color: '#1e3a5f', letterSpacing: '-0.02em', margin: '0 0 16px' }}>
@@ -111,7 +111,7 @@ const DifferentiationSection = () => {
             Purpose-built for growing businesses that need enterprise-grade security without the enterprise cost or complexity.
           </p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 0, border: '1px solid #e5e7eb', borderRadius: 16, overflow: 'hidden' }}>
+        <div className="sg-grid-3 sg-differentiation-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 0, border: '1px solid #e5e7eb', borderRadius: 16, overflow: 'hidden' }}>
           {items.map((it, i) => (
             <div key={it.title} style={{
               padding: '40px 32px',
@@ -121,7 +121,7 @@ const DifferentiationSection = () => {
             }}>
               <div style={{
                 fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 13,
-                color: it.featured ? '#14b8a6' : '#0d9488',
+                color: it.featured ? '#14b8a6' : '#0b6f66',
                 letterSpacing: '0.16em', marginBottom: 18,
               }}>{it.eyebrow}</div>
               <h3 style={{
@@ -160,7 +160,7 @@ const AIAssistedSection = () => (
       backgroundSize: '32px 32px',
       pointerEvents: 'none',
     }}></div>
-    <div style={{ maxWidth: 1200, margin: '0 auto', position: 'relative', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
+    <div className="sg-split-grid" style={{ maxWidth: 1200, margin: '0 auto', position: 'relative', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
       <div>
         <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#14b8a6', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 18 }}>
           Security Operations
@@ -211,6 +211,10 @@ const AIAssistedSection = () => (
           <img
             src="Secugram_SOC_operations.png"
             alt="Secugram SOC operations lifecycle diagram"
+            width="1254"
+            height="1254"
+            loading="lazy"
+            decoding="async"
             style={{
               display: 'block',
               width: '100%',
