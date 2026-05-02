@@ -3,44 +3,6 @@
  * Edit the JSX source files in ui_kits/website, then rebuild this bundle.
  */
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-const FooterLogoMark = () => React.createElement("svg", {
-  width: "32",
-  height: "32",
-  viewBox: "0 0 100 100",
-  fill: "none",
-  xmlns: "http://www.w3.org/2000/svg"
-}, React.createElement("polygon", {
-  points: "50,4 93,27 93,73 50,96 7,73 7,27",
-  fill: "none",
-  stroke: "#fff",
-  strokeWidth: "6",
-  strokeLinejoin: "round"
-}), React.createElement("polygon", {
-  points: "50,17 82,35 82,65 50,83 18,65 18,35",
-  fill: "none",
-  stroke: "#fff",
-  strokeWidth: "4.5",
-  strokeLinejoin: "round"
-}), React.createElement("polygon", {
-  points: "50,30 71,42 71,58 50,70 29,58 29,42",
-  fill: "none",
-  stroke: "#fff",
-  strokeWidth: "3.5",
-  strokeLinejoin: "round"
-}), React.createElement("circle", {
-  cx: "50",
-  cy: "43",
-  r: "9",
-  fill: "none",
-  stroke: "#0b6f66",
-  strokeWidth: "3.5"
-}), React.createElement("path", {
-  d: "M44 51 L43 63 L57 63 L56 51",
-  fill: "none",
-  stroke: "#0b6f66",
-  strokeWidth: "3",
-  strokeLinejoin: "round"
-}));
 const FooterSection = ({
   onNav,
   rootPath = ''
@@ -66,22 +28,25 @@ const FooterSection = ({
   }
 }, React.createElement("div", null, React.createElement("a", {
   href: rootPath + 'index.html',
+  "aria-label": "Secugram home",
   style: {
-    display: 'flex',
+    display: 'inline-flex',
     alignItems: 'center',
-    gap: 10,
     marginBottom: 20,
     textDecoration: 'none'
   }
-}, React.createElement(FooterLogoMark, null), React.createElement("span", {
+}, React.createElement("img", {
+  src: rootPath + 'long_logo.png',
+  alt: "Secugram",
+  width: "300",
+  height: "83",
+  decoding: "async",
   style: {
-    fontFamily: "'Montserrat',sans-serif",
-    fontWeight: 700,
-    fontSize: 18,
-    letterSpacing: '0.12em',
-    color: '#fff'
+    width: 186,
+    height: 'auto',
+    display: 'block'
   }
-}, "SECUGRAM")), React.createElement("p", {
+})), React.createElement("p", {
   style: {
     fontFamily: "'Open Sans',sans-serif",
     fontSize: 14,
@@ -274,191 +239,86 @@ const SG_SERVICE_TOKENS = Object.freeze({
   softTextOnDark: 'rgba(255,255,255,0.72)',
   mutedTextOnDark: 'rgba(255,255,255,0.64)'
 });
+const SG_SERVICE_ICON_ROOT = '../assets/service-icons/';
+const SG_SERVICE_ICONS = Object.freeze({
+  activity: '151_log_monitoring.png',
+  alert: '041_warning.png',
+  arrow: null,
+  bug: '017_bug.png',
+  check: '021_shield_check.png',
+  clipboard: '053_checklist.png',
+  clock: '093_time.png',
+  cloud: '194_cloud_security.png',
+  cpu: '177_server_security.png',
+  database: '152_siem.png',
+  eye: '130_visibility.png',
+  globe: '198_threat_intelligence.png',
+  layers: '058_structure.png',
+  lock: '187_access_control.png',
+  map: '199_security_playbook.png',
+  network: '171_network_security.png',
+  patch: '154_patch.png',
+  repeat: '026_sync.png',
+  search: '036_threat_scan.png',
+  server: '177_server_security.png',
+  shield: '001_shield.png',
+  target: '037_target.png',
+  terminal: '067_cli.png',
+  users: '057_team.png',
+  zap: '196_incident_response.png',
+  zeroTrust: '200_zero_trust.png'
+});
+const SGServiceIcon = ({
+  name,
+  size = 24,
+  alt = '',
+  style = {}
+}) => {
+  const file = SG_SERVICE_ICONS[name];
+  if (!file) {
+    return React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        display: 'inline-flex',
+        width: size,
+        height: size,
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'currentColor',
+        fontSize: size,
+        lineHeight: 1,
+        ...style
+      }
+    }, "\u2192");
+  }
+  return React.createElement("img", {
+    src: SG_SERVICE_ICON_ROOT + file,
+    alt: alt,
+    width: size,
+    height: size,
+    loading: "lazy",
+    decoding: "async",
+    style: {
+      width: size,
+      height: size,
+      objectFit: 'contain',
+      display: 'block',
+      borderRadius: Math.max(4, Math.round(size * 0.18)),
+      ...style
+    }
+  });
+};
 const SAIconMap = ({
   name,
   color = SG_SERVICE_TOKENS.alertBlue,
   size = 24
-}) => {
-  const s = {
-    width: size,
-    height: size
-  };
-  const p = {
-    stroke: color,
-    strokeWidth: 1.8,
-    strokeLinecap: 'round',
-    strokeLinejoin: 'round',
-    fill: 'none'
-  };
-  const icons = {
-    shield: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("path", _extends({}, p, {
-      d: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-    }))),
-    search: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("circle", _extends({}, p, {
-      cx: "11",
-      cy: "11",
-      r: "8"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "21",
-      y1: "21",
-      x2: "16.65",
-      y2: "16.65"
-    }))),
-    map: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("polygon", _extends({}, p, {
-      points: "1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "8",
-      y1: "2",
-      x2: "8",
-      y2: "18"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "16",
-      y1: "6",
-      x2: "16",
-      y2: "22"
-    }))),
-    check: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("path", _extends({}, p, {
-      d: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-    })), React.createElement("polyline", _extends({}, p, {
-      points: "9 12 11 14 15 10"
-    }))),
-    users: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("path", _extends({}, p, {
-      d: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
-    })), React.createElement("circle", _extends({}, p, {
-      cx: "9",
-      cy: "7",
-      r: "4"
-    })), React.createElement("path", _extends({}, p, {
-      d: "M23 21v-2a4 4 0 0 0-3-3.87"
-    })), React.createElement("path", _extends({}, p, {
-      d: "M16 3.13a4 4 0 0 1 0 7.75"
-    }))),
-    layers: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("polygon", _extends({}, p, {
-      points: "12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5"
-    })), React.createElement("polyline", _extends({}, p, {
-      points: "2 8.5 12 15 22 8.5"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "12",
-      y1: "15",
-      x2: "12",
-      y2: "22"
-    }))),
-    target: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("circle", _extends({}, p, {
-      cx: "12",
-      cy: "12",
-      r: "10"
-    })), React.createElement("circle", _extends({}, p, {
-      cx: "12",
-      cy: "12",
-      r: "6"
-    })), React.createElement("circle", _extends({}, p, {
-      cx: "12",
-      cy: "12",
-      r: "2"
-    }))),
-    clipboard: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("path", _extends({}, p, {
-      d: "M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
-    })), React.createElement("rect", _extends({}, p, {
-      x: "8",
-      y: "2",
-      width: "8",
-      height: "4",
-      rx: "1"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "9",
-      y1: "12",
-      x2: "15",
-      y2: "12"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "9",
-      y1: "16",
-      x2: "12",
-      y2: "16"
-    }))),
-    zeroTrust: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("rect", _extends({}, p, {
-      x: "3",
-      y: "11",
-      width: "18",
-      height: "11",
-      rx: "2"
-    })), React.createElement("path", _extends({}, p, {
-      d: "M7 11V7a5 5 0 0 1 10 0v4"
-    })), React.createElement("circle", {
-      cx: "12",
-      cy: "16",
-      r: "1.5",
-      fill: color
-    })),
-    chart: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("line", _extends({}, p, {
-      x1: "18",
-      y1: "20",
-      x2: "18",
-      y2: "10"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "12",
-      y1: "20",
-      x2: "12",
-      y2: "4"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "6",
-      y1: "20",
-      x2: "6",
-      y2: "14"
-    }))),
-    arrow: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("line", _extends({}, p, {
-      x1: "5",
-      y1: "12",
-      x2: "19",
-      y2: "12"
-    })), React.createElement("polyline", _extends({}, p, {
-      points: "13 6 19 12 13 18"
-    }))),
-    brief: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("rect", _extends({}, p, {
-      x: "2",
-      y: "7",
-      width: "20",
-      height: "14",
-      rx: "2"
-    })), React.createElement("path", _extends({}, p, {
-      d: "M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "12",
-      y1: "12",
-      x2: "12",
-      y2: "16"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "10",
-      y1: "14",
-      x2: "14",
-      y2: "14"
-    })))
-  };
-  return icons[name] || null;
-};
+}) => React.createElement(SGServiceIcon, {
+  name: name,
+  size: size,
+  style: {
+    color
+  }
+});
 const SACheckBullet = ({
   text,
   accent = SG_SERVICE_TOKENS.alertBlue
@@ -481,18 +341,10 @@ const SACheckBullet = ({
     flexShrink: 0,
     marginTop: 1
   }
-}, React.createElement("svg", {
-  width: "10",
-  height: "10",
-  viewBox: "0 0 24 24",
-  fill: "none"
-}, React.createElement("polyline", {
-  points: "20 6 9 17 4 12",
-  stroke: accent,
-  strokeWidth: "3",
-  strokeLinecap: "round",
-  strokeLinejoin: "round"
-}))), React.createElement("span", {
+}, React.createElement(SGServiceIcon, {
+  name: "check",
+  size: 14
+})), React.createElement("span", {
   style: {
     fontFamily: "'Open Sans',sans-serif",
     fontSize: 14.5,
@@ -950,7 +802,6 @@ const SACapabilityCard = ({
   icon,
   title,
   body,
-  tags,
   accent
 }) => {
   const [hov, setHov] = React.useState(false);
@@ -971,10 +822,10 @@ const SACapabilityCard = ({
     }
   }, React.createElement("div", {
     style: {
-      width: 48,
-      height: 48,
-      borderRadius: 11,
-      background: hov ? accent : SG_SERVICE_TOKENS.architectureSurface,
+      width: 52,
+      height: 52,
+      borderRadius: 12,
+      background: SG_SERVICE_TOKENS.surface,
       border: `1.5px solid ${hov ? accent : '#bfdbfe'}`,
       display: 'flex',
       alignItems: 'center',
@@ -1003,27 +854,7 @@ const SACapabilityCard = ({
       lineHeight: 1.65,
       margin: 0
     }
-  }, body)), React.createElement("div", {
-    style: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      gap: 6,
-      marginTop: 4
-    }
-  }, tags.map(tag => React.createElement("span", {
-    key: tag,
-    style: {
-      fontFamily: "'Montserrat',sans-serif",
-      fontWeight: 600,
-      fontSize: 10,
-      color: accent,
-      background: SG_SERVICE_TOKENS.architectureSurface,
-      border: '1px solid #bfdbfe',
-      borderRadius: 9999,
-      padding: '3px 10px',
-      letterSpacing: '0.04em'
-    }
-  }, tag))));
+  }, body)));
 };
 const SAEngagementTypes = () => {
   const [active, setActive] = React.useState(0);
@@ -1775,18 +1606,10 @@ const SAContactSection = () => {
       justifyContent: 'center',
       margin: '0 auto 20px'
     }
-  }, React.createElement("svg", {
-    width: "28",
-    height: "28",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: SG_SERVICE_TOKENS.alertBlue,
-    strokeWidth: "2.5",
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }, React.createElement("polyline", {
-    points: "20 6 9 17 4 12"
-  }))), React.createElement("div", {
+  }, React.createElement(SGServiceIcon, {
+    name: "check",
+    size: 34
+  })), React.createElement("div", {
     style: {
       fontFamily: "'Montserrat',sans-serif",
       fontWeight: 700,

@@ -1,32 +1,14 @@
 // SecureInfrastructure.jsx — Secure Infrastructure Platform service page components
 
 // ── Shared atoms ─────────────────────────────────────────────
-const SIPIconMap = ({ name, color = SG_SERVICE_TOKENS.securityTeal, size = 24 }) => {
-  const s = { width: size, height: size };
-  const p = { stroke: color, strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round', fill: 'none' };
-  const icons = {
-    server:    <svg {...s} viewBox="0 0 24 24"><rect {...p} x="2" y="2" width="20" height="8" rx="2"/><rect {...p} x="2" y="14" width="20" height="8" rx="2"/><line {...p} x1="6" y1="6" x2="6.01" y2="6"/><line {...p} x1="6" y1="18" x2="6.01" y2="18"/><line {...p} x1="10" y1="6" x2="18" y2="6"/><line {...p} x1="10" y1="18" x2="18" y2="18"/></svg>,
-    cloud:     <svg {...s} viewBox="0 0 24 24"><path {...p} d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>,
-    shield:    <svg {...s} viewBox="0 0 24 24"><path {...p} d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
-    lock:      <svg {...s} viewBox="0 0 24 24"><rect {...p} x="3" y="11" width="18" height="11" rx="2"/><path {...p} d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>,
-    network:   <svg {...s} viewBox="0 0 24 24"><rect {...p} x="2" y="2" width="6" height="6" rx="1"/><rect {...p} x="16" y="2" width="6" height="6" rx="1"/><rect {...p} x="9" y="16" width="6" height="6" rx="1"/><path {...p} d="M5 8v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8"/><line {...p} x1="12" y1="13" x2="12" y2="16"/></svg>,
-    patch:     <svg {...s} viewBox="0 0 24 24"><path {...p} d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline {...p} points="9 12 11 14 15 10"/></svg>,
-    eye:       <svg {...s} viewBox="0 0 24 24"><path {...p} d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle {...p} cx="12" cy="12" r="3"/></svg>,
-    zap:       <svg {...s} viewBox="0 0 24 24"><polygon {...p} points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
-    check:     <svg {...s} viewBox="0 0 24 24"><polyline {...p} points="20 6 9 17 4 12"/></svg>,
-    layers:    <svg {...s} viewBox="0 0 24 24"><polygon {...p} points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5"/><polyline {...p} points="2 8.5 12 15 22 8.5"/><line {...p} x1="12" y1="15" x2="12" y2="22"/></svg>,
-    cpu:       <svg {...s} viewBox="0 0 24 24"><rect {...p} x="4" y="4" width="16" height="16" rx="2"/><rect {...p} x="9" y="9" width="6" height="6"/><line {...p} x1="9" y1="1" x2="9" y2="4"/><line {...p} x1="15" y1="1" x2="15" y2="4"/><line {...p} x1="9" y1="20" x2="9" y2="23"/><line {...p} x1="15" y1="20" x2="15" y2="23"/><line {...p} x1="20" y1="9" x2="23" y2="9"/><line {...p} x1="20" y1="14" x2="23" y2="14"/><line {...p} x1="1" y1="9" x2="4" y2="9"/><line {...p} x1="1" y1="14" x2="4" y2="14"/></svg>,
-    arrow:     <svg {...s} viewBox="0 0 24 24"><line {...p} x1="5" y1="12" x2="19" y2="12"/><polyline {...p} points="13 6 19 12 13 18"/></svg>,
-    globe:     <svg {...s} viewBox="0 0 24 24"><circle {...p} cx="12" cy="12" r="10"/><line {...p} x1="2" y1="12" x2="22" y2="12"/><path {...p} d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
-    activity:  <svg {...s} viewBox="0 0 24 24"><polyline {...p} points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>,
-  };
-  return icons[name] || null;
-};
+const SIPIconMap = ({ name, color = SG_SERVICE_TOKENS.securityTeal, size = 24 }) => (
+  <SGServiceIcon name={name} size={size} style={{ color }} />
+);
 
 const SIPCheckBullet = ({ text, accent = SG_SERVICE_TOKENS.securityTeal }) => (
   <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
     <div style={{ width: 20, height: 20, borderRadius: '50%', background: `${accent}18`, border: `1.5px solid ${accent}44`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}>
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke={accent} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      <SGServiceIcon name="check" size={14} />
     </div>
     <span style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 14.5, color: SG_SERVICE_TOKENS.bodySlate, lineHeight: 1.55 }}>{text}</span>
   </div>
@@ -214,7 +196,7 @@ const SIPCapabilities = () => {
   );
 };
 
-const SIPCapabilityCard = ({ icon, title, body, tags }) => {
+const SIPCapabilityCard = ({ icon, title, body }) => {
   const [hov, setHov] = React.useState(false);
   return (
     <div
@@ -231,17 +213,12 @@ const SIPCapabilityCard = ({ icon, title, body, tags }) => {
         display: 'flex', flexDirection: 'column', gap: 14,
       }}
     >
-      <div style={{ width: 48, height: 48, borderRadius: 11, background: hov ? SG_SERVICE_TOKENS.securityTeal : SG_SERVICE_TOKENS.mintSurface, border: `1.5px solid ${hov ? SG_SERVICE_TOKENS.securityTeal : '#ccfbf1'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 240ms ease, border-color 240ms ease', flexShrink: 0 }}>
+      <div style={{ width: 52, height: 52, borderRadius: 12, background: SG_SERVICE_TOKENS.surface, border: `1.5px solid ${hov ? SG_SERVICE_TOKENS.securityTeal : '#ccfbf1'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 240ms ease, border-color 240ms ease', flexShrink: 0 }}>
         <SIPIconMap name={icon} color={hov ? SG_SERVICE_TOKENS.textOnDark : SG_SERVICE_TOKENS.securityTeal} size={20} />
       </div>
       <div>
         <h3 style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 16, color: SG_SERVICE_TOKENS.headingNavy, margin: '0 0 8px', lineHeight: 1.3 }}>{title}</h3>
         <p style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: SG_SERVICE_TOKENS.mutedSlate, lineHeight: 1.65, margin: 0 }}>{body}</p>
-      </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 4 }}>
-        {tags.map(tag => (
-          <span key={tag} style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 10, color: SG_SERVICE_TOKENS.securityTeal, background: SG_SERVICE_TOKENS.mintSurface, border: '1px solid #a7f3d0', borderRadius: 9999, padding: '3px 10px', letterSpacing: '0.04em' }}>{tag}</span>
-        ))}
       </div>
     </div>
   );
@@ -705,7 +682,7 @@ const SIPContactSection = () => {
         {sent ? (
           <div style={{ textAlign: 'center', padding: '48px 0' }}>
             <div style={{ width: 64, height: 64, borderRadius: '50%', background: SG_SERVICE_TOKENS.mintSurface, border: `2px solid ${SG_SERVICE_TOKENS.securityTeal}`, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={SG_SERVICE_TOKENS.securityTeal} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <SGServiceIcon name="check" size={34} />
             </div>
             <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 22, color: SG_SERVICE_TOKENS.headingNavy, marginBottom: 10 }}>Message Sent!</div>
             <div style={{ fontFamily: "'Open Sans',sans-serif", color: SG_SERVICE_TOKENS.mutedSlate }}>We'll be in touch within one business day.</div>

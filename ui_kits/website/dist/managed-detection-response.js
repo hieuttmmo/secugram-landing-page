@@ -3,44 +3,6 @@
  * Edit the JSX source files in ui_kits/website, then rebuild this bundle.
  */
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-const FooterLogoMark = () => React.createElement("svg", {
-  width: "32",
-  height: "32",
-  viewBox: "0 0 100 100",
-  fill: "none",
-  xmlns: "http://www.w3.org/2000/svg"
-}, React.createElement("polygon", {
-  points: "50,4 93,27 93,73 50,96 7,73 7,27",
-  fill: "none",
-  stroke: "#fff",
-  strokeWidth: "6",
-  strokeLinejoin: "round"
-}), React.createElement("polygon", {
-  points: "50,17 82,35 82,65 50,83 18,65 18,35",
-  fill: "none",
-  stroke: "#fff",
-  strokeWidth: "4.5",
-  strokeLinejoin: "round"
-}), React.createElement("polygon", {
-  points: "50,30 71,42 71,58 50,70 29,58 29,42",
-  fill: "none",
-  stroke: "#fff",
-  strokeWidth: "3.5",
-  strokeLinejoin: "round"
-}), React.createElement("circle", {
-  cx: "50",
-  cy: "43",
-  r: "9",
-  fill: "none",
-  stroke: "#0b6f66",
-  strokeWidth: "3.5"
-}), React.createElement("path", {
-  d: "M44 51 L43 63 L57 63 L56 51",
-  fill: "none",
-  stroke: "#0b6f66",
-  strokeWidth: "3",
-  strokeLinejoin: "round"
-}));
 const FooterSection = ({
   onNav,
   rootPath = ''
@@ -66,22 +28,25 @@ const FooterSection = ({
   }
 }, React.createElement("div", null, React.createElement("a", {
   href: rootPath + 'index.html',
+  "aria-label": "Secugram home",
   style: {
-    display: 'flex',
+    display: 'inline-flex',
     alignItems: 'center',
-    gap: 10,
     marginBottom: 20,
     textDecoration: 'none'
   }
-}, React.createElement(FooterLogoMark, null), React.createElement("span", {
+}, React.createElement("img", {
+  src: rootPath + 'long_logo.png',
+  alt: "Secugram",
+  width: "300",
+  height: "83",
+  decoding: "async",
   style: {
-    fontFamily: "'Montserrat',sans-serif",
-    fontWeight: 700,
-    fontSize: 18,
-    letterSpacing: '0.12em',
-    color: '#fff'
+    width: 186,
+    height: 'auto',
+    display: 'block'
   }
-}, "SECUGRAM")), React.createElement("p", {
+})), React.createElement("p", {
   style: {
     fontFamily: "'Open Sans',sans-serif",
     fontSize: 14,
@@ -274,210 +239,86 @@ const SG_SERVICE_TOKENS = Object.freeze({
   softTextOnDark: 'rgba(255,255,255,0.72)',
   mutedTextOnDark: 'rgba(255,255,255,0.64)'
 });
+const SG_SERVICE_ICON_ROOT = '../assets/service-icons/';
+const SG_SERVICE_ICONS = Object.freeze({
+  activity: '151_log_monitoring.png',
+  alert: '041_warning.png',
+  arrow: null,
+  bug: '017_bug.png',
+  check: '021_shield_check.png',
+  clipboard: '053_checklist.png',
+  clock: '093_time.png',
+  cloud: '194_cloud_security.png',
+  cpu: '177_server_security.png',
+  database: '152_siem.png',
+  eye: '130_visibility.png',
+  globe: '198_threat_intelligence.png',
+  layers: '058_structure.png',
+  lock: '187_access_control.png',
+  map: '199_security_playbook.png',
+  network: '171_network_security.png',
+  patch: '154_patch.png',
+  repeat: '026_sync.png',
+  search: '036_threat_scan.png',
+  server: '177_server_security.png',
+  shield: '001_shield.png',
+  target: '037_target.png',
+  terminal: '067_cli.png',
+  users: '057_team.png',
+  zap: '196_incident_response.png',
+  zeroTrust: '200_zero_trust.png'
+});
+const SGServiceIcon = ({
+  name,
+  size = 24,
+  alt = '',
+  style = {}
+}) => {
+  const file = SG_SERVICE_ICONS[name];
+  if (!file) {
+    return React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        display: 'inline-flex',
+        width: size,
+        height: size,
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'currentColor',
+        fontSize: size,
+        lineHeight: 1,
+        ...style
+      }
+    }, "\u2192");
+  }
+  return React.createElement("img", {
+    src: SG_SERVICE_ICON_ROOT + file,
+    alt: alt,
+    width: size,
+    height: size,
+    loading: "lazy",
+    decoding: "async",
+    style: {
+      width: size,
+      height: size,
+      objectFit: 'contain',
+      display: 'block',
+      borderRadius: Math.max(4, Math.round(size * 0.18)),
+      ...style
+    }
+  });
+};
 const MDRIconMap = ({
   name,
   color = SG_SERVICE_TOKENS.securityTeal,
   size = 24
-}) => {
-  const s = {
-    width: size,
-    height: size
-  };
-  const p = {
-    stroke: color,
-    strokeWidth: 1.8,
-    strokeLinecap: 'round',
-    strokeLinejoin: 'round',
-    fill: 'none'
-  };
-  const icons = {
-    activity: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("polyline", _extends({}, p, {
-      points: "22 12 18 12 15 21 9 3 6 12 2 12"
-    }))),
-    eye: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("path", _extends({}, p, {
-      d: "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
-    })), React.createElement("circle", _extends({}, p, {
-      cx: "12",
-      cy: "12",
-      r: "3"
-    }))),
-    alert: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("path", _extends({}, p, {
-      d: "M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "12",
-      y1: "9",
-      x2: "12",
-      y2: "13"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "12",
-      y1: "17",
-      x2: "12.01",
-      y2: "17"
-    }))),
-    search: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("circle", _extends({}, p, {
-      cx: "11",
-      cy: "11",
-      r: "8"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "21",
-      y1: "21",
-      x2: "16.65",
-      y2: "16.65"
-    }))),
-    shield: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("path", _extends({}, p, {
-      d: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-    }))),
-    clock: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("circle", _extends({}, p, {
-      cx: "12",
-      cy: "12",
-      r: "10"
-    })), React.createElement("polyline", _extends({}, p, {
-      points: "12 6 12 12 16 14"
-    }))),
-    cpu: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("rect", _extends({}, p, {
-      x: "4",
-      y: "4",
-      width: "16",
-      height: "16",
-      rx: "2"
-    })), React.createElement("rect", _extends({}, p, {
-      x: "9",
-      y: "9",
-      width: "6",
-      height: "6"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "9",
-      y1: "1",
-      x2: "9",
-      y2: "4"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "15",
-      y1: "1",
-      x2: "15",
-      y2: "4"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "9",
-      y1: "20",
-      x2: "9",
-      y2: "23"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "15",
-      y1: "20",
-      x2: "15",
-      y2: "23"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "20",
-      y1: "9",
-      x2: "23",
-      y2: "9"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "20",
-      y1: "14",
-      x2: "23",
-      y2: "14"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "1",
-      y1: "9",
-      x2: "4",
-      y2: "9"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "1",
-      y1: "14",
-      x2: "4",
-      y2: "14"
-    }))),
-    zap: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("polygon", _extends({}, p, {
-      points: "13 2 3 14 12 14 11 22 21 10 12 10 13 2"
-    }))),
-    bug: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("path", _extends({}, p, {
-      d: "M8 2l1.5 1.5"
-    })), React.createElement("path", _extends({}, p, {
-      d: "M14.5 3.5L16 2"
-    })), React.createElement("path", _extends({}, p, {
-      d: "M9 9c0-1.1.9-2 2-2h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z"
-    })), React.createElement("path", _extends({}, p, {
-      d: "M3 11h4M17 11h4M3 16h4M17 16h4"
-    })), React.createElement("path", _extends({}, p, {
-      d: "M9 7.5A3.5 3.5 0 0 1 12 5a3.5 3.5 0 0 1 3 2.5"
-    }))),
-    terminal: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("polyline", _extends({}, p, {
-      points: "4 17 10 11 4 5"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "12",
-      y1: "19",
-      x2: "20",
-      y2: "19"
-    }))),
-    database: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("ellipse", _extends({}, p, {
-      cx: "12",
-      cy: "5",
-      rx: "9",
-      ry: "3"
-    })), React.createElement("path", _extends({}, p, {
-      d: "M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"
-    })), React.createElement("path", _extends({}, p, {
-      d: "M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"
-    }))),
-    arrow: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("line", _extends({}, p, {
-      x1: "5",
-      y1: "12",
-      x2: "19",
-      y2: "12"
-    })), React.createElement("polyline", _extends({}, p, {
-      points: "13 6 19 12 13 18"
-    }))),
-    globe: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("circle", _extends({}, p, {
-      cx: "12",
-      cy: "12",
-      r: "10"
-    })), React.createElement("line", _extends({}, p, {
-      x1: "2",
-      y1: "12",
-      x2: "22",
-      y2: "12"
-    })), React.createElement("path", _extends({}, p, {
-      d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-    }))),
-    repeat: React.createElement("svg", _extends({}, s, {
-      viewBox: "0 0 24 24"
-    }), React.createElement("polyline", _extends({}, p, {
-      points: "17 1 21 5 17 9"
-    })), React.createElement("path", _extends({}, p, {
-      d: "M3 11V9a4 4 0 0 1 4-4h14"
-    })), React.createElement("polyline", _extends({}, p, {
-      points: "7 23 3 19 7 15"
-    })), React.createElement("path", _extends({}, p, {
-      d: "M21 13v2a4 4 0 0 1-4 4H3"
-    })))
-  };
-  return icons[name] || null;
-};
+}) => React.createElement(SGServiceIcon, {
+  name: name,
+  size: size,
+  style: {
+    color
+  }
+});
 const MDRCheckBullet = ({
   text,
   accent = SG_SERVICE_TOKENS.securityTeal
@@ -500,18 +341,10 @@ const MDRCheckBullet = ({
     flexShrink: 0,
     marginTop: 1
   }
-}, React.createElement("svg", {
-  width: "10",
-  height: "10",
-  viewBox: "0 0 24 24",
-  fill: "none"
-}, React.createElement("polyline", {
-  points: "20 6 9 17 4 12",
-  stroke: accent,
-  strokeWidth: "3",
-  strokeLinecap: "round",
-  strokeLinejoin: "round"
-}))), React.createElement("span", {
+}, React.createElement(SGServiceIcon, {
+  name: "check",
+  size: 14
+})), React.createElement("span", {
   style: {
     fontFamily: "'Open Sans',sans-serif",
     fontSize: 14.5,
@@ -1026,7 +859,6 @@ const MDRCapabilityCard = ({
   icon,
   title,
   body,
-  tags,
   accent
 }) => {
   const [hov, setHov] = React.useState(false);
@@ -1047,10 +879,10 @@ const MDRCapabilityCard = ({
     }
   }, React.createElement("div", {
     style: {
-      width: 48,
-      height: 48,
-      borderRadius: 11,
-      background: hov ? accent : SG_SERVICE_TOKENS.mintSurface,
+      width: 52,
+      height: 52,
+      borderRadius: 12,
+      background: SG_SERVICE_TOKENS.surface,
       border: `1.5px solid ${hov ? accent : '#ccfbf1'}`,
       display: 'flex',
       alignItems: 'center',
@@ -1079,27 +911,7 @@ const MDRCapabilityCard = ({
       lineHeight: 1.65,
       margin: 0
     }
-  }, body)), React.createElement("div", {
-    style: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      gap: 6,
-      marginTop: 4
-    }
-  }, tags.map(tag => React.createElement("span", {
-    key: tag,
-    style: {
-      fontFamily: "'Montserrat',sans-serif",
-      fontWeight: 600,
-      fontSize: 10,
-      color: accent,
-      background: SG_SERVICE_TOKENS.mintSurface,
-      border: '1px solid #a7f3d0',
-      borderRadius: 9999,
-      padding: '3px 10px',
-      letterSpacing: '0.04em'
-    }
-  }, tag))));
+  }, body)));
 };
 const MDRSOCLifecycle = () => {
   const [active, setActive] = React.useState(0);
@@ -2145,18 +1957,10 @@ const MDRContactSection = () => {
       justifyContent: 'center',
       margin: '0 auto 20px'
     }
-  }, React.createElement("svg", {
-    width: "28",
-    height: "28",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: SG_SERVICE_TOKENS.securityTeal,
-    strokeWidth: "2.5",
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }, React.createElement("polyline", {
-    points: "20 6 9 17 4 12"
-  }))), React.createElement("div", {
+  }, React.createElement(SGServiceIcon, {
+    name: "check",
+    size: 34
+  })), React.createElement("div", {
     style: {
       fontFamily: "'Montserrat',sans-serif",
       fontWeight: 700,

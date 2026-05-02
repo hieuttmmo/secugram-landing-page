@@ -1,32 +1,14 @@
 // ManagedDetectionResponse.jsx — Managed Detection & Response service page
 
 // ── Shared atoms ─────────────────────────────────────────────
-const MDRIconMap = ({ name, color = SG_SERVICE_TOKENS.securityTeal, size = 24 }) => {
-  const s = { width: size, height: size };
-  const p = { stroke: color, strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round', fill: 'none' };
-  const icons = {
-    activity:  <svg {...s} viewBox="0 0 24 24"><polyline {...p} points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>,
-    eye:       <svg {...s} viewBox="0 0 24 24"><path {...p} d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle {...p} cx="12" cy="12" r="3"/></svg>,
-    alert:     <svg {...s} viewBox="0 0 24 24"><path {...p} d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line {...p} x1="12" y1="9" x2="12" y2="13"/><line {...p} x1="12" y1="17" x2="12.01" y2="17"/></svg>,
-    search:    <svg {...s} viewBox="0 0 24 24"><circle {...p} cx="11" cy="11" r="8"/><line {...p} x1="21" y1="21" x2="16.65" y2="16.65"/></svg>,
-    shield:    <svg {...s} viewBox="0 0 24 24"><path {...p} d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
-    clock:     <svg {...s} viewBox="0 0 24 24"><circle {...p} cx="12" cy="12" r="10"/><polyline {...p} points="12 6 12 12 16 14"/></svg>,
-    cpu:       <svg {...s} viewBox="0 0 24 24"><rect {...p} x="4" y="4" width="16" height="16" rx="2"/><rect {...p} x="9" y="9" width="6" height="6"/><line {...p} x1="9" y1="1" x2="9" y2="4"/><line {...p} x1="15" y1="1" x2="15" y2="4"/><line {...p} x1="9" y1="20" x2="9" y2="23"/><line {...p} x1="15" y1="20" x2="15" y2="23"/><line {...p} x1="20" y1="9" x2="23" y2="9"/><line {...p} x1="20" y1="14" x2="23" y2="14"/><line {...p} x1="1" y1="9" x2="4" y2="9"/><line {...p} x1="1" y1="14" x2="4" y2="14"/></svg>,
-    zap:       <svg {...s} viewBox="0 0 24 24"><polygon {...p} points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
-    bug:       <svg {...s} viewBox="0 0 24 24"><path {...p} d="M8 2l1.5 1.5"/><path {...p} d="M14.5 3.5L16 2"/><path {...p} d="M9 9c0-1.1.9-2 2-2h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z"/><path {...p} d="M3 11h4M17 11h4M3 16h4M17 16h4"/><path {...p} d="M9 7.5A3.5 3.5 0 0 1 12 5a3.5 3.5 0 0 1 3 2.5"/></svg>,
-    terminal:  <svg {...s} viewBox="0 0 24 24"><polyline {...p} points="4 17 10 11 4 5"/><line {...p} x1="12" y1="19" x2="20" y2="19"/></svg>,
-    database:  <svg {...s} viewBox="0 0 24 24"><ellipse {...p} cx="12" cy="5" rx="9" ry="3"/><path {...p} d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path {...p} d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>,
-    arrow:     <svg {...s} viewBox="0 0 24 24"><line {...p} x1="5" y1="12" x2="19" y2="12"/><polyline {...p} points="13 6 19 12 13 18"/></svg>,
-    globe:     <svg {...s} viewBox="0 0 24 24"><circle {...p} cx="12" cy="12" r="10"/><line {...p} x1="2" y1="12" x2="22" y2="12"/><path {...p} d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
-    repeat:    <svg {...s} viewBox="0 0 24 24"><polyline {...p} points="17 1 21 5 17 9"/><path {...p} d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline {...p} points="7 23 3 19 7 15"/><path {...p} d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>,
-  };
-  return icons[name] || null;
-};
+const MDRIconMap = ({ name, color = SG_SERVICE_TOKENS.securityTeal, size = 24 }) => (
+  <SGServiceIcon name={name} size={size} style={{ color }} />
+);
 
 const MDRCheckBullet = ({ text, accent = SG_SERVICE_TOKENS.securityTeal }) => (
   <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
     <div style={{ width: 20, height: 20, borderRadius: '50%', background: `${accent}18`, border: `1.5px solid ${accent}44`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}>
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke={accent} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      <SGServiceIcon name="check" size={14} />
     </div>
     <span style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 14.5, color: SG_SERVICE_TOKENS.bodySlate, lineHeight: 1.55 }}>{text}</span>
   </div>
@@ -220,7 +202,7 @@ const MDRCapabilities = () => {
   );
 };
 
-const MDRCapabilityCard = ({ icon, title, body, tags, accent }) => {
+const MDRCapabilityCard = ({ icon, title, body, accent }) => {
   const [hov, setHov] = React.useState(false);
   return (
     <div
@@ -234,17 +216,12 @@ const MDRCapabilityCard = ({ icon, title, body, tags, accent }) => {
         transition: 'transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease', display: 'flex', flexDirection: 'column', gap: 14,
       }}
     >
-      <div style={{ width: 48, height: 48, borderRadius: 11, background: hov ? accent : SG_SERVICE_TOKENS.mintSurface, border: `1.5px solid ${hov ? accent : '#ccfbf1'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 240ms ease, border-color 240ms ease', flexShrink: 0 }}>
+      <div style={{ width: 52, height: 52, borderRadius: 12, background: SG_SERVICE_TOKENS.surface, border: `1.5px solid ${hov ? accent : '#ccfbf1'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 240ms ease, border-color 240ms ease', flexShrink: 0 }}>
         <MDRIconMap name={icon} color={hov ? SG_SERVICE_TOKENS.textOnDark : accent} size={20} />
       </div>
       <div>
         <h3 style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 16, color: SG_SERVICE_TOKENS.headingNavy, margin: '0 0 8px', lineHeight: 1.3 }}>{title}</h3>
         <p style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: SG_SERVICE_TOKENS.mutedSlate, lineHeight: 1.65, margin: 0 }}>{body}</p>
-      </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 4 }}>
-        {tags.map(tag => (
-          <span key={tag} style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 10, color: accent, background: SG_SERVICE_TOKENS.mintSurface, border: '1px solid #a7f3d0', borderRadius: 9999, padding: '3px 10px', letterSpacing: '0.04em' }}>{tag}</span>
-        ))}
       </div>
     </div>
   );
@@ -646,7 +623,7 @@ const MDRContactSection = () => {
         {sent ? (
           <div style={{ textAlign: 'center', padding: '48px 0' }}>
             <div style={{ width: 64, height: 64, borderRadius: '50%', background: SG_SERVICE_TOKENS.mintSurface, border: `2px solid ${SG_SERVICE_TOKENS.securityTeal}`, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={SG_SERVICE_TOKENS.securityTeal} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <SGServiceIcon name="check" size={34} />
             </div>
             <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 22, color: SG_SERVICE_TOKENS.headingNavy, marginBottom: 10 }}>Message Sent!</div>
             <div style={{ fontFamily: "'Open Sans',sans-serif", color: SG_SERVICE_TOKENS.mutedSlate }}>We'll be in touch within one business day.</div>

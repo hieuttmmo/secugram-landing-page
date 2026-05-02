@@ -1,30 +1,14 @@
 // SecurityArchitecture.jsx — Security Architecture & Consulting service page
 
 // ── Shared atoms ─────────────────────────────────────────────
-const SAIconMap = ({ name, color = SG_SERVICE_TOKENS.alertBlue, size = 24 }) => {
-  const s = { width: size, height: size };
-  const p = { stroke: color, strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round', fill: 'none' };
-  const icons = {
-    shield:    <svg {...s} viewBox="0 0 24 24"><path {...p} d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
-    search:    <svg {...s} viewBox="0 0 24 24"><circle {...p} cx="11" cy="11" r="8"/><line {...p} x1="21" y1="21" x2="16.65" y2="16.65"/></svg>,
-    map:       <svg {...s} viewBox="0 0 24 24"><polygon {...p} points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line {...p} x1="8" y1="2" x2="8" y2="18"/><line {...p} x1="16" y1="6" x2="16" y2="22"/></svg>,
-    check:     <svg {...s} viewBox="0 0 24 24"><path {...p} d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline {...p} points="9 12 11 14 15 10"/></svg>,
-    users:     <svg {...s} viewBox="0 0 24 24"><path {...p} d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle {...p} cx="9" cy="7" r="4"/><path {...p} d="M23 21v-2a4 4 0 0 0-3-3.87"/><path {...p} d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
-    layers:    <svg {...s} viewBox="0 0 24 24"><polygon {...p} points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5"/><polyline {...p} points="2 8.5 12 15 22 8.5"/><line {...p} x1="12" y1="15" x2="12" y2="22"/></svg>,
-    target:    <svg {...s} viewBox="0 0 24 24"><circle {...p} cx="12" cy="12" r="10"/><circle {...p} cx="12" cy="12" r="6"/><circle {...p} cx="12" cy="12" r="2"/></svg>,
-    clipboard: <svg {...s} viewBox="0 0 24 24"><path {...p} d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect {...p} x="8" y="2" width="8" height="4" rx="1"/><line {...p} x1="9" y1="12" x2="15" y2="12"/><line {...p} x1="9" y1="16" x2="12" y2="16"/></svg>,
-    zeroTrust: <svg {...s} viewBox="0 0 24 24"><rect {...p} x="3" y="11" width="18" height="11" rx="2"/><path {...p} d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.5" fill={color}/></svg>,
-    chart:     <svg {...s} viewBox="0 0 24 24"><line {...p} x1="18" y1="20" x2="18" y2="10"/><line {...p} x1="12" y1="20" x2="12" y2="4"/><line {...p} x1="6" y1="20" x2="6" y2="14"/></svg>,
-    arrow:     <svg {...s} viewBox="0 0 24 24"><line {...p} x1="5" y1="12" x2="19" y2="12"/><polyline {...p} points="13 6 19 12 13 18"/></svg>,
-    brief:     <svg {...s} viewBox="0 0 24 24"><rect {...p} x="2" y="7" width="20" height="14" rx="2"/><path {...p} d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line {...p} x1="12" y1="12" x2="12" y2="16"/><line {...p} x1="10" y1="14" x2="14" y2="14"/></svg>,
-  };
-  return icons[name] || null;
-};
+const SAIconMap = ({ name, color = SG_SERVICE_TOKENS.alertBlue, size = 24 }) => (
+  <SGServiceIcon name={name} size={size} style={{ color }} />
+);
 
 const SACheckBullet = ({ text, accent = SG_SERVICE_TOKENS.alertBlue }) => (
   <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
     <div style={{ width: 20, height: 20, borderRadius: '50%', background: `${accent}18`, border: `1.5px solid ${accent}44`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}>
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke={accent} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      <SGServiceIcon name="check" size={14} />
     </div>
     <span style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 14.5, color: SG_SERVICE_TOKENS.bodySlate, lineHeight: 1.55 }}>{text}</span>
   </div>
@@ -203,7 +187,7 @@ const SACapabilities = () => {
   );
 };
 
-const SACapabilityCard = ({ icon, title, body, tags, accent }) => {
+const SACapabilityCard = ({ icon, title, body, accent }) => {
   const [hov, setHov] = React.useState(false);
   return (
     <div
@@ -217,17 +201,12 @@ const SACapabilityCard = ({ icon, title, body, tags, accent }) => {
         transition: 'transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease', display: 'flex', flexDirection: 'column', gap: 14,
       }}
     >
-      <div style={{ width: 48, height: 48, borderRadius: 11, background: hov ? accent : SG_SERVICE_TOKENS.architectureSurface, border: `1.5px solid ${hov ? accent : '#bfdbfe'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 240ms ease, border-color 240ms ease', flexShrink: 0 }}>
+      <div style={{ width: 52, height: 52, borderRadius: 12, background: SG_SERVICE_TOKENS.surface, border: `1.5px solid ${hov ? accent : '#bfdbfe'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 240ms ease, border-color 240ms ease', flexShrink: 0 }}>
         <SAIconMap name={icon} color={hov ? SG_SERVICE_TOKENS.textOnDark : accent} size={20} />
       </div>
       <div>
         <h3 style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 16, color: SG_SERVICE_TOKENS.headingNavy, margin: '0 0 8px', lineHeight: 1.3 }}>{title}</h3>
         <p style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: SG_SERVICE_TOKENS.mutedSlate, lineHeight: 1.65, margin: 0 }}>{body}</p>
-      </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 4 }}>
-        {tags.map(tag => (
-          <span key={tag} style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 10, color: accent, background: SG_SERVICE_TOKENS.architectureSurface, border: '1px solid #bfdbfe', borderRadius: 9999, padding: '3px 10px', letterSpacing: '0.04em' }}>{tag}</span>
-        ))}
       </div>
     </div>
   );
@@ -528,7 +507,7 @@ const SAContactSection = () => {
         {sent ? (
           <div style={{ textAlign: 'center', padding: '48px 0' }}>
             <div style={{ width: 64, height: 64, borderRadius: '50%', background: SG_SERVICE_TOKENS.architectureSurface, border: `2px solid ${SG_SERVICE_TOKENS.alertBlue}`, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={SG_SERVICE_TOKENS.alertBlue} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <SGServiceIcon name="check" size={34} />
             </div>
             <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 22, color: SG_SERVICE_TOKENS.headingNavy, marginBottom: 10 }}>Message Sent!</div>
             <div style={{ fontFamily: "'Open Sans',sans-serif", color: SG_SERVICE_TOKENS.mutedSlate }}>We'll be in touch within one business day.</div>

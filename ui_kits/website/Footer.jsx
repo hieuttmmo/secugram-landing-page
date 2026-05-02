@@ -1,15 +1,5 @@
 // Footer.jsx — Footer component
 
-const FooterLogoMark = () => (
-  <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="50,4 93,27 93,73 50,96 7,73 7,27" fill="none" stroke="#fff" strokeWidth="6" strokeLinejoin="round"/>
-    <polygon points="50,17 82,35 82,65 50,83 18,65 18,35" fill="none" stroke="#fff" strokeWidth="4.5" strokeLinejoin="round"/>
-    <polygon points="50,30 71,42 71,58 50,70 29,58 29,42" fill="none" stroke="#fff" strokeWidth="3.5" strokeLinejoin="round"/>
-    <circle cx="50" cy="43" r="9" fill="none" stroke="#0b6f66" strokeWidth="3.5"/>
-    <path d="M44 51 L43 63 L57 63 L56 51" fill="none" stroke="#0b6f66" strokeWidth="3" strokeLinejoin="round"/>
-  </svg>
-);
-
 const FooterSection = ({ onNav, rootPath = '' }) => (
   <footer data-tw-footer style={{ background: '#0d1b2e', padding: '64px 80px 32px', color: '#fff' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto' }}>
@@ -17,9 +7,15 @@ const FooterSection = ({ onNav, rootPath = '' }) => (
       <div className="sg-footer-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 48, marginBottom: 56 }}>
         {/* Brand col */}
         <div>
-          <a href={rootPath + 'index.html'} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20, textDecoration: 'none' }}>
-            <FooterLogoMark />
-            <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 18, letterSpacing: '0.12em', color: '#fff' }}>SECUGRAM</span>
+          <a href={rootPath + 'index.html'} aria-label="Secugram home" style={{ display: 'inline-flex', alignItems: 'center', marginBottom: 20, textDecoration: 'none' }}>
+            <img
+              src={rootPath + 'long_logo.png'}
+              alt="Secugram"
+              width="300"
+              height="83"
+              decoding="async"
+              style={{ width: 186, height: 'auto', display: 'block' }}
+            />
           </a>
           <p style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: '#94a3b8', lineHeight: 1.7, maxWidth: 280 }}>
             Enterprise-grade cybersecurity for SMEs. Founded 2021, Hanoi, Vietnam. Helping businesses detect, respond, and stay resilient against cyber threats.
