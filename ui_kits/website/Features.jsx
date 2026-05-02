@@ -345,19 +345,26 @@ const FeatureCard = ({ icon, tag, title, body, capabilities, stat, statLabel, ac
 
       {/* Footer CTA */}
       <div style={{ padding: '18px 26px 22px', marginTop: 'auto' }}>
-        <div style={{
-          display: 'inline-flex', alignItems: 'center', gap: 6,
-          fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12,
-          color: accent, cursor: 'pointer',
-          borderBottom: `1.5px solid ${accent}44`, paddingBottom: 1,
-          transition: 'border-color 200ms',
-        }}>
+        <a
+          href={
+            tag === 'Infrastructure' ? 'services/secure-infrastructure.html' :
+            tag === 'Consulting'     ? 'services/security-architecture.html' :
+                                       'services/managed-detection-response.html'
+          }
+          style={{
+            display: 'inline-flex', alignItems: 'center', gap: 6,
+            fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12,
+            color: accent, cursor: 'pointer', textDecoration: 'none',
+            borderBottom: `1.5px solid ${accent}44`, paddingBottom: 1,
+            transition: 'border-color 200ms',
+          }}
+        >
           Learn more
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
             <polyline points="5 12 19 12" stroke={accent} strokeWidth="2.5" strokeLinecap="round"/>
             <polyline points="13 6 19 12 13 18" stroke={accent} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-        </div>
+        </a>
       </div>
     </div>
   );

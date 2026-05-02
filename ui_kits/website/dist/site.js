@@ -2769,7 +2769,8 @@ const FeatureCard = ({
       padding: '18px 26px 22px',
       marginTop: 'auto'
     }
-  }, React.createElement("div", {
+  }, React.createElement("a", {
+    href: tag === 'Infrastructure' ? 'services/secure-infrastructure.html' : tag === 'Consulting' ? 'services/security-architecture.html' : 'services/managed-detection-response.html',
     style: {
       display: 'inline-flex',
       alignItems: 'center',
@@ -2779,6 +2780,7 @@ const FeatureCard = ({
       fontSize: 12,
       color: accent,
       cursor: 'pointer',
+      textDecoration: 'none',
       borderBottom: `1.5px solid ${accent}44`,
       paddingBottom: 1,
       transition: 'border-color 200ms'
