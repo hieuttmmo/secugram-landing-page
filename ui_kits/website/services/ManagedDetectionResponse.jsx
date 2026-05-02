@@ -20,12 +20,12 @@ const MDRHero = ({ onContact }) => (
   <div className="svc-hero" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 560 }}>
     <div className="svc-hero-copy" style={{ padding: '88px 60px 88px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: SG_SERVICE_TOKENS.surface }}>
       {/* Breadcrumb */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 28 }}>
-        <a href="../index.html" style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 12, color: SG_SERVICE_TOKENS.mutedSlate, textDecoration: 'none' }}>Home</a>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><polyline points="9 18 15 12 9 6" stroke={SG_SERVICE_TOKENS.mutedReadable} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-        <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 12, color: SG_SERVICE_TOKENS.mutedSlate }}>Services</span>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><polyline points="9 18 15 12 9 6" stroke={SG_SERVICE_TOKENS.mutedReadable} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-        <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 12, color: SG_SERVICE_TOKENS.securityTeal }}>Managed Detection & Response</span>
+      <div className="svc-breadcrumb">
+        <a className="svc-breadcrumb-link" href="../index.html">Home</a>
+        <svg className="svc-breadcrumb-separator" viewBox="0 0 24 24" fill="none"><polyline points="9 18 15 12 9 6" stroke={SG_SERVICE_TOKENS.mutedReadable} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        <span className="svc-breadcrumb-link">Services</span>
+        <svg className="svc-breadcrumb-separator" viewBox="0 0 24 24" fill="none"><polyline points="9 18 15 12 9 6" stroke={SG_SERVICE_TOKENS.mutedReadable} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        <span className="svc-breadcrumb-current" style={{ color: SG_SERVICE_TOKENS.securityTeal }}>Managed Detection & Response</span>
       </div>
       {/* Eyebrow */}
       <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 20 }}>

@@ -371,24 +371,12 @@ const SAHero = ({
     background: SG_SERVICE_TOKENS.surface
   }
 }, React.createElement("div", {
-  style: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: 8,
-    marginBottom: 28
-  }
+  className: "svc-breadcrumb"
 }, React.createElement("a", {
-  href: "../index.html",
-  style: {
-    fontFamily: "'Montserrat',sans-serif",
-    fontWeight: 600,
-    fontSize: 12,
-    color: SG_SERVICE_TOKENS.mutedSlate,
-    textDecoration: 'none'
-  }
+  className: "svc-breadcrumb-link",
+  href: "../index.html"
 }, "Home"), React.createElement("svg", {
-  width: "12",
-  height: "12",
+  className: "svc-breadcrumb-separator",
   viewBox: "0 0 24 24",
   fill: "none"
 }, React.createElement("polyline", {
@@ -398,15 +386,9 @@ const SAHero = ({
   strokeLinecap: "round",
   strokeLinejoin: "round"
 })), React.createElement("span", {
-  style: {
-    fontFamily: "'Montserrat',sans-serif",
-    fontWeight: 600,
-    fontSize: 12,
-    color: SG_SERVICE_TOKENS.mutedSlate
-  }
+  className: "svc-breadcrumb-link"
 }, "Services"), React.createElement("svg", {
-  width: "12",
-  height: "12",
+  className: "svc-breadcrumb-separator",
   viewBox: "0 0 24 24",
   fill: "none"
 }, React.createElement("polyline", {
@@ -416,10 +398,8 @@ const SAHero = ({
   strokeLinecap: "round",
   strokeLinejoin: "round"
 })), React.createElement("span", {
+  className: "svc-breadcrumb-current",
   style: {
-    fontFamily: "'Montserrat',sans-serif",
-    fontWeight: 600,
-    fontSize: 12,
     color: SG_SERVICE_TOKENS.alertBlue
   }
 }, "Security Architecture")), React.createElement("div", {
