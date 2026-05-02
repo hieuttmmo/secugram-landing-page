@@ -10,17 +10,17 @@ const FooterLogoMark = () => (
   </svg>
 );
 
-const FooterSection = ({ onNav }) => (
+const FooterSection = ({ onNav, rootPath = '' }) => (
   <footer data-tw-footer style={{ background: '#0d1b2e', padding: '64px 80px 32px', color: '#fff' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto' }}>
       {/* Top row */}
       <div className="sg-footer-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 48, marginBottom: 56 }}>
         {/* Brand col */}
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
+          <a href={rootPath + 'index.html'} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20, textDecoration: 'none' }}>
             <FooterLogoMark />
-            <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 18, letterSpacing: '0.12em' }}>SECUGRAM</span>
-          </div>
+            <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 18, letterSpacing: '0.12em', color: '#fff' }}>SECUGRAM</span>
+          </a>
           <p style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: '#94a3b8', lineHeight: 1.7, maxWidth: 280 }}>
             Enterprise-grade cybersecurity for SMEs. Founded 2021, Hanoi, Vietnam. Helping businesses detect, respond, and stay resilient against cyber threats.
           </p>
@@ -39,18 +39,33 @@ const FooterSection = ({ onNav }) => (
             ))}
           </div>
         </div>
-        {/* Product col */}
+        {/* Services col */}
         <div>
-          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#fff', marginBottom: 20 }}>Product</div>
-          {['Features', 'Pricing', 'Security', 'Changelog'].map(l => (
-            <button key={l} type="button" style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: '#94a3b8', marginBottom: 12, cursor: 'pointer', display: 'block', background: 'transparent', border: 0, padding: 0, textAlign: 'left' }}>{l}</button>
+          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#fff', marginBottom: 20 }}>Services</div>
+          {[
+            ['Secure Infrastructure', rootPath + 'services/secure-infrastructure.html'],
+            ['Security Architecture', rootPath + 'services/security-architecture.html'],
+            ['Managed Detection & Response', rootPath + 'services/managed-detection-response.html'],
+          ].map(([label, href]) => (
+            <a key={label} href={href} style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: '#94a3b8', marginBottom: 12, display: 'block', textDecoration: 'none', transition: 'color 200ms' }}
+              onMouseEnter={e => e.currentTarget.style.color = '#e2e8f0'}
+              onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}
+            >{label}</a>
           ))}
         </div>
         {/* Company col */}
         <div>
           <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#fff', marginBottom: 20 }}>Company</div>
-          {['About', 'Blog', 'Careers', 'Contact'].map(l => (
-            <button key={l} type="button" style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: '#94a3b8', marginBottom: 12, cursor: 'pointer', display: 'block', background: 'transparent', border: 0, padding: 0, textAlign: 'left' }}>{l}</button>
+          {[
+            ['Why Secugram', 'why-secugram'],
+            ['How We Work', 'methodology'],
+            ['Security Ops', 'security-ops'],
+            ['Contact', 'contact'],
+          ].map(([label, target]) => (
+            <button key={label} type="button" onClick={() => onNav && onNav(target)} style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: '#94a3b8', marginBottom: 12, cursor: 'pointer', display: 'block', background: 'transparent', border: 0, padding: 0, textAlign: 'left', transition: 'color 200ms' }}
+              onMouseEnter={e => e.currentTarget.style.color = '#e2e8f0'}
+              onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}
+            >{label}</button>
           ))}
         </div>
         {/* Legal col */}

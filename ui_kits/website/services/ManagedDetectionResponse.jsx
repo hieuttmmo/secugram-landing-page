@@ -701,6 +701,7 @@ const MDRContactSection = () => {
 // ── Nav ───────────────────────────────────────────────────────
 const MDRNavBar = () => {
   const [scrolled, setScrolled] = React.useState(false);
+  const [menuOpen, setMenuOpen] = React.useState(false);
   React.useEffect(() => {
     const el = document.getElementById('mdr-scroll');
     if (!el) return;
@@ -708,8 +709,15 @@ const MDRNavBar = () => {
     el.addEventListener('scroll', handler);
     return () => el.removeEventListener('scroll', handler);
   }, []);
+  const navItems = [
+    { label: 'Home', href: '../index.html' },
+    { label: 'Why Secugram', href: '../index.html#why-secugram' },
+    { label: 'How We Work', href: '../index.html#methodology' },
+    { label: 'Services', href: '../index.html#services', active: true },
+    { label: 'Security Ops', href: '../index.html#security-ops' },
+  ];
   return (
-    <nav className="svc-nav" style={{
+    <nav data-tw-nav style={{
       position: 'sticky', top: 0, zIndex: 100, background: '#fff',
       borderBottom: scrolled ? '1px solid #e5e7eb' : '1px solid transparent',
       boxShadow: scrolled ? '0 2px 12px rgba(30,58,95,0.08)' : 'none',
@@ -717,25 +725,33 @@ const MDRNavBar = () => {
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       padding: '0 60px', height: 72,
     }}>
-      <a className="svc-nav-brand" href="../index.html" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-        <div style={{ width: 46, height: 32, overflow: 'hidden', flexShrink: 0 }}>
-          <img src="../secugram-logo.png" alt="Secugram" style={{ width: 46, height: 'auto', display: 'block' }} />
-        </div>
-        <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 20, color: '#1e3a5f', letterSpacing: '0.12em' }}>SECUGRAM</span>
+      <a href="../index.html" className="sg-logo-button" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', border: 0, background: 'transparent', padding: 0 }}>
+        <img src="../long_logo.png" alt="Secugram" width="300" height="83" decoding="async" style={{ width: 186, height: 'auto', display: 'block' }} />
       </a>
-      <div className="svc-nav-links" style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
-        {[['Home','../index.html'],['Services','#'],['Pricing','../index.html#pricing'],['Contact','../index.html#contact']].map(([label,href]) => (
-          <a key={label} className="svc-nav-link" href={href} style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 14, color: label==='Services'?'#1e3a5f':'#6b7280', textDecoration: 'none', paddingBottom: 2, borderBottom: label==='Services'?'2px solid #0b6f66':'2px solid transparent', transition: 'color 200ms' }}>{label}</a>
+      <button className="sg-menu-toggle" type="button" aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen(v => !v)}>
+        <span></span><span></span><span></span>
+      </button>
+      <div className="sg-nav-links" data-open={menuOpen ? 'true' : 'false'} style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+        {navItems.map(item => (
+          <a key={item.label} href={item.href} className="sg-nav-link" style={{
+            fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 13,
+            color: item.active ? '#1e3a5f' : '#6b7280', textDecoration: 'none',
+            borderBottom: item.active ? '2px solid #0b6f66' : '2px solid transparent',
+            paddingBottom: 2, transition: 'color 200ms, border-color 200ms', whiteSpace: 'nowrap',
+          }}>{item.label}</a>
         ))}
-        <button onClick={() => { const el=document.getElementById('mdr-contact'); const sc=document.getElementById('mdr-scroll'); if(el&&sc) sc.scrollTo({top:el.offsetTop-72,behavior:'smooth'}); }} style={{
-          fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 14,
-          background: '#0b6f66', color: '#fff', padding: '10px 24px',
-          borderRadius: 9999, border: 'none', cursor: 'pointer',
-          boxShadow: '0 4px 16px rgba(11,111,102,0.28)', transition: 'background 200ms',
-        }}
-          onMouseEnter={e=>e.currentTarget.style.background='#095e57'}
-          onMouseLeave={e=>e.currentTarget.style.background='#0b6f66'}
-        >Get Started</button>
+        <a href="#mdr-contact" className="sg-nav-link sg-nav-cta"
+          onClick={e => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('mdr-contact'); const sc = document.getElementById('mdr-scroll'); if (el && sc) sc.scrollTo({ top: el.offsetTop - 72, behavior: 'smooth' }); }}
+          style={{
+            fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 13,
+            color: '#fff', background: '#0b6f66', textDecoration: 'none',
+            borderRadius: 9999, padding: '11px 26px',
+            boxShadow: '0 10px 24px rgba(11,111,102,0.24)',
+            transition: 'color 200ms, background 200ms, transform 150ms, box-shadow 200ms', whiteSpace: 'nowrap',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.background='#095e57'; e.currentTarget.style.transform='translateY(-1px)'; e.currentTarget.style.boxShadow='0 12px 28px rgba(11,111,102,0.30)'; }}
+          onMouseLeave={e => { e.currentTarget.style.background='#0b6f66'; e.currentTarget.style.transform='translateY(0)'; e.currentTarget.style.boxShadow='0 10px 24px rgba(11,111,102,0.24)'; }}
+        >Contact us</a>
       </div>
     </nav>
   );
@@ -762,7 +778,7 @@ const ManagedDetectionResponsePage = () => {
       <MDRRelatedServices />
       <div id="mdr-contact"><MDRContactSection /></div>
       </main>
-      <FooterSection onNav={section => { window.location.href = `../index.html#${section}`; }} />
+      <FooterSection onNav={section => { window.location.href = `../index.html#${section}`; }} rootPath="../" />
     </div>
   );
 };
