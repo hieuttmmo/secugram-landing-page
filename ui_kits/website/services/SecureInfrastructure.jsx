@@ -1,7 +1,7 @@
 // SecureInfrastructure.jsx — Secure Infrastructure Platform service page components
 
 // ── Shared atoms ─────────────────────────────────────────────
-const SIPIconMap = ({ name, color = '#0d9488', size = 24 }) => {
+const SIPIconMap = ({ name, color = '#0b6f66', size = 24 }) => {
   const s = { width: size, height: size };
   const p = { stroke: color, strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round', fill: 'none' };
   const icons = {
@@ -23,7 +23,7 @@ const SIPIconMap = ({ name, color = '#0d9488', size = 24 }) => {
   return icons[name] || null;
 };
 
-const SIPCheckBullet = ({ text, accent = '#0d9488' }) => (
+const SIPCheckBullet = ({ text, accent = '#0b6f66' }) => (
   <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
     <div style={{ width: 20, height: 20, borderRadius: '50%', background: `${accent}18`, border: `1.5px solid ${accent}44`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}>
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke={accent} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -35,48 +35,48 @@ const SIPCheckBullet = ({ text, accent = '#0d9488' }) => (
 
 // ── 1. Hero ───────────────────────────────────────────────────
 const SIPHero = ({ onContact }) => (
-  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 560 }}>
+  <div className="svc-hero" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 560 }}>
     {/* Left */}
-    <div style={{ padding: '88px 60px 88px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#fff' }}>
+    <div className="svc-hero-copy" style={{ padding: '88px 60px 88px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#fff' }}>
       {/* Breadcrumb */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 28 }}>
         <a href="../index.html" style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 12, color: '#6b7280', textDecoration: 'none', letterSpacing: '0.04em' }}>Home</a>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><polyline points="9 18 15 12 9 6" stroke="#9ca3af" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
         <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 12, color: '#6b7280', letterSpacing: '0.04em' }}>Services</span>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><polyline points="9 18 15 12 9 6" stroke="#9ca3af" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-        <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 12, color: '#0d9488', letterSpacing: '0.04em' }}>Secure Infrastructure</span>
+        <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 12, color: '#0b6f66', letterSpacing: '0.04em' }}>Secure Infrastructure</span>
       </div>
       {/* Eyebrow */}
       <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 20 }}>
         <div style={{ width: 32, height: 32, borderRadius: 8, background: '#f0fdf9', border: '1px solid #ccfbf1', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <SIPIconMap name="server" size={16} />
         </div>
-        <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase' }}>Infrastructure</span>
+        <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase' }}>Infrastructure</span>
       </div>
       {/* Headline */}
       <h1 style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 46, color: '#1e3a5f', lineHeight: 1.07, letterSpacing: '-0.025em', margin: '0 0 22px' }}>
-        Secure Infrastructure<br /><span style={{ color: '#0d9488' }}>Platform</span>
+        Secure Infrastructure<br /><span style={{ color: '#0b6f66' }}>Platform</span>
       </h1>
       <p style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 17, color: '#4b5563', lineHeight: 1.65, margin: '0 0 36px', maxWidth: 480 }}>
         Hardened cloud, hybrid, and on-premises environments engineered for security from the ground up — with 24/7 monitoring baked in from day one.
       </p>
-      <div style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
+      <div className="svc-cta-row" style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
         <button onClick={onContact} style={{
           fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 15,
-          background: '#0d9488', color: '#fff', padding: '13px 32px',
+          background: '#0b6f66', color: '#fff', padding: '13px 32px',
           borderRadius: 9999, border: 'none', cursor: 'pointer',
-          boxShadow: '0 6px 24px rgba(13,148,136,0.32)',
+          boxShadow: '0 6px 24px rgba(11,111,102,0.32)',
           transition: 'background 200ms, transform 150ms',
         }}
-          onMouseEnter={e => { e.currentTarget.style.background='#0b7a70'; e.currentTarget.style.transform='translateY(-2px)'; }}
-          onMouseLeave={e => { e.currentTarget.style.background='#0d9488'; e.currentTarget.style.transform='translateY(0)'; }}
+          onMouseEnter={e => { e.currentTarget.style.background='#095e57'; e.currentTarget.style.transform='translateY(-2px)'; }}
+          onMouseLeave={e => { e.currentTarget.style.background='#0b6f66'; e.currentTarget.style.transform='translateY(0)'; }}
         >Request Assessment</button>
         <a href="#capabilities" style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 14, color: '#1e3a5f', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6, borderBottom: '1.5px solid #1e3a5f', paddingBottom: 1 }}>
           Explore capabilities →
         </a>
       </div>
       {/* Quick stats */}
-      <div style={{ display: 'flex', gap: 40, marginTop: 48, paddingTop: 36, borderTop: '1px solid #f0f0f0' }}>
+      <div className="svc-stat-row" style={{ display: 'flex', gap: 40, marginTop: 48, paddingTop: 36, borderTop: '1px solid #f0f0f0' }}>
         {[['Cloud · Hybrid','On-prem ready'],['24/7','Integrated monitoring'],['99.9%','Platform availability']].map(([val, label]) => (
           <div key={label}>
             <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 20, color: '#1e3a5f', letterSpacing: '-0.01em' }}>{val}</div>
@@ -86,7 +86,7 @@ const SIPHero = ({ onContact }) => (
       </div>
     </div>
     {/* Right — dark with animated diagram */}
-    <div style={{
+    <div className="svc-hero-visual" style={{
       background: 'linear-gradient(140deg, #0d1b2e 0%, #162840 60%, #0a2535 100%)',
       clipPath: 'polygon(6% 0%, 100% 0%, 100% 100%, 0% 100%)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -95,7 +95,7 @@ const SIPHero = ({ onContact }) => (
       {/* Dot grid */}
       <div style={{ position: 'absolute', inset: 0, opacity: 0.3, backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(20,184,166,0.35) 1px, transparent 0)', backgroundSize: '28px 28px', pointerEvents: 'none' }}></div>
       {/* Radial glow */}
-      <div style={{ position: 'absolute', width: 420, height: 420, background: 'radial-gradient(circle, rgba(13,148,136,0.18) 0%, transparent 65%)', borderRadius: '50%', pointerEvents: 'none' }}></div>
+      <div style={{ position: 'absolute', width: 420, height: 420, background: 'radial-gradient(circle, rgba(11,111,102,0.18) 0%, transparent 65%)', borderRadius: '50%', pointerEvents: 'none' }}></div>
       {/* Infrastructure stack diagram */}
       <div style={{ position: 'relative', zIndex: 1, width: 380 }}>
         <SIPStackDiagram />
@@ -108,8 +108,8 @@ const SIPHero = ({ onContact }) => (
 const SIPStackDiagram = () => {
   const layers = [
     { label: 'Business Applications', sub: 'Secure app layer', icon: 'layers', color: '#14b8a6' },
-    { label: 'Cloud / Hybrid Hosting', sub: 'AWS · Azure · GCP · On-prem', icon: 'cloud', color: '#0d9488' },
-    { label: 'Network & Firewall', sub: 'Segmentation · WAF · VPN', icon: 'network', color: '#0b7a70' },
+    { label: 'Cloud / Hybrid Hosting', sub: 'AWS · Azure · GCP · On-prem', icon: 'cloud', color: '#0b6f66' },
+    { label: 'Network & Firewall', sub: 'Segmentation · WAF · VPN', icon: 'network', color: '#095e57' },
     { label: 'Endpoint & Server Hardening', sub: 'CIS benchmarks · EDR', icon: 'server', color: '#0d6b62' },
     { label: 'Continuous Monitoring', sub: '24/7 SOC · SIEM · Alerting', icon: 'eye', color: '#0a5c54' },
   ];
@@ -195,16 +195,16 @@ const SIPCapabilities = () => {
   ];
 
   return (
-    <div id="capabilities" style={{ background: '#f9fafb', padding: '96px 80px' }}>
+    <div id="capabilities" className="svc-section" style={{ background: '#f9fafb', padding: '96px 80px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 60 }}>
-          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>What's Included</div>
+          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>What's Included</div>
           <h2 style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 40, color: '#1e3a5f', letterSpacing: '-0.02em', margin: '0 0 16px' }}>Core Capabilities</h2>
           <p style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 17, color: '#6b7280', maxWidth: 560, margin: '0 auto', lineHeight: 1.6 }}>
             Every capability is delivered and managed by our team — not handed off as a tooling deployment.
           </p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22 }}>
+        <div className="svc-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22 }}>
           {caps.map((cap, i) => (
             <SIPCapabilityCard key={cap.title} {...cap} index={i} />
           ))}
@@ -222,17 +222,17 @@ const SIPCapabilityCard = ({ icon, title, body, tags }) => {
       onMouseLeave={() => setHov(false)}
       style={{
         background: '#fff',
-        border: `1px solid ${hov ? '#0d9488' : '#e5e7eb'}`,
+        border: `1px solid ${hov ? '#0b6f66' : '#e5e7eb'}`,
         borderRadius: 14,
         padding: '28px 26px',
-        boxShadow: hov ? '0 12px 36px rgba(13,148,136,0.12)' : '0 2px 10px rgba(30,58,95,0.05)',
+        boxShadow: hov ? '0 12px 36px rgba(11,111,102,0.12)' : '0 2px 10px rgba(30,58,95,0.05)',
         transform: hov ? 'translateY(-3px)' : 'translateY(0)',
-        transition: 'all 240ms ease',
+        transition: 'transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease',
         display: 'flex', flexDirection: 'column', gap: 14,
       }}
     >
-      <div style={{ width: 48, height: 48, borderRadius: 11, background: hov ? '#0d9488' : '#f0fdf9', border: `1.5px solid ${hov ? '#0d9488' : '#ccfbf1'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 240ms', flexShrink: 0 }}>
-        <SIPIconMap name={icon} color={hov ? '#fff' : '#0d9488'} size={20} />
+      <div style={{ width: 48, height: 48, borderRadius: 11, background: hov ? '#0b6f66' : '#f0fdf9', border: `1.5px solid ${hov ? '#0b6f66' : '#ccfbf1'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 240ms ease, border-color 240ms ease', flexShrink: 0 }}>
+        <SIPIconMap name={icon} color={hov ? '#fff' : '#0b6f66'} size={20} />
       </div>
       <div>
         <h3 style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 16, color: '#1e3a5f', margin: '0 0 8px', lineHeight: 1.3 }}>{title}</h3>
@@ -240,7 +240,7 @@ const SIPCapabilityCard = ({ icon, title, body, tags }) => {
       </div>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 4 }}>
         {tags.map(tag => (
-          <span key={tag} style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 10, color: '#0d9488', background: '#f0fdf9', border: '1px solid #a7f3d0', borderRadius: 9999, padding: '3px 10px', letterSpacing: '0.04em' }}>{tag}</span>
+          <span key={tag} style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 10, color: '#0b6f66', background: '#f0fdf9', border: '1px solid #a7f3d0', borderRadius: 9999, padding: '3px 10px', letterSpacing: '0.04em' }}>{tag}</span>
         ))}
       </div>
     </div>
@@ -312,7 +312,7 @@ const SIPHowItWorks = () => {
     <div style={{ background: '#fff', padding: '96px 80px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 60 }}>
-          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Delivery</div>
+          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Delivery</div>
           <h2 style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 40, color: '#1e3a5f', letterSpacing: '-0.02em', margin: '0 0 16px' }}>How It Works</h2>
           <p style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 17, color: '#6b7280', maxWidth: 520, margin: '0 auto', lineHeight: 1.6 }}>
             From first discovery to ongoing operations — a structured onboarding that gets you protected fast.
@@ -324,7 +324,7 @@ const SIPHowItWorks = () => {
           {phases.map((ph, i) => (
             <button key={ph.num} onClick={() => setActive(i)}
               style={{
-                background: active === i ? '#0d9488' : '#fff',
+                background: active === i ? '#0b6f66' : '#fff',
                 border: 'none',
                 borderRight: i < phases.length - 1 ? '1px solid #e5e7eb' : 'none',
                 padding: '22px 20px',
@@ -340,11 +340,11 @@ const SIPHowItWorks = () => {
         </div>
 
         {/* Phase detail */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'start' }}>
+        <div className="svc-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'start' }}>
           <div>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: '#f0fdf9', border: '1px solid #a7f3d0', borderRadius: 9999, padding: '5px 14px', marginBottom: 20 }}>
-              <div style={{ width: 7, height: 7, borderRadius: '50%', background: '#0d9488' }}></div>
-              <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0d9488', letterSpacing: '0.10em' }}>{ph.duration}</span>
+              <div style={{ width: 7, height: 7, borderRadius: '50%', background: '#0b6f66' }}></div>
+              <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0b6f66', letterSpacing: '0.10em' }}>{ph.duration}</span>
             </div>
             <h3 style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 28, color: '#1e3a5f', letterSpacing: '-0.015em', margin: '0 0 16px' }}>{ph.title}</h3>
             <p style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 16, color: '#4b5563', lineHeight: 1.7, margin: 0 }}>{ph.summary}</p>
@@ -399,15 +399,15 @@ const SIPEnvironments = () => {
             We secure any environment — cloud-native, hybrid, or on-premises — with the same rigour and monitoring depth.
           </p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+        <div className="svc-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
           {envs.map(env => (
             <div key={env.label} style={{
-              background: env.highlight ? 'rgba(13,148,136,0.12)' : 'rgba(255,255,255,0.04)',
-              border: `1px solid ${env.highlight ? 'rgba(13,148,136,0.5)' : 'rgba(255,255,255,0.10)'}`,
+              background: env.highlight ? 'rgba(11,111,102,0.12)' : 'rgba(255,255,255,0.04)',
+              border: `1px solid ${env.highlight ? 'rgba(11,111,102,0.5)' : 'rgba(255,255,255,0.10)'}`,
               borderRadius: 14,
               padding: '32px 28px',
             }}>
-              <div style={{ width: 50, height: 50, borderRadius: 11, background: env.highlight ? '#0d9488' : 'rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20 }}>
+              <div style={{ width: 50, height: 50, borderRadius: 11, background: env.highlight ? '#0b6f66' : 'rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20 }}>
                 <SIPIconMap name={env.icon} color={env.highlight ? '#fff' : '#14b8a6'} size={22} />
               </div>
               <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 18, color: '#fff', marginBottom: 4 }}>{env.label}</div>
@@ -441,9 +441,9 @@ const SIPWhyItMatters = () => {
   return (
     <div style={{ background: '#f9fafb', padding: '96px 80px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72, alignItems: 'center' }}>
+        <div className="svc-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72, alignItems: 'center' }}>
           <div>
-            <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 16 }}>Why It Matters</div>
+            <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 16 }}>Why It Matters</div>
             <h2 style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 38, color: '#1e3a5f', letterSpacing: '-0.02em', margin: '0 0 22px', lineHeight: 1.1 }}>
               Infrastructure Is the<br />Most-Targeted Attack Surface
             </h2>
@@ -459,7 +459,7 @@ const SIPWhyItMatters = () => {
               ].map(item => <SIPCheckBullet key={item} text={item} />)}
             </div>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+          <div className="svc-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
             {stats.map(s => (
               <div key={s.val} style={{
                 background: '#fff', border: '1px solid #e5e7eb', borderRadius: 14,
@@ -492,7 +492,7 @@ const SIPCompliance = () => {
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 44 }}>
           <div>
-            <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 12 }}>Compliance</div>
+            <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 12 }}>Compliance</div>
             <h2 style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 36, color: '#1e3a5f', letterSpacing: '-0.02em', margin: 0 }}>Framework Alignment</h2>
           </div>
           <p style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 15, color: '#6b7280', maxWidth: 380, lineHeight: 1.6, margin: 0 }}>
@@ -504,13 +504,13 @@ const SIPCompliance = () => {
             <div key={fw.code} style={{ border: '1px solid #e5e7eb', borderRadius: 12, padding: '24px 22px', background: '#fff', boxShadow: '0 2px 8px rgba(30,58,95,0.05)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
                 <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 16, color: '#1e3a5f' }}>{fw.code}</div>
-                <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 9, color: '#0d9488', background: '#f0fdf9', border: '1px solid #a7f3d0', borderRadius: 9999, padding: '3px 9px', letterSpacing: '0.06em', whiteSpace: 'nowrap' }}>{fw.badge}</span>
+                <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 9, color: '#0b6f66', background: '#f0fdf9', border: '1px solid #a7f3d0', borderRadius: 9999, padding: '3px 9px', letterSpacing: '0.06em', whiteSpace: 'nowrap' }}>{fw.badge}</span>
               </div>
               <div style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 12, color: '#6b7280', marginBottom: 16 }}>{fw.name}</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
                 {fw.items.map(item => (
                   <div key={item} style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
-                    <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#0d9488', marginTop: 6, flexShrink: 0 }}></div>
+                    <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#0b6f66', marginTop: 6, flexShrink: 0 }}></div>
                     <span style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 12, color: '#4b5563', lineHeight: 1.45 }}>{item}</span>
                   </div>
                 ))}
@@ -529,14 +529,14 @@ const SIPServiceCTA = ({ onContact }) => (
   <div style={{ background: '#f9fafb', padding: '96px 80px' }}>
     <div style={{ maxWidth: 1080, margin: '0 auto' }}>
       <div style={{
-        background: 'linear-gradient(140deg, #0d1b2e 0%, #1e3a5f 100%)',
+      background: 'linear-gradient(140deg, #0d1b2e 0%, #1e3a5f 100%)',
         borderRadius: 20, padding: '72px 80px',
         display: 'grid', gridTemplateColumns: '1fr auto', gap: 56, alignItems: 'center',
         position: 'relative', overflow: 'hidden',
       }}>
         <svg width="220" height="220" viewBox="0 0 100 100" style={{ position: 'absolute', right: -30, bottom: -40, opacity: 0.08 }}>
-          <polygon points="50,6 88,28 88,72 50,94 12,72 12,28" fill="none" stroke="#0d9488" strokeWidth="1.5"/>
-          <polygon points="50,18 80,36 80,64 50,82 20,64 20,36" fill="none" stroke="#0d9488" strokeWidth="1.2"/>
+          <polygon points="50,6 88,28 88,72 50,94 12,72 12,28" fill="none" stroke="#0b6f66" strokeWidth="1.5"/>
+          <polygon points="50,18 80,36 80,64 50,82 20,64 20,36" fill="none" stroke="#0b6f66" strokeWidth="1.2"/>
         </svg>
         <div>
           <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#14b8a6', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 16 }}>Get Started</div>
@@ -550,14 +550,14 @@ const SIPServiceCTA = ({ onContact }) => (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12, flexShrink: 0 }}>
           <button onClick={onContact} style={{
             fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 15,
-            background: '#0d9488', color: '#fff', padding: '14px 36px',
+            background: '#0b6f66', color: '#fff', padding: '14px 36px',
             borderRadius: 9999, border: 'none', cursor: 'pointer',
-            boxShadow: '0 6px 24px rgba(13,148,136,0.40)',
+            boxShadow: '0 6px 24px rgba(11,111,102,0.40)',
             transition: 'background 200ms, transform 150ms',
             whiteSpace: 'nowrap',
           }}
-            onMouseEnter={e => { e.currentTarget.style.background='#0b7a70'; e.currentTarget.style.transform='translateY(-2px)'; }}
-            onMouseLeave={e => { e.currentTarget.style.background='#0d9488'; e.currentTarget.style.transform='translateY(0)'; }}
+            onMouseEnter={e => { e.currentTarget.style.background='#095e57'; e.currentTarget.style.transform='translateY(-2px)'; }}
+            onMouseLeave={e => { e.currentTarget.style.background='#0b6f66'; e.currentTarget.style.transform='translateY(0)'; }}
           >Request Free Assessment</button>
           <a href="../index.html#contact" style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 13, color: 'rgba(255,255,255,0.6)', textDecoration: 'none', textAlign: 'center', cursor: 'pointer' }}>
             Or email us at security@secugram.io
@@ -573,11 +573,11 @@ const SIPServiceCTA = ({ onContact }) => (
 const SIPRelatedServices = () => (
   <div style={{ background: '#fff', padding: '60px 80px' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-      <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 24 }}>Also from Secugram</div>
+      <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 24 }}>Also from Secugram</div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
         {[
           { tag: 'Consulting', title: 'Security Architecture & Consulting', body: 'Risk assessment, Zero Trust design, compliance alignment, and executive advisory.', href: 'security-architecture.html', accent: '#1e6fa5' },
-          { tag: 'MDR', title: 'Managed Detection & Response', body: '24/7 SOC monitoring, incident response, forensics, and threat hunting.', href: 'managed-detection-response.html', accent: '#0d9488' },
+          { tag: 'MDR', title: 'Managed Detection & Response', body: '24/7 SOC monitoring, incident response, forensics, and threat hunting.', href: 'managed-detection-response.html', accent: '#0b6f66' },
         ].map(svc => (
           <a key={svc.title} href={svc.href} style={{
             display: 'flex', gap: 20, alignItems: 'flex-start',
@@ -612,8 +612,9 @@ const SecureInfrastructurePage = () => {
   };
 
   return (
-    <div id="sip-scroll" style={{ height: '100vh', overflowY: 'auto', scrollBehavior: 'smooth', background: '#fff' }}>
+    <div id="sip-scroll" className="svc-page" style={{ height: '100vh', overflowY: 'auto', scrollBehavior: 'smooth', background: '#fff' }}>
       <SIPNavBar />
+      <main>
       <SIPHero onContact={scrollToContact} />
       <SIPWhyItMatters />
       <SIPCapabilities />
@@ -622,6 +623,7 @@ const SecureInfrastructurePage = () => {
       <SIPCompliance />
       <SIPRelatedServices />
       <div id="sip-contact"><SIPContactSection /></div>
+      </main>
       <FooterSection onNav={(section) => { window.location.href = `../index.html#${section}`; }} />
     </div>
   );
@@ -639,36 +641,36 @@ const SIPNavBar = () => {
   }, []);
 
   return (
-    <nav style={{
+    <nav className="svc-nav" style={{
       position: 'sticky', top: 0, zIndex: 100,
       background: '#fff',
       borderBottom: scrolled ? '1px solid #e5e7eb' : '1px solid transparent',
       boxShadow: scrolled ? '0 2px 12px rgba(30,58,95,0.08)' : 'none',
-      transition: 'all 250ms ease',
+      transition: 'background 250ms ease, border-color 250ms ease, box-shadow 250ms ease',
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       padding: '0 60px', height: 72,
     }}>
-      <a href="../index.html" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+      <a className="svc-nav-brand" href="../index.html" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
         <div style={{ width: 46, height: 32, overflow: 'hidden', flexShrink: 0 }}>
           <img src="../secugram-logo.png" alt="Secugram" style={{ width: 46, height: 'auto', display: 'block' }} />
         </div>
         <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 20, color: '#1e3a5f', letterSpacing: '0.12em' }}>SECUGRAM</span>
       </a>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
+      <div className="svc-nav-links" style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
         {[['Home', '../index.html'], ['Services', '#'], ['Pricing', '../index.html#pricing'], ['Contact', '../index.html#contact']].map(([label, href]) => (
-          <a key={label} href={href} style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 14, color: label === 'Services' ? '#1e3a5f' : '#6b7280', textDecoration: 'none', paddingBottom: 2, borderBottom: label === 'Services' ? '2px solid #0d9488' : '2px solid transparent', transition: 'color 200ms' }}>
+          <a key={label} className="svc-nav-link" href={href} style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 14, color: label === 'Services' ? '#1e3a5f' : '#6b7280', textDecoration: 'none', paddingBottom: 2, borderBottom: label === 'Services' ? '2px solid #0b6f66' : '2px solid transparent', transition: 'color 200ms' }}>
             {label}
           </a>
         ))}
         <button onClick={() => { const el = document.getElementById('sip-contact'); const sc = document.getElementById('sip-scroll'); if (el && sc) sc.scrollTo({ top: el.offsetTop - 72, behavior: 'smooth' }); }} style={{
           fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 14,
-          background: '#0d9488', color: '#fff', padding: '10px 24px',
+          background: '#0b6f66', color: '#fff', padding: '10px 24px',
           borderRadius: 9999, border: 'none', cursor: 'pointer',
-          boxShadow: '0 4px 16px rgba(13,148,136,0.28)',
+          boxShadow: '0 4px 16px rgba(11,111,102,0.28)',
           transition: 'background 200ms',
         }}
-          onMouseEnter={e => e.currentTarget.style.background='#0b7a70'}
-          onMouseLeave={e => e.currentTarget.style.background='#0d9488'}
+          onMouseEnter={e => e.currentTarget.style.background='#095e57'}
+          onMouseLeave={e => e.currentTarget.style.background='#0b6f66'}
         >Get Started</button>
       </div>
     </nav>
@@ -684,59 +686,59 @@ const SIPContactSection = () => {
     <div style={{ background: '#f9fafb', padding: '96px 80px' }}>
       <div style={{ maxWidth: 680, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 48 }}>
-          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Contact</div>
+          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Contact</div>
           <h2 style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 36, color: '#1e3a5f', letterSpacing: '-0.02em', marginBottom: 14 }}>Discuss Your Infrastructure</h2>
           <p style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 16, color: '#6b7280', lineHeight: 1.6 }}>
-            Tell us about your environment and we'll outline the right approach. Email us at <span style={{ color: '#0d9488', fontWeight: 600 }}>security@secugram.io</span> or fill in the form.
+            Tell us about your environment and we'll outline the right approach. Email us at <span style={{ color: '#0b6f66', fontWeight: 600 }}>security@secugram.io</span> or fill in the form.
           </p>
         </div>
         {sent ? (
           <div style={{ textAlign: 'center', padding: '48px 0' }}>
-            <div style={{ width: 64, height: 64, borderRadius: '50%', background: '#f0fdf9', border: '2px solid #0d9488', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div style={{ width: 64, height: 64, borderRadius: '50%', background: '#f0fdf9', border: '2px solid #0b6f66', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0b6f66" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 22, color: '#1e3a5f', marginBottom: 10 }}>Message Sent!</div>
             <div style={{ fontFamily: "'Open Sans',sans-serif", color: '#6b7280' }}>We'll be in touch within one business day.</div>
           </div>
         ) : (
           <form onSubmit={e => { e.preventDefault(); setSent(true); }} style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            <div className="svc-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
               {[['name','Full Name','Jane Smith'],['email','Work Email','jane@company.com']].map(([key,label,ph]) => (
                 <div key={key}>
-                  <label style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>{label}</label>
-                  <input type={key==='email'?'email':'text'} placeholder={ph} value={form[key]} onChange={e=>setForm({...form,[key]:e.target.value})} required
+                  <label htmlFor={`sip-${key}`} style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>{label}</label>
+                  <input id={`sip-${key}`} name={key} autoComplete={key==='email'?'email':'name'} type={key==='email'?'email':'text'} placeholder={ph} value={form[key]} onChange={e=>setForm({...form,[key]:e.target.value})} required
                     style={{ width: '100%', padding: '11px 14px', border: '1.5px solid #e5e7eb', borderRadius: 8, fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: '#1e3a5f', outline: 'none' }}
-                    onFocus={e=>{e.target.style.borderColor='#0d9488'; e.target.style.boxShadow='0 0 0 3px rgba(13,148,136,0.12)';}}
+                    onFocus={e=>{e.target.style.borderColor='#0b6f66'; e.target.style.boxShadow='0 0 0 3px rgba(11,111,102,0.12)';}}
                     onBlur={e=>{e.target.style.borderColor='#e5e7eb'; e.target.style.boxShadow='none';}}
                   />
                 </div>
               ))}
             </div>
             <div>
-              <label style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>Company</label>
-              <input type="text" placeholder="Acme Inc." value={form.company} onChange={e=>setForm({...form,company:e.target.value})}
+              <label htmlFor="sip-company" style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>Company</label>
+              <input id="sip-company" name="company" type="text" autoComplete="organization" placeholder="Acme Inc." value={form.company} onChange={e=>setForm({...form,company:e.target.value})}
                 style={{ width: '100%', padding: '11px 14px', border: '1.5px solid #e5e7eb', borderRadius: 8, fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: '#1e3a5f', outline: 'none' }}
-                onFocus={e=>{e.target.style.borderColor='#0d9488'; e.target.style.boxShadow='0 0 0 3px rgba(13,148,136,0.12)';}}
+                onFocus={e=>{e.target.style.borderColor='#0b6f66'; e.target.style.boxShadow='0 0 0 3px rgba(11,111,102,0.12)';}}
                 onBlur={e=>{e.target.style.borderColor='#e5e7eb'; e.target.style.boxShadow='none';}}
               />
             </div>
             <div>
-              <label style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>Message</label>
-              <textarea placeholder="Tell us about your infrastructure and security needs..." rows={4} value={form.message} onChange={e=>setForm({...form,message:e.target.value})}
+              <label htmlFor="sip-message" style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>Message</label>
+              <textarea id="sip-message" name="message" placeholder="Tell us about your infrastructure and security needs..." rows={4} value={form.message} onChange={e=>setForm({...form,message:e.target.value})}
                 style={{ width: '100%', padding: '11px 14px', border: '1.5px solid #e5e7eb', borderRadius: 8, fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: '#1e3a5f', outline: 'none', resize: 'vertical' }}
-                onFocus={e=>{e.target.style.borderColor='#0d9488'; e.target.style.boxShadow='0 0 0 3px rgba(13,148,136,0.12)';}}
+                onFocus={e=>{e.target.style.borderColor='#0b6f66'; e.target.style.boxShadow='0 0 0 3px rgba(11,111,102,0.12)';}}
                 onBlur={e=>{e.target.style.borderColor='#e5e7eb'; e.target.style.boxShadow='none';}}
               />
             </div>
             <button type="submit" style={{
               fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 16,
-              background: '#0d9488', color: '#fff', padding: '14px 0',
+              background: '#0b6f66', color: '#fff', padding: '14px 0',
               borderRadius: 9999, border: 'none', cursor: 'pointer',
-              boxShadow: '0 4px 20px rgba(13,148,136,0.30)',
+              boxShadow: '0 4px 20px rgba(11,111,102,0.30)',
               transition: 'background 200ms',
             }}
-              onMouseEnter={e=>e.currentTarget.style.background='#0b7a70'}
-              onMouseLeave={e=>e.currentTarget.style.background='#0d9488'}
+              onMouseEnter={e=>e.currentTarget.style.background='#095e57'}
+              onMouseLeave={e=>e.currentTarget.style.background='#0b6f66'}
             >Send Message</button>
           </form>
         )}

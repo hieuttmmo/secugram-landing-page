@@ -6,19 +6,35 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const siteDir = path.join(root, "ui_kits", "website");
 const outDir = path.join(siteDir, "dist");
-const outFile = path.join(outDir, "site.js");
 const babelUrl = "https://unpkg.com/@babel/standalone@7.29.0/babel.min.js";
 
-const sources = [
-  "tweaks-panel.jsx",
-  "Tweaks.jsx",
-  "HeroGraphics.jsx",
-  "Header.jsx",
-  "Features.jsx",
-  "Pricing.jsx",
-  "Sections.jsx",
-  "Footer.jsx",
-  "App.jsx",
+const bundles = [
+  {
+    outFile: path.join(outDir, "site.js"),
+    sources: [
+      "tweaks-panel.jsx",
+      "Tweaks.jsx",
+      "HeroGraphics.jsx",
+      "Header.jsx",
+      "Features.jsx",
+      "Pricing.jsx",
+      "Sections.jsx",
+      "Footer.jsx",
+      "App.jsx",
+    ],
+  },
+  {
+    outFile: path.join(outDir, "secure-infrastructure.js"),
+    sources: ["Footer.jsx", "services/SecureInfrastructure.jsx", "services/SecureInfrastructureApp.jsx"],
+  },
+  {
+    outFile: path.join(outDir, "security-architecture.js"),
+    sources: ["Footer.jsx", "services/SecurityArchitecture.jsx", "services/SecurityArchitectureApp.jsx"],
+  },
+  {
+    outFile: path.join(outDir, "managed-detection-response.js"),
+    sources: ["Footer.jsx", "services/ManagedDetectionResponse.jsx", "services/ManagedDetectionResponseApp.jsx"],
+  },
 ];
 
 async function loadBabel() {
@@ -44,21 +60,24 @@ const banner = [
   "",
 ].join("\n");
 
-const input = sources
-  .map((file) => {
-    const fullPath = path.join(siteDir, file);
-    return `\n/* Source: ${file} */\n${fs.readFileSync(fullPath, "utf8")}\n`;
-  })
-  .join("\n");
-
 const Babel = await loadBabel();
-const output = Babel.transform(input, {
-  presets: [["react", { runtime: "classic" }]],
-  sourceType: "script",
-  comments: false,
-  compact: false,
-}).code;
-
 fs.mkdirSync(outDir, { recursive: true });
-fs.writeFileSync(outFile, `${banner}${output}\n`);
-console.log(`Built ${path.relative(root, outFile)} from ${sources.length} JSX files.`);
+
+for (const bundle of bundles) {
+  const input = bundle.sources
+    .map((file) => {
+      const fullPath = path.join(siteDir, file);
+      return `\n/* Source: ${file} */\n${fs.readFileSync(fullPath, "utf8")}\n`;
+    })
+    .join("\n");
+
+  const output = Babel.transform(input, {
+    presets: [["react", { runtime: "classic" }]],
+    sourceType: "script",
+    comments: false,
+    compact: false,
+  }).code;
+
+  fs.writeFileSync(bundle.outFile, `${banner}${output}\n`);
+  console.log(`Built ${path.relative(root, bundle.outFile)} from ${bundle.sources.length} JSX files.`);
+}

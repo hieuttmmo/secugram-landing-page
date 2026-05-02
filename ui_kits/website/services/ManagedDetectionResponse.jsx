@@ -1,7 +1,7 @@
 // ManagedDetectionResponse.jsx — Managed Detection & Response service page
 
 // ── Shared atoms ─────────────────────────────────────────────
-const MDRIconMap = ({ name, color = '#0d9488', size = 24 }) => {
+const MDRIconMap = ({ name, color = '#0b6f66', size = 24 }) => {
   const s = { width: size, height: size };
   const p = { stroke: color, strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round', fill: 'none' };
   const icons = {
@@ -23,7 +23,7 @@ const MDRIconMap = ({ name, color = '#0d9488', size = 24 }) => {
   return icons[name] || null;
 };
 
-const MDRCheckBullet = ({ text, accent = '#0d9488' }) => (
+const MDRCheckBullet = ({ text, accent = '#0b6f66' }) => (
   <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
     <div style={{ width: 20, height: 20, borderRadius: '50%', background: `${accent}18`, border: `1.5px solid ${accent}44`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}>
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke={accent} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -35,46 +35,46 @@ const MDRCheckBullet = ({ text, accent = '#0d9488' }) => (
 
 // ── 1. Hero ───────────────────────────────────────────────────
 const MDRHero = ({ onContact }) => (
-  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 560 }}>
-    <div style={{ padding: '88px 60px 88px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#fff' }}>
+  <div className="svc-hero" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 560 }}>
+    <div className="svc-hero-copy" style={{ padding: '88px 60px 88px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#fff' }}>
       {/* Breadcrumb */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 28 }}>
         <a href="../index.html" style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 12, color: '#6b7280', textDecoration: 'none' }}>Home</a>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><polyline points="9 18 15 12 9 6" stroke="#9ca3af" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
         <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 12, color: '#6b7280' }}>Services</span>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><polyline points="9 18 15 12 9 6" stroke="#9ca3af" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-        <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 12, color: '#0d9488' }}>Managed Detection & Response</span>
+        <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 12, color: '#0b6f66' }}>Managed Detection & Response</span>
       </div>
       {/* Eyebrow */}
       <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 20 }}>
         <div style={{ width: 32, height: 32, borderRadius: 8, background: '#f0fdf9', border: '1px solid #ccfbf1', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <MDRIconMap name="activity" size={16} />
         </div>
-        <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase' }}>MDR</span>
+        <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase' }}>MDR</span>
       </div>
       <h1 style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 46, color: '#1e3a5f', lineHeight: 1.07, letterSpacing: '-0.025em', margin: '0 0 22px' }}>
-        Managed Detection<br /><span style={{ color: '#0d9488' }}>& Response</span>
+        Managed Detection<br /><span style={{ color: '#0b6f66' }}>& Response</span>
       </h1>
       <p style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 17, color: '#4b5563', lineHeight: 1.65, margin: '0 0 36px', maxWidth: 480 }}>
         24/7 proactive monitoring, expert investigation, and rapid incident response — so threats are neutralised before they become business-impacting incidents.
       </p>
-      <div style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
+      <div className="svc-cta-row" style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
         <button onClick={onContact} style={{
           fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 15,
-          background: '#0d9488', color: '#fff', padding: '13px 32px',
+          background: '#0b6f66', color: '#fff', padding: '13px 32px',
           borderRadius: 9999, border: 'none', cursor: 'pointer',
-          boxShadow: '0 6px 24px rgba(13,148,136,0.32)',
+          boxShadow: '0 6px 24px rgba(11,111,102,0.32)',
           transition: 'background 200ms, transform 150ms',
         }}
-          onMouseEnter={e => { e.currentTarget.style.background='#0b7a70'; e.currentTarget.style.transform='translateY(-2px)'; }}
-          onMouseLeave={e => { e.currentTarget.style.background='#0d9488'; e.currentTarget.style.transform='translateY(0)'; }}
+          onMouseEnter={e => { e.currentTarget.style.background='#095e57'; e.currentTarget.style.transform='translateY(-2px)'; }}
+          onMouseLeave={e => { e.currentTarget.style.background='#0b6f66'; e.currentTarget.style.transform='translateY(0)'; }}
         >Request Free Assessment</button>
         <a href="#mdr-capabilities" style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 14, color: '#1e3a5f', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6, borderBottom: '1.5px solid #1e3a5f', paddingBottom: 1 }}>
           Explore capabilities →
         </a>
       </div>
       {/* Quick stats */}
-      <div style={{ display: 'flex', gap: 40, marginTop: 48, paddingTop: 36, borderTop: '1px solid #f0f0f0' }}>
+      <div className="svc-stat-row" style={{ display: 'flex', gap: 40, marginTop: 48, paddingTop: 36, borderTop: '1px solid #f0f0f0' }}>
         {[['24/7','SOC Coverage'],['<1 hr','Mean time to respond'],['365','Days per year']].map(([val, label]) => (
           <div key={label}>
             <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 22, color: '#1e3a5f', letterSpacing: '-0.01em' }}>{val}</div>
@@ -85,14 +85,14 @@ const MDRHero = ({ onContact }) => (
     </div>
 
     {/* Right — dark SOC visual */}
-    <div style={{
+    <div className="svc-hero-visual" style={{
       background: 'linear-gradient(140deg, #0d1b2e 0%, #0f2337 60%, #071420 100%)',
       clipPath: 'polygon(6% 0%, 100% 0%, 100% 100%, 0% 100%)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       position: 'relative', overflow: 'hidden', padding: '60px 40px',
     }}>
-      <div style={{ position: 'absolute', inset: 0, opacity: 0.3, backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(13,148,136,0.35) 1px, transparent 0)', backgroundSize: '28px 28px', pointerEvents: 'none' }}></div>
-      <div style={{ position: 'absolute', width: 420, height: 420, background: 'radial-gradient(circle, rgba(13,148,136,0.18) 0%, transparent 65%)', borderRadius: '50%', pointerEvents: 'none' }}></div>
+      <div style={{ position: 'absolute', inset: 0, opacity: 0.3, backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(11,111,102,0.35) 1px, transparent 0)', backgroundSize: '28px 28px', pointerEvents: 'none' }}></div>
+      <div style={{ position: 'absolute', width: 420, height: 420, background: 'radial-gradient(circle, rgba(11,111,102,0.18) 0%, transparent 65%)', borderRadius: '50%', pointerEvents: 'none' }}></div>
       <div style={{ position: 'relative', zIndex: 1, width: 380 }}>
         <MDRSOCVisual />
       </div>
@@ -141,7 +141,7 @@ const MDRSOCVisual = () => {
 
       {/* Response metrics */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginBottom: 16 }}>
-        {[['MTTD', '< 15 min', '#14b8a6'], ['MTTR', '< 1 hour', '#0d9488'], ['Uptime', '99.99%', '#14b8a6']].map(([label, val, col]) => (
+        {[['MTTD', '< 15 min', '#14b8a6'], ['MTTR', '< 1 hour', '#0b6f66'], ['Uptime', '99.99%', '#14b8a6']].map(([label, val, col]) => (
           <div key={label} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(20,184,166,0.2)', borderRadius: 8, padding: '10px', textAlign: 'center' }}>
             <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 13, color: col, marginBottom: 2 }}>{val}</div>
             <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 9, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.08em' }}>{label}</div>
@@ -153,7 +153,7 @@ const MDRSOCVisual = () => {
       <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 10, color: 'rgba(20,184,166,0.5)', letterSpacing: '0.10em', textTransform: 'uppercase', textAlign: 'center', marginBottom: 6 }}>Threat activity — last 24h</div>
       <svg width="100%" height="28" viewBox="0 0 380 28" preserveAspectRatio="none" fill="none">
         <polyline points="0,14 30,14 45,6 55,22 65,6 75,22 90,14 130,14 145,8 155,20 165,8 175,20 185,14 220,14 235,4 245,24 255,4 265,24 275,14 310,14 325,10 335,18 345,10 355,18 365,14 380,14" stroke="#14b8a6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.5"/>
-        <polyline points="0,14 60,14 85,10 110,18 135,10 160,18 185,14 380,14" stroke="#0d9488" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.3"/>
+        <polyline points="0,14 60,14 85,10 110,18 135,10 160,18 185,14 380,14" stroke="#0b6f66" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.3"/>
       </svg>
     </div>
   );
@@ -162,7 +162,7 @@ const MDRSOCVisual = () => {
 
 // ── 2. Core Capabilities ──────────────────────────────────────
 const MDRCapabilities = () => {
-  const accent = '#0d9488';
+  const accent = '#0b6f66';
   const caps = [
     {
       icon: 'eye',
@@ -203,7 +203,7 @@ const MDRCapabilities = () => {
   ];
 
   return (
-    <div id="mdr-capabilities" style={{ background: '#f9fafb', padding: '96px 80px' }}>
+    <div id="mdr-capabilities" className="svc-section" style={{ background: '#f9fafb', padding: '96px 80px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 60 }}>
           <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: accent, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>What's Included</div>
@@ -212,7 +212,7 @@ const MDRCapabilities = () => {
             Detection and response that goes beyond alerting — human analysts backed by purpose-built tooling, tuned to your environment.
           </p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22 }}>
+        <div className="svc-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22 }}>
           {caps.map(cap => <MDRCapabilityCard key={cap.title} {...cap} accent={accent} />)}
         </div>
       </div>
@@ -229,12 +229,12 @@ const MDRCapabilityCard = ({ icon, title, body, tags, accent }) => {
       style={{
         background: '#fff', border: `1px solid ${hov ? accent : '#e5e7eb'}`,
         borderRadius: 14, padding: '28px 26px',
-        boxShadow: hov ? '0 12px 36px rgba(13,148,136,0.12)' : '0 2px 10px rgba(30,58,95,0.05)',
+        boxShadow: hov ? '0 12px 36px rgba(11,111,102,0.12)' : '0 2px 10px rgba(30,58,95,0.05)',
         transform: hov ? 'translateY(-3px)' : 'translateY(0)',
-        transition: 'all 240ms ease', display: 'flex', flexDirection: 'column', gap: 14,
+        transition: 'transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease', display: 'flex', flexDirection: 'column', gap: 14,
       }}
     >
-      <div style={{ width: 48, height: 48, borderRadius: 11, background: hov ? accent : '#f0fdf9', border: `1.5px solid ${hov ? accent : '#ccfbf1'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 240ms', flexShrink: 0 }}>
+      <div style={{ width: 48, height: 48, borderRadius: 11, background: hov ? accent : '#f0fdf9', border: `1.5px solid ${hov ? accent : '#ccfbf1'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 240ms ease, border-color 240ms ease', flexShrink: 0 }}>
         <MDRIconMap name={icon} color={hov ? '#fff' : accent} size={20} />
       </div>
       <div>
@@ -254,7 +254,7 @@ const MDRCapabilityCard = ({ icon, title, body, tags, accent }) => {
 // ── 3. SOC Lifecycle ──────────────────────────────────────────
 const MDRSOCLifecycle = () => {
   const [active, setActive] = React.useState(0);
-  const accent = '#0d9488';
+  const accent = '#0b6f66';
   const phases = [
     {
       label: 'Monitor',
@@ -314,7 +314,7 @@ const MDRSOCLifecycle = () => {
               padding: '20px 16px', cursor: 'pointer', textAlign: 'center', transition: 'background 200ms',
               display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8,
             }}>
-              <div style={{ width: 36, height: 36, borderRadius: '50%', background: active === i ? 'rgba(255,255,255,0.18)' : '#f0fdf9', border: `1.5px solid ${active === i ? 'rgba(255,255,255,0.3)' : '#ccfbf1'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 200ms' }}>
+              <div style={{ width: 36, height: 36, borderRadius: '50%', background: active === i ? 'rgba(255,255,255,0.18)' : '#f0fdf9', border: `1.5px solid ${active === i ? 'rgba(255,255,255,0.3)' : '#ccfbf1'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 200ms ease, border-color 200ms ease' }}>
                 <MDRIconMap name={ph.icon} color={active === i ? '#fff' : accent} size={16} />
               </div>
               <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: active === i ? '#fff' : '#1e3a5f' }}>{ph.label}</div>
@@ -323,7 +323,7 @@ const MDRSOCLifecycle = () => {
         </div>
 
         {/* Detail */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'start' }}>
+        <div className="svc-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'start' }}>
           <div>
             <h3 style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 28, color: '#1e3a5f', letterSpacing: '-0.015em', margin: '0 0 16px' }}>{ph.title}</h3>
             <p style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 16, color: '#4b5563', lineHeight: 1.7, margin: 0 }}>{ph.desc}</p>
@@ -375,7 +375,7 @@ const MDRThreatCoverage = () => {
 
   return (
     <div style={{ background: '#0d1b2e', padding: '96px 80px', position: 'relative', overflow: 'hidden' }}>
-      <div style={{ position: 'absolute', inset: 0, opacity: 0.4, backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(13,148,136,0.2) 1px, transparent 0)', backgroundSize: '32px 32px', pointerEvents: 'none' }}></div>
+      <div style={{ position: 'absolute', inset: 0, opacity: 0.4, backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(11,111,102,0.2) 1px, transparent 0)', backgroundSize: '32px 32px', pointerEvents: 'none' }}></div>
       <div style={{ maxWidth: 1200, margin: '0 auto', position: 'relative' }}>
 
         {/* Header row */}
@@ -426,7 +426,7 @@ const MDRThreatCoverage = () => {
                   display: 'grid', gridTemplateColumns: '88px 96px 110px 1fr',
                   gap: 18, alignItems: 'center',
                   padding: '11px 20px',
-                  background: isNew ? 'rgba(13,148,136,0.07)' : 'transparent',
+                  background: isNew ? 'rgba(11,111,102,0.07)' : 'transparent',
                   borderBottom: '1px solid rgba(255,255,255,0.04)',
                   transition: 'background 600ms',
                 }}>
@@ -477,9 +477,9 @@ const MDRThreatCoverage = () => {
 const MDRWhyItMatters = () => (
   <div style={{ background: '#f9fafb', padding: '96px 80px' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72, alignItems: 'center' }}>
+      <div className="svc-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72, alignItems: 'center' }}>
         <div>
-          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 16 }}>Why It Matters</div>
+          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 16 }}>Why It Matters</div>
           <h2 style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 38, color: '#1e3a5f', letterSpacing: '-0.02em', margin: '0 0 22px', lineHeight: 1.1 }}>
             Attackers Move Fast.<br />Most SMEs Don't See It Coming.
           </h2>
@@ -495,7 +495,7 @@ const MDRWhyItMatters = () => (
             ].map(item => <MDRCheckBullet key={item} text={item} />)}
           </div>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+        <div className="svc-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
           {[
             { val: '207 days', label: 'average attacker dwell time in SME', src: 'IBM Cost of Breach 2024' },
             { val: '74%', label: 'of breaches involve human element', src: 'Verizon DBIR 2024' },
@@ -521,7 +521,7 @@ const MDRTooling = () => (
     <div style={{ maxWidth: 1200, margin: '0 auto' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 44 }}>
         <div>
-          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 12 }}>Tooling</div>
+          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 12 }}>Tooling</div>
           <h2 style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 36, color: '#1e3a5f', letterSpacing: '-0.02em', margin: 0 }}>Vendor-Neutral Technology</h2>
         </div>
         <p style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 15, color: '#6b7280', maxWidth: 380, lineHeight: 1.6, margin: 0 }}>
@@ -540,7 +540,7 @@ const MDRTooling = () => (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               {tools.map(t => (
                 <div key={t} style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-                  <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#0d9488', flexShrink: 0 }}></div>
+                  <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#0b6f66', flexShrink: 0 }}></div>
                   <span style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 13, color: '#4b5563' }}>{t}</span>
                 </div>
               ))}
@@ -557,15 +557,15 @@ const MDRTooling = () => (
 const MDRServiceCTA = ({ onContact }) => (
   <div style={{ background: '#f9fafb', padding: '96px 80px' }}>
     <div style={{ maxWidth: 1080, margin: '0 auto' }}>
-      <div style={{
-        background: 'linear-gradient(140deg, #071420 0%, #0d2335 100%)',
+      <div className="svc-hero-visual" style={{
+      background: 'linear-gradient(140deg, #071420 0%, #0d2335 100%)',
         borderRadius: 20, padding: '72px 80px',
         display: 'grid', gridTemplateColumns: '1fr auto', gap: 56, alignItems: 'center',
         position: 'relative', overflow: 'hidden',
       }}>
         <svg width="220" height="220" viewBox="0 0 100 100" style={{ position: 'absolute', right: -30, bottom: -40, opacity: 0.08 }}>
-          <polygon points="50,6 88,28 88,72 50,94 12,72 12,28" fill="none" stroke="#0d9488" strokeWidth="1.5"/>
-          <polygon points="50,18 80,36 80,64 50,82 20,64 20,36" fill="none" stroke="#0d9488" strokeWidth="1.2"/>
+          <polygon points="50,6 88,28 88,72 50,94 12,72 12,28" fill="none" stroke="#0b6f66" strokeWidth="1.5"/>
+          <polygon points="50,18 80,36 80,64 50,82 20,64 20,36" fill="none" stroke="#0b6f66" strokeWidth="1.2"/>
         </svg>
         <div>
           <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#14b8a6', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 16 }}>Get Started</div>
@@ -579,13 +579,13 @@ const MDRServiceCTA = ({ onContact }) => (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12, flexShrink: 0 }}>
           <button onClick={onContact} style={{
             fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 15,
-            background: '#0d9488', color: '#fff', padding: '14px 36px',
+            background: '#0b6f66', color: '#fff', padding: '14px 36px',
             borderRadius: 9999, border: 'none', cursor: 'pointer',
-            boxShadow: '0 6px 24px rgba(13,148,136,0.40)',
+            boxShadow: '0 6px 24px rgba(11,111,102,0.40)',
             transition: 'background 200ms, transform 150ms', whiteSpace: 'nowrap',
           }}
-            onMouseEnter={e => { e.currentTarget.style.background='#0b7a70'; e.currentTarget.style.transform='translateY(-2px)'; }}
-            onMouseLeave={e => { e.currentTarget.style.background='#0d9488'; e.currentTarget.style.transform='translateY(0)'; }}
+            onMouseEnter={e => { e.currentTarget.style.background='#095e57'; e.currentTarget.style.transform='translateY(-2px)'; }}
+            onMouseLeave={e => { e.currentTarget.style.background='#0b6f66'; e.currentTarget.style.transform='translateY(0)'; }}
           >Request Free Assessment</button>
           <a href="../index.html#contact" style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 13, color: 'rgba(255,255,255,0.6)', textDecoration: 'none', textAlign: 'center' }}>
             Or email security@secugram.io
@@ -601,10 +601,10 @@ const MDRServiceCTA = ({ onContact }) => (
 const MDRRelatedServices = () => (
   <div style={{ background: '#fff', padding: '60px 80px' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-      <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 24 }}>Also from Secugram</div>
+      <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 24 }}>Also from Secugram</div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
         {[
-          { tag: 'Infrastructure', title: 'Secure Infrastructure Platform', body: 'Hardened cloud, hybrid, and on-prem environments with integrated 24/7 monitoring.', href: 'secure-infrastructure.html', accent: '#0d9488' },
+          { tag: 'Infrastructure', title: 'Secure Infrastructure Platform', body: 'Hardened cloud, hybrid, and on-prem environments with integrated 24/7 monitoring.', href: 'secure-infrastructure.html', accent: '#0b6f66' },
           { tag: 'Consulting', title: 'Security Architecture & Consulting', body: 'Risk assessment, Zero Trust design, compliance alignment, and executive advisory.', href: 'security-architecture.html', accent: '#1e6fa5' },
         ].map(svc => (
           <a key={svc.title} href={svc.href} style={{
@@ -637,58 +637,58 @@ const MDRContactSection = () => {
     <div style={{ background: '#f9fafb', padding: '96px 80px' }}>
       <div style={{ maxWidth: 680, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 48 }}>
-          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Contact</div>
+          <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Contact</div>
           <h2 style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 36, color: '#1e3a5f', letterSpacing: '-0.02em', marginBottom: 14 }}>Discuss Your MDR Requirements</h2>
           <p style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 16, color: '#6b7280', lineHeight: 1.6 }}>
-            Tell us about your environment and current detection gaps. Email us at <span style={{ color: '#0d9488', fontWeight: 600 }}>security@secugram.io</span> or fill in the form.
+            Tell us about your environment and current detection gaps. Email us at <span style={{ color: '#0b6f66', fontWeight: 600 }}>security@secugram.io</span> or fill in the form.
           </p>
         </div>
         {sent ? (
           <div style={{ textAlign: 'center', padding: '48px 0' }}>
-            <div style={{ width: 64, height: 64, borderRadius: '50%', background: '#f0fdf9', border: '2px solid #0d9488', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div style={{ width: 64, height: 64, borderRadius: '50%', background: '#f0fdf9', border: '2px solid #0b6f66', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0b6f66" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 22, color: '#1e3a5f', marginBottom: 10 }}>Message Sent!</div>
             <div style={{ fontFamily: "'Open Sans',sans-serif", color: '#6b7280' }}>We'll be in touch within one business day.</div>
           </div>
         ) : (
           <form onSubmit={e => { e.preventDefault(); setSent(true); }} style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            <div className="svc-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
               {[['name','Full Name','Jane Smith'],['email','Work Email','jane@company.com']].map(([key,label,ph]) => (
                 <div key={key}>
-                  <label style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>{label}</label>
-                  <input type={key==='email'?'email':'text'} placeholder={ph} value={form[key]} onChange={e=>setForm({...form,[key]:e.target.value})} required
+                  <label htmlFor={`mdr-${key}`} style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>{label}</label>
+                  <input id={`mdr-${key}`} name={key} autoComplete={key==='email'?'email':'name'} type={key==='email'?'email':'text'} placeholder={ph} value={form[key]} onChange={e=>setForm({...form,[key]:e.target.value})} required
                     style={{ width: '100%', padding: '11px 14px', border: '1.5px solid #e5e7eb', borderRadius: 8, fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: '#1e3a5f', outline: 'none' }}
-                    onFocus={e=>{e.target.style.borderColor='#0d9488'; e.target.style.boxShadow='0 0 0 3px rgba(13,148,136,0.12)';}}
+                    onFocus={e=>{e.target.style.borderColor='#0b6f66'; e.target.style.boxShadow='0 0 0 3px rgba(11,111,102,0.12)';}}
                     onBlur={e=>{e.target.style.borderColor='#e5e7eb'; e.target.style.boxShadow='none';}}
                   />
                 </div>
               ))}
             </div>
             <div>
-              <label style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>Company</label>
-              <input type="text" placeholder="Acme Inc." value={form.company} onChange={e=>setForm({...form,company:e.target.value})}
+              <label htmlFor="mdr-company" style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>Company</label>
+              <input id="mdr-company" name="company" type="text" autoComplete="organization" placeholder="Acme Inc." value={form.company} onChange={e=>setForm({...form,company:e.target.value})}
                 style={{ width: '100%', padding: '11px 14px', border: '1.5px solid #e5e7eb', borderRadius: 8, fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: '#1e3a5f', outline: 'none' }}
-                onFocus={e=>{e.target.style.borderColor='#0d9488'; e.target.style.boxShadow='0 0 0 3px rgba(13,148,136,0.12)';}}
+                onFocus={e=>{e.target.style.borderColor='#0b6f66'; e.target.style.boxShadow='0 0 0 3px rgba(11,111,102,0.12)';}}
                 onBlur={e=>{e.target.style.borderColor='#e5e7eb'; e.target.style.boxShadow='none';}}
               />
             </div>
             <div>
-              <label style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>Message</label>
-              <textarea placeholder="Tell us about your current monitoring capabilities and environment..." rows={4} value={form.message} onChange={e=>setForm({...form,message:e.target.value})}
+              <label htmlFor="mdr-message" style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>Message</label>
+              <textarea id="mdr-message" name="message" placeholder="Tell us about your current monitoring capabilities and environment..." rows={4} value={form.message} onChange={e=>setForm({...form,message:e.target.value})}
                 style={{ width: '100%', padding: '11px 14px', border: '1.5px solid #e5e7eb', borderRadius: 8, fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: '#1e3a5f', outline: 'none', resize: 'vertical' }}
-                onFocus={e=>{e.target.style.borderColor='#0d9488'; e.target.style.boxShadow='0 0 0 3px rgba(13,148,136,0.12)';}}
+                onFocus={e=>{e.target.style.borderColor='#0b6f66'; e.target.style.boxShadow='0 0 0 3px rgba(11,111,102,0.12)';}}
                 onBlur={e=>{e.target.style.borderColor='#e5e7eb'; e.target.style.boxShadow='none';}}
               />
             </div>
             <button type="submit" style={{
               fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 16,
-              background: '#0d9488', color: '#fff', padding: '14px 0',
+              background: '#0b6f66', color: '#fff', padding: '14px 0',
               borderRadius: 9999, border: 'none', cursor: 'pointer',
-              boxShadow: '0 4px 20px rgba(13,148,136,0.30)', transition: 'background 200ms',
+              boxShadow: '0 4px 20px rgba(11,111,102,0.30)', transition: 'background 200ms',
             }}
-              onMouseEnter={e=>e.currentTarget.style.background='#0b7a70'}
-              onMouseLeave={e=>e.currentTarget.style.background='#0d9488'}
+              onMouseEnter={e=>e.currentTarget.style.background='#095e57'}
+              onMouseLeave={e=>e.currentTarget.style.background='#0b6f66'}
             >Send Message</button>
           </form>
         )}
@@ -709,32 +709,32 @@ const MDRNavBar = () => {
     return () => el.removeEventListener('scroll', handler);
   }, []);
   return (
-    <nav style={{
+    <nav className="svc-nav" style={{
       position: 'sticky', top: 0, zIndex: 100, background: '#fff',
       borderBottom: scrolled ? '1px solid #e5e7eb' : '1px solid transparent',
       boxShadow: scrolled ? '0 2px 12px rgba(30,58,95,0.08)' : 'none',
-      transition: 'all 250ms ease',
+      transition: 'background 250ms ease, border-color 250ms ease, box-shadow 250ms ease',
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       padding: '0 60px', height: 72,
     }}>
-      <a href="../index.html" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+      <a className="svc-nav-brand" href="../index.html" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
         <div style={{ width: 46, height: 32, overflow: 'hidden', flexShrink: 0 }}>
           <img src="../secugram-logo.png" alt="Secugram" style={{ width: 46, height: 'auto', display: 'block' }} />
         </div>
         <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 20, color: '#1e3a5f', letterSpacing: '0.12em' }}>SECUGRAM</span>
       </a>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
+      <div className="svc-nav-links" style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
         {[['Home','../index.html'],['Services','#'],['Pricing','../index.html#pricing'],['Contact','../index.html#contact']].map(([label,href]) => (
-          <a key={label} href={href} style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 14, color: label==='Services'?'#1e3a5f':'#6b7280', textDecoration: 'none', paddingBottom: 2, borderBottom: label==='Services'?'2px solid #0d9488':'2px solid transparent', transition: 'color 200ms' }}>{label}</a>
+          <a key={label} className="svc-nav-link" href={href} style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 14, color: label==='Services'?'#1e3a5f':'#6b7280', textDecoration: 'none', paddingBottom: 2, borderBottom: label==='Services'?'2px solid #0b6f66':'2px solid transparent', transition: 'color 200ms' }}>{label}</a>
         ))}
         <button onClick={() => { const el=document.getElementById('mdr-contact'); const sc=document.getElementById('mdr-scroll'); if(el&&sc) sc.scrollTo({top:el.offsetTop-72,behavior:'smooth'}); }} style={{
           fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 14,
-          background: '#0d9488', color: '#fff', padding: '10px 24px',
+          background: '#0b6f66', color: '#fff', padding: '10px 24px',
           borderRadius: 9999, border: 'none', cursor: 'pointer',
-          boxShadow: '0 4px 16px rgba(13,148,136,0.28)', transition: 'background 200ms',
+          boxShadow: '0 4px 16px rgba(11,111,102,0.28)', transition: 'background 200ms',
         }}
-          onMouseEnter={e=>e.currentTarget.style.background='#0b7a70'}
-          onMouseLeave={e=>e.currentTarget.style.background='#0d9488'}
+          onMouseEnter={e=>e.currentTarget.style.background='#095e57'}
+          onMouseLeave={e=>e.currentTarget.style.background='#0b6f66'}
         >Get Started</button>
       </div>
     </nav>
@@ -750,8 +750,9 @@ const ManagedDetectionResponsePage = () => {
     if (el && sc) sc.scrollTo({ top: el.offsetTop - 72, behavior: 'smooth' });
   };
   return (
-    <div id="mdr-scroll" style={{ height: '100vh', overflowY: 'auto', scrollBehavior: 'smooth', background: '#fff' }}>
+    <div id="mdr-scroll" className="svc-page" style={{ height: '100vh', overflowY: 'auto', scrollBehavior: 'smooth', background: '#fff' }}>
       <MDRNavBar />
+      <main>
       <MDRHero onContact={scrollToContact} />
       <MDRWhyItMatters />
       <MDRCapabilities />
@@ -760,6 +761,7 @@ const ManagedDetectionResponsePage = () => {
       <MDRTooling />
       <MDRRelatedServices />
       <div id="mdr-contact"><MDRContactSection /></div>
+      </main>
       <FooterSection onNav={section => { window.location.href = `../index.html#${section}`; }} />
     </div>
   );

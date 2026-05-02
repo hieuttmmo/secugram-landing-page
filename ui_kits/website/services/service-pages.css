@@ -1,0 +1,154 @@
+button,
+a,
+input,
+textarea {
+  -webkit-tap-highlight-color: rgba(11, 111, 102, 0.16);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(20, 184, 166, 0.42);
+  outline-offset: 4px;
+}
+
+button,
+a,
+input,
+textarea {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.svc-page {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.svc-nav-link {
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.svc-form-grid,
+.svc-grid-2 {
+  min-width: 0;
+}
+
+@media (max-width: 1100px) {
+  .svc-nav {
+    padding: 0 32px !important;
+  }
+
+  .svc-nav-links {
+    gap: 18px !important;
+  }
+
+  .svc-hero-copy,
+  .svc-section {
+    padding-left: 48px !important;
+    padding-right: 48px !important;
+  }
+
+  .svc-grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .svc-page * {
+    max-width: 100%;
+  }
+
+  .svc-nav {
+    padding: 0 20px !important;
+  }
+
+  .svc-nav-brand span {
+    font-size: 16px !important;
+  }
+
+  .svc-nav-links {
+    display: none !important;
+  }
+
+  .svc-hero {
+    grid-template-columns: 1fr !important;
+    min-height: 0 !important;
+  }
+
+  .svc-hero-copy,
+  .svc-section {
+    padding: 64px 24px !important;
+  }
+
+  .svc-hero-visual {
+    display: none !important;
+  }
+
+  .svc-grid-2,
+  .svc-grid-3,
+  .svc-form-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .svc-page div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  .svc-page div[style*="grid-template-columns"] > * {
+    min-width: 0;
+  }
+
+  .svc-page div[style*="justify-content: space-between"] {
+    flex-wrap: wrap !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+
+  .svc-stat-row,
+  .svc-cta-row {
+    flex-wrap: wrap !important;
+    gap: 18px !important;
+  }
+
+  input,
+  textarea {
+    width: 100% !important;
+  }
+
+  footer button,
+  footer a {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .svc-hero-copy,
+  .svc-section {
+    padding: 56px 20px !important;
+  }
+
+  h1 {
+    font-size: 36px !important;
+  }
+
+  h2 {
+    font-size: 30px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

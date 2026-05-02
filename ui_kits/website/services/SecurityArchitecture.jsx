@@ -33,8 +33,8 @@ const SACheckBullet = ({ text, accent = '#1e6fa5' }) => (
 
 // ── 1. Hero ───────────────────────────────────────────────────
 const SAHero = ({ onContact }) => (
-  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 560 }}>
-    <div style={{ padding: '88px 60px 88px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#fff' }}>
+  <div className="svc-hero" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 560 }}>
+    <div className="svc-hero-copy" style={{ padding: '88px 60px 88px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#fff' }}>
       {/* Breadcrumb */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 28 }}>
         <a href="../index.html" style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 12, color: '#6b7280', textDecoration: 'none' }}>Home</a>
@@ -56,7 +56,7 @@ const SAHero = ({ onContact }) => (
       <p style={{ fontFamily: "'Open Sans',sans-serif", fontSize: 17, color: '#4b5563', lineHeight: 1.65, margin: '0 0 36px', maxWidth: 480 }}>
         Risk assessment, gap analysis, and security architecture design that gives growing businesses the right security foundation — built by practitioners who've done it at enterprise scale.
       </p>
-      <div style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
+      <div className="svc-cta-row" style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
         <button onClick={onContact} style={{
           fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 15,
           background: '#1e6fa5', color: '#fff', padding: '13px 32px',
@@ -72,7 +72,7 @@ const SAHero = ({ onContact }) => (
         </a>
       </div>
       {/* Quick stats */}
-      <div style={{ display: 'flex', gap: 40, marginTop: 48, paddingTop: 36, borderTop: '1px solid #f0f0f0' }}>
+      <div className="svc-stat-row" style={{ display: 'flex', gap: 40, marginTop: 48, paddingTop: 36, borderTop: '1px solid #f0f0f0' }}>
         {[['ISO · PCI · NIST','Framework aligned'],['Zero Trust','Architecture design'],['Executive','Advisory included']].map(([val, label]) => (
           <div key={label}>
             <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 17, color: '#1e3a5f', letterSpacing: '-0.01em' }}>{val}</div>
@@ -83,7 +83,7 @@ const SAHero = ({ onContact }) => (
     </div>
 
     {/* Right — dark with architecture visual */}
-    <div style={{
+    <div className="svc-hero-visual" style={{
       background: 'linear-gradient(140deg, #0d1b2e 0%, #1a2e4a 60%, #0e2035 100%)',
       clipPath: 'polygon(6% 0%, 100% 0%, 100% 100%, 0% 100%)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -186,7 +186,7 @@ const SACapabilities = () => {
   const accent = '#1e6fa5';
 
   return (
-    <div id="sa-capabilities" style={{ background: '#f9fafb', padding: '96px 80px' }}>
+    <div id="sa-capabilities" className="svc-section" style={{ background: '#f9fafb', padding: '96px 80px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 60 }}>
           <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: accent, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>What's Included</div>
@@ -195,7 +195,7 @@ const SACapabilities = () => {
             Practical security architecture from practitioners who have built and run enterprise security programmes.
           </p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22 }}>
+        <div className="svc-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22 }}>
           {caps.map(cap => <SACapabilityCard key={cap.title} {...cap} accent={accent} />)}
         </div>
       </div>
@@ -214,10 +214,10 @@ const SACapabilityCard = ({ icon, title, body, tags, accent }) => {
         borderRadius: 14, padding: '28px 26px',
         boxShadow: hov ? `0 12px 36px ${accent}1e` : '0 2px 10px rgba(30,58,95,0.05)',
         transform: hov ? 'translateY(-3px)' : 'translateY(0)',
-        transition: 'all 240ms ease', display: 'flex', flexDirection: 'column', gap: 14,
+        transition: 'transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease', display: 'flex', flexDirection: 'column', gap: 14,
       }}
     >
-      <div style={{ width: 48, height: 48, borderRadius: 11, background: hov ? accent : '#eff6ff', border: `1.5px solid ${hov ? accent : '#bfdbfe'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 240ms', flexShrink: 0 }}>
+      <div style={{ width: 48, height: 48, borderRadius: 11, background: hov ? accent : '#eff6ff', border: `1.5px solid ${hov ? accent : '#bfdbfe'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 240ms ease, border-color 240ms ease', flexShrink: 0 }}>
         <SAIconMap name={icon} color={hov ? '#fff' : accent} size={20} />
       </div>
       <div>
@@ -309,7 +309,7 @@ const SAEngagementTypes = () => {
           ))}
         </div>
         {/* Detail */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'start' }}>
+        <div className="svc-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'start' }}>
           <div>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: 9999, padding: '5px 14px', marginBottom: 20 }}>
               <div style={{ width: 7, height: 7, borderRadius: '50%', background: accent }}></div>
@@ -367,7 +367,7 @@ const SAFrameworks = () => {
             We're framework-agnostic by approach but deeply experienced across the standards your customers and regulators care about.
           </p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+        <div className="svc-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
           {frameworks.map((fw) => (
             <div key={fw.code} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(30,111,165,0.35)', borderRadius: 14, padding: '32px 28px' }}>
               <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 800, fontSize: 22, color: '#60a5fa', marginBottom: 8, letterSpacing: '-0.01em' }}>{fw.code}</div>
@@ -396,8 +396,8 @@ const SAWhyItMatters = () => {
   return (
     <div style={{ background: '#f9fafb', padding: '96px 80px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72, alignItems: 'center' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+        <div className="svc-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72, alignItems: 'center' }}>
+          <div className="svc-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
             {[
               { val: '68%', label: 'of SMEs have no documented security policy', sub: 'Ponemon Institute' },
               { val: '3×', label: 'more likely to suffer breach without an ISMS', sub: 'IBM Security' },
@@ -439,8 +439,8 @@ const SAWhyItMatters = () => {
 const SAServiceCTA = ({ onContact }) => (
   <div style={{ background: '#fff', padding: '96px 80px' }}>
     <div style={{ maxWidth: 1080, margin: '0 auto' }}>
-      <div style={{
-        background: 'linear-gradient(140deg, #0d1b2e 0%, #1a3050 100%)',
+      <div className="svc-hero-visual" style={{
+      background: 'linear-gradient(140deg, #0d1b2e 0%, #1a3050 100%)',
         borderRadius: 20, padding: '72px 80px',
         display: 'grid', gridTemplateColumns: '1fr auto', gap: 56, alignItems: 'center',
         position: 'relative', overflow: 'hidden',
@@ -483,11 +483,11 @@ const SAServiceCTA = ({ onContact }) => (
 const SARelatedServices = () => (
   <div style={{ background: '#f9fafb', padding: '60px 80px' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-      <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0d9488', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 24 }}>Also from Secugram</div>
+      <div style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 11, color: '#0b6f66', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 24 }}>Also from Secugram</div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
         {[
-          { tag: 'Infrastructure', title: 'Secure Infrastructure Platform', body: 'Hardened cloud, hybrid, and on-prem environments with integrated 24/7 monitoring.', href: 'secure-infrastructure.html', accent: '#0d9488' },
-          { tag: 'MDR', title: 'Managed Detection & Response', body: '24/7 SOC monitoring, incident response, forensics, and threat hunting.', href: 'managed-detection-response.html', accent: '#0d9488' },
+          { tag: 'Infrastructure', title: 'Secure Infrastructure Platform', body: 'Hardened cloud, hybrid, and on-prem environments with integrated 24/7 monitoring.', href: 'secure-infrastructure.html', accent: '#0b6f66' },
+          { tag: 'MDR', title: 'Managed Detection & Response', body: '24/7 SOC monitoring, incident response, forensics, and threat hunting.', href: 'managed-detection-response.html', accent: '#0b6f66' },
         ].map(svc => (
           <a key={svc.title} href={svc.href} style={{
             display: 'flex', gap: 20, alignItems: 'flex-start',
@@ -535,11 +535,11 @@ const SAContactSection = () => {
           </div>
         ) : (
           <form onSubmit={e => { e.preventDefault(); setSent(true); }} style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            <div className="svc-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
               {[['name','Full Name','Jane Smith'],['email','Work Email','jane@company.com']].map(([key,label,ph]) => (
                 <div key={key}>
-                  <label style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>{label}</label>
-                  <input type={key==='email'?'email':'text'} placeholder={ph} value={form[key]} onChange={e=>setForm({...form,[key]:e.target.value})} required
+                  <label htmlFor={`sa-${key}`} style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>{label}</label>
+                  <input id={`sa-${key}`} name={key} autoComplete={key==='email'?'email':'name'} type={key==='email'?'email':'text'} placeholder={ph} value={form[key]} onChange={e=>setForm({...form,[key]:e.target.value})} required
                     style={{ width: '100%', padding: '11px 14px', border: '1.5px solid #e5e7eb', borderRadius: 8, fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: '#1e3a5f', outline: 'none' }}
                     onFocus={e=>{e.target.style.borderColor='#1e6fa5'; e.target.style.boxShadow='0 0 0 3px rgba(30,111,165,0.12)';}}
                     onBlur={e=>{e.target.style.borderColor='#e5e7eb'; e.target.style.boxShadow='none';}}
@@ -548,16 +548,16 @@ const SAContactSection = () => {
               ))}
             </div>
             <div>
-              <label style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>Company</label>
-              <input type="text" placeholder="Acme Inc." value={form.company} onChange={e=>setForm({...form,company:e.target.value})}
+              <label htmlFor="sa-company" style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>Company</label>
+              <input id="sa-company" name="company" type="text" autoComplete="organization" placeholder="Acme Inc." value={form.company} onChange={e=>setForm({...form,company:e.target.value})}
                 style={{ width: '100%', padding: '11px 14px', border: '1.5px solid #e5e7eb', borderRadius: 8, fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: '#1e3a5f', outline: 'none' }}
                 onFocus={e=>{e.target.style.borderColor='#1e6fa5'; e.target.style.boxShadow='0 0 0 3px rgba(30,111,165,0.12)';}}
                 onBlur={e=>{e.target.style.borderColor='#e5e7eb'; e.target.style.boxShadow='none';}}
               />
             </div>
             <div>
-              <label style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>Message</label>
-              <textarea placeholder="Tell us about your security goals and current environment..." rows={4} value={form.message} onChange={e=>setForm({...form,message:e.target.value})}
+              <label htmlFor="sa-message" style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 12, color: '#1e3a5f', display: 'block', marginBottom: 6 }}>Message</label>
+              <textarea id="sa-message" name="message" placeholder="Tell us about your security goals and current environment..." rows={4} value={form.message} onChange={e=>setForm({...form,message:e.target.value})}
                 style={{ width: '100%', padding: '11px 14px', border: '1.5px solid #e5e7eb', borderRadius: 8, fontFamily: "'Open Sans',sans-serif", fontSize: 14, color: '#1e3a5f', outline: 'none', resize: 'vertical' }}
                 onFocus={e=>{e.target.style.borderColor='#1e6fa5'; e.target.style.boxShadow='0 0 0 3px rgba(30,111,165,0.12)';}}
                 onBlur={e=>{e.target.style.borderColor='#e5e7eb'; e.target.style.boxShadow='none';}}
@@ -591,23 +591,23 @@ const SANavBar = () => {
     return () => el.removeEventListener('scroll', handler);
   }, []);
   return (
-    <nav style={{
+    <nav className="svc-nav" style={{
       position: 'sticky', top: 0, zIndex: 100, background: '#fff',
       borderBottom: scrolled ? '1px solid #e5e7eb' : '1px solid transparent',
       boxShadow: scrolled ? '0 2px 12px rgba(30,58,95,0.08)' : 'none',
-      transition: 'all 250ms ease',
+      transition: 'background 250ms ease, border-color 250ms ease, box-shadow 250ms ease',
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       padding: '0 60px', height: 72,
     }}>
-      <a href="../index.html" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+      <a className="svc-nav-brand" href="../index.html" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
         <div style={{ width: 46, height: 32, overflow: 'hidden', flexShrink: 0 }}>
           <img src="../secugram-logo.png" alt="Secugram" style={{ width: 46, height: 'auto', display: 'block' }} />
         </div>
         <span style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 20, color: '#1e3a5f', letterSpacing: '0.12em' }}>SECUGRAM</span>
       </a>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
+      <div className="svc-nav-links" style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
         {[['Home','../index.html'],['Services','#'],['Pricing','../index.html#pricing'],['Contact','../index.html#contact']].map(([label,href]) => (
-          <a key={label} href={href} style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 14, color: label==='Services'?'#1e3a5f':'#6b7280', textDecoration: 'none', paddingBottom: 2, borderBottom: label==='Services'?'2px solid #1e6fa5':'2px solid transparent', transition: 'color 200ms' }}>{label}</a>
+          <a key={label} className="svc-nav-link" href={href} style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: 600, fontSize: 14, color: label==='Services'?'#1e3a5f':'#6b7280', textDecoration: 'none', paddingBottom: 2, borderBottom: label==='Services'?'2px solid #1e6fa5':'2px solid transparent', transition: 'color 200ms' }}>{label}</a>
         ))}
         <button onClick={() => { const el=document.getElementById('sa-contact'); const sc=document.getElementById('sa-scroll'); if(el&&sc) sc.scrollTo({top:el.offsetTop-72,behavior:'smooth'}); }} style={{
           fontFamily: "'Montserrat',sans-serif", fontWeight: 700, fontSize: 14,
@@ -632,8 +632,9 @@ const SecurityArchitecturePage = () => {
     if (el && sc) sc.scrollTo({ top: el.offsetTop - 72, behavior: 'smooth' });
   };
   return (
-    <div id="sa-scroll" style={{ height: '100vh', overflowY: 'auto', scrollBehavior: 'smooth', background: '#fff' }}>
+    <div id="sa-scroll" className="svc-page" style={{ height: '100vh', overflowY: 'auto', scrollBehavior: 'smooth', background: '#fff' }}>
       <SANavBar />
+      <main>
       <SAHero onContact={scrollToContact} />
       <SAWhyItMatters />
       <SACapabilities />
@@ -641,6 +642,7 @@ const SecurityArchitecturePage = () => {
       <SAFrameworks />
       <SARelatedServices />
       <div id="sa-contact"><SAContactSection /></div>
+      </main>
       <FooterSection onNav={section => { window.location.href = `../index.html#${section}`; }} />
     </div>
   );
